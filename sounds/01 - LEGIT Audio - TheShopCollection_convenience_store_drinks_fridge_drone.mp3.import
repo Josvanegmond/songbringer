@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b52ro50rvpwqu"
+path="res://.godot/imported/01 - LEGIT Audio - TheShopCollection_convenience_store_drinks_fridge_drone.mp3-f14e9209096e0bcab87777fb1173146e.mp3str"
+
+[deps]
+
+source_file="res://sounds/01 - LEGIT Audio - TheShopCollection_convenience_store_drinks_fridge_drone.mp3"
+dest_files=["res://.godot/imported/01 - LEGIT Audio - TheShopCollection_convenience_store_drinks_fridge_drone.mp3-f14e9209096e0bcab87777fb1173146e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

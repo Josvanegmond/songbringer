@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckb5i5615pb1d"]
+
+[ext_resource type="Script" uid="uid://vha12aasa50t" path="res://collision_mesh.gd" id="1_ydxff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gnumr"]
+resource_local_to_scene = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydxff"]
+resource_local_to_scene = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ydxff"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ydxff")
+
+[node name="DummyShape" type="CollisionShape3D"]
+shape = SubResource("BoxShape3D_gnumr")
+disabled = true
+script = ExtResource("1_ydxff")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_gnumr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ydxff")

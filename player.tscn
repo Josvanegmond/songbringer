@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvbe8t3nr0xhm"]
+
+[ext_resource type="Script" uid="uid://dntvjbif11iiq" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://pve64ywxe55h" path="res://sounds/footsteps/footsteps_boot_random.tres" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://c1hhfrhnd125l" path="res://sounds/GP_PutDown_8.wav" id="3_i3pqv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+radius = 0.1
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+radius = 0.1
+height = 0.4
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_sh265")
+
+[node name="FootstepsBootRandom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_onrkg")
+volume_db = -18.627
+
+[node name="EnterAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i3pqv")
+volume_db = -11.383
+pitch_scale = 0.28
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_4flbx")
