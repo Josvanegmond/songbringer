@@ -335,6 +335,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Options" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -390,22 +391,7 @@ layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
 
-[node name="ControlSettings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 20
-script = ExtResource("12_dg77c")
-
-[node name="KeyBindingsLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
-layout_mode = 2
-text = "Key bindings"
-
-[node name="KeyBindings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
 [node name="GeneralSettings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
@@ -539,6 +525,21 @@ ticks_on_borders = true
 
 [node name="Divider3" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
 layout_mode = 2
+
+[node name="ControlSettings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+script = ExtResource("12_dg77c")
+
+[node name="KeyBindingsLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
+layout_mode = 2
+text = "Key bindings"
+
+[node name="KeyBindings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
+layout_mode = 2
+theme_override_constants/separation = 20
 
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/GeneralSettingsButton" to="Options" method="_on_general_settings_button_pressed"]
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlSettingsButton" to="Options" method="_on_control_settings_button_pressed"]

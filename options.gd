@@ -16,4 +16,3 @@ func _on_control_settings_button_pressed() -> void:
 func switch_to(settings):
 	general_settings.visible = settings == general_settings
 	control_settings.visible = settings == control_settings
-

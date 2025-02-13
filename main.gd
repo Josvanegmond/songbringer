@@ -14,10 +14,13 @@ func _ready():
 	continue_story()
 
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("repeat_text"):
+func _input(event) -> void:
+	if event.is_action_pressed("repeat_text"):
 		print('reactivating live area')
 		read_text(subtitles.text + "")
+
+	if event.is_action_released('main_menu'):
+		$Options.visible = !$Options.visible
 
 
 func continue_story():
