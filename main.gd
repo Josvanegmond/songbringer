@@ -35,7 +35,10 @@ func read_text(text):
 		$VBox.remove_child(child)
 	
 	subtitles = Label.new()
-	subtitles.accessibility_name = 'narration_text'
+
+	if 'accessibility_name' in subtitles:
+		subtitles.accessibility_name = 'narration_text'
+
 	subtitles.text = text
 	subtitles.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$VBox.add_child(subtitles)

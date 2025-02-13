@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://t6sdpx1qi6k1"]
+[gd_scene load_steps=32 format=3 uid="uid://t6sdpx1qi6k1"]
 
+[ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://main.tres" id="1_4c57u"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://CollisionMesh.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://player.tscn" id="2_0xm2m"]
@@ -9,9 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://bpera11hm3dpk" path="res://sounds/atmosbasement.mp3_.ogg" id="4_272bh"]
 [ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://entrance_area.tscn" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://dqkv5dubtui7h" path="res://sounds/machine_06.ogg" id="5_lquwl"]
-
-[sub_resource type="Theme" id="Theme_kek77"]
-default_font_size = 32
+[ext_resource type="StyleBox" uid="uid://ydpljdxtg8r4" path="res://style_line.tres" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://cn26hw0mq5wki" path="res://options.gd" id="11_ycdy4"]
+[ext_resource type="Script" uid="uid://upscgb2xcq25" path="res://control_settings.gd" id="12_dg77c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.677468, 0.697863, 0.972412, 1)
@@ -103,7 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_kek77")
+theme = ExtResource("1_4c57u")
 script = ExtResource("1_5vw27")
 story = ExtResource("2_kek77")
 
@@ -332,6 +333,215 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_ycdy4")
+
+[node name="Panel" type="Panel" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Options/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GeneralSettingsButton" type="Button" parent="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "General"
+
+[node name="ControlSettingsButton" type="Button" parent="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Divider" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("11_efxa6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Options/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="ControlSettings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+script = ExtResource("12_dg77c")
+
+[node name="KeyBindingsLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
+layout_mode = 2
+text = "Key bindings"
+
+[node name="KeyBindings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GeneralSettings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="SoundSettingsLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+text = "Volumes"
+
+[node name="SoundSettings" type="GridContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="MasterSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Master	"
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+ticks_on_borders = true
+
+[node name="MusicSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music"
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+ticks_on_borders = true
+
+[node name="AmbientSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Ambient"
+vertical_alignment = 1
+
+[node name="AmbientSlider" type="HSlider" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+ticks_on_borders = true
+
+[node name="SoundSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+layout_mode = 2
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 24
+text = "Sound"
+vertical_alignment = 1
+
+[node name="SoundSlider" type="HSlider" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+ticks_on_borders = true
+
+[node name="Divider" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+
+[node name="TextSettingsLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+text = "Text"
+
+[node name="TextSettings" type="GridContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="TTSCheckLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Use text-to-speech over screen-reader"
+vertical_alignment = 1
+
+[node name="TTSCheck" type="CheckButton" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/h_separation = 20
+theme_override_font_sizes/font_size = 28
+alignment = 1
+icon_alignment = 1
+
+[node name="DescribeSoundLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Show text describing sounds and music"
+vertical_alignment = 1
+
+[node name="DescribeSound" type="CheckButton" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_constants/h_separation = 20
+theme_override_font_sizes/font_size = 28
+alignment = 1
+icon_alignment = 1
+
+[node name="Divider2" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+
+[node name="GraphicSettingsLabel2" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+text = "Graphics"
+
+[node name="GraphicSettings" type="GridContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="BrightnessSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/GraphicSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Brightness"
+vertical_alignment = 1
+
+[node name="BrightnessSlider" type="HSlider" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/GraphicSettings"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+ticks_on_borders = true
+
+[node name="Divider3" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+
+[connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/GeneralSettingsButton" to="Options" method="_on_general_settings_button_pressed"]
+[connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlSettingsButton" to="Options" method="_on_control_settings_button_pressed"]
 
 [editable path="SubViewportContainer/SubViewport/Node3D/Blue/BlueToPink"]
 [editable path="SubViewportContainer/SubViewport/Node3D/Orange/OrangeToPink"]
