@@ -21,6 +21,7 @@ func _input(event) -> void:
 
 	if event.is_action_released('main_menu'):
 		$Options.visible = !$Options.visible
+		GameState.paused = $Options.visible
 
 
 func continue_story():

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameBus="*res://game_bus.gd"
+GameState="*res://game_state.gd"
 
 [dotnet]
 
