@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=5 format=3 uid="uid://cwm26p5jd6vsr"]
+
+[ext_resource type="AudioStream" uid="uid://cgk02nedec0ec" path="res://game_sounds/silence1.ogg" id="1_ppw4k"]
+[ext_resource type="AudioStream" uid="uid://c7lgg7fjqxh0w" path="res://game_sounds/silence2.ogg" id="2_wskei"]
+[ext_resource type="AudioStream" uid="uid://djcmunoehlb08" path="res://game_sounds/silence3.ogg" id="3_1y6x3"]
+[ext_resource type="AudioStream" uid="uid://ba55kmoqwd3j6" path="res://game_sounds/silence4.ogg" id="4_tmsqj"]
+
+[resource]
+shuffle = true
+stream_count = 4
+stream_0 = ExtResource("1_ppw4k")
+stream_1 = ExtResource("2_wskei")
+stream_2 = ExtResource("3_1y6x3")
+stream_3 = ExtResource("4_tmsqj")

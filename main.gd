@@ -1,22 +1,23 @@
 extends Node
 
 
-@export var story: InkStory
+@export var story: InkStory:
+	get():
+		return GameState.story
+	set(_story):
+		GameState.story = _story
 
 
-# @onready var _ink_player = $InkPlayer
 var subtitles = null
 
 
 func _ready():
-	await get_tree().create_timer(1).timeout
-	GameBus.player_enters.connect(_pick_entrance_choice)
+	GameBus.select_choice.connect(_select_choice)
 	continue_story()
 
 
 func _input(event) -> void:
 	if event.is_action_pressed("repeat_text"):
-		print('reactivating live area')
 		read_text(subtitles.text + "")
 
 	if event.is_action_released('main_menu'):
@@ -25,12 +26,15 @@ func _input(event) -> void:
 
 
 func continue_story():
-	story.ContinueMaximally()
-	var text = story.GetCurrentText()
-	var tags = story.GetCurrentTags()
-	print('continued: ', text, tags)
-	read_text(text)
+	GameState.story.ContinueMaximally()
+	var text = GameState.story.GetCurrentText()
+	var tags = GameState.story.GetCurrentTags()
+	print(tags)
 
+	for tag in tags:
+		GameBus.handle_tag.emit(tag.split(':'))
+
+	read_text(text)
 
 
 func read_text(text):
@@ -46,6 +50,7 @@ func read_text(text):
 	subtitles.text = text
 	subtitles.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	$VBox.add_child(subtitles)
+	subtitles.focus_mode = Control.FOCUS_ALL
 	subtitles.grab_focus()
 
 
@@ -54,22 +59,5 @@ func _ended():
 
 
 func _select_choice(index):
-	story.ChooseChoiceIndex(index)
+	GameState.story.ChooseChoiceIndex(index)
 	continue_story()
-
-
-func _pick_entrance_choice(entrance_name: String):
-	print('looking for ', entrance_name)
-	var current_choices: Array[InkChoice] = story.GetCurrentChoices()
-	var choice_index = current_choices.find_custom(
-		func (choice: InkChoice):
-			var choice_tags = choice.GetTags()
-			print('choice tags ', choice_tags)
-			for tag in choice_tags:
-				var tag_parts = tag.split(' ')
-				return tag_parts.size() == 2 && tag_parts[0] == 'entrance_to' && tag_parts[1] == entrance_name
-			return false
-	)
-
-	if choice_index >= 0:
-		_select_choice(choice_index)

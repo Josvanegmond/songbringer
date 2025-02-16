@@ -1,5 +1,6 @@
 extends Node
 
+var story: InkStory = null
 
 var paused = false
 

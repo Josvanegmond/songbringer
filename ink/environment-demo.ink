@@ -4,6 +4,7 @@
 
 
 = hallway
+#music_play:echoes
 Apart from the sounds of machinery, the hallway is devoid of life.
 + [to engine #entrance_to engine]
   -> engine
@@ -18,6 +19,7 @@ The river is flowing briskly.
   -> hallway
 
 = engine
+#music_play:silence
 The engine generates power.
 + [to hallway #entrance_to hallway]
   -> hallway

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://t6sdpx1qi6k1"]
+[gd_scene load_steps=36 format=3 uid="uid://t6sdpx1qi6k1"]
 
 [ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://styles/main.tres" id="1_4c57u"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://main.gd" id="1_5vw27"]
@@ -14,6 +14,9 @@
 [ext_resource type="Script" uid="uid://cn26hw0mq5wki" path="res://menus/options.gd" id="11_ycdy4"]
 [ext_resource type="Script" uid="uid://upscgb2xcq25" path="res://menus/control_settings.gd" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://c57ak7282wp2n" path="res://menus/general_settings.gd" id="13_w48qg"]
+[ext_resource type="AudioStream" uid="uid://isdbrp3oc6hj" path="res://game_sounds/echoes.mp3" id="15_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://cwm26p5jd6vsr" path="res://game_sounds/silence.tres" id="17_074og"]
+[ext_resource type="Script" uid="uid://ct8qc3ehjq1kj" path="res://game_sounds/music_player.gd" id="17_yaehf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.677468, 0.697863, 0.972412, 1)
@@ -104,6 +107,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4c57u")
@@ -130,7 +135,7 @@ render_target_update_mode = 4
 [node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06478, 0.255824, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63522, 0.255824, 0)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="SubViewportContainer/SubViewport/Node3D/Player"]
 current = true
@@ -543,6 +548,10 @@ text = "Key bindings"
 [node name="KeyBindings" type="VBoxContainer" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
 layout_mode = 2
 theme_override_constants/separation = 20
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("17_yaehf")
+music_list = Array[AudioStream]([ExtResource("15_2cqfq"), ExtResource("17_074og")])
 
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/GeneralSettingsButton" to="Options" method="_on_general_settings_button_pressed"]
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlSettingsButton" to="Options" method="_on_control_settings_button_pressed"]
