@@ -32,11 +32,12 @@ sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
 background_mode = 2
 sky = SubResource("Sky_0xm2m")
 sky_rotation = Vector3(-0.261799, 0, 0)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
 fog_enabled = true
 fog_light_color = Color(0.146946, 0.191599, 0.271199, 1)
 fog_light_energy = 0.0
-fog_sun_scatter = 0.11
-fog_density = 1.0
+fog_density = 2.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
 resource_local_to_scene = true
@@ -128,20 +129,20 @@ render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/Node3D"]
-transform = Transform3D(0.526541, 0.766044, 0.368688, -0.573576, -2.23839e-07, 0.819152, 0.627507, -0.642788, 0.439385, 5, 9, 6.1)
-
 [node name="Player" parent="SubViewportContainer/SubViewport/Node3D" instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.979717, 0.255824, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06478, 0.255824, 0)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="SubViewportContainer/SubViewport/Node3D/Player"]
 current = true
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D/Player"]
-transform = Transform3D(1, 0, 0, 0, 0.861124, 0.508395, 0, -0.508395, 0.861124, 1.19209e-07, 1.33288, 1.56203)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102852, 0.991987)
 environment = SubResource("Environment_h2yge")
 current = true
-fov = 52.3433
+fov = 40.0079
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Node3D/Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.236165)
 
 [node name="Blue" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9228, 0, -1.99067)
