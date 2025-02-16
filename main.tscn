@@ -1,18 +1,19 @@
-[gd_scene load_steps=32 format=3 uid="uid://t6sdpx1qi6k1"]
+[gd_scene load_steps=33 format=3 uid="uid://t6sdpx1qi6k1"]
 
-[ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://main.tres" id="1_4c57u"]
+[ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://styles/main.tres" id="1_4c57u"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://main.gd" id="1_5vw27"]
-[ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://CollisionMesh.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player.tscn" id="2_0xm2m"]
 [ext_resource type="Resource" uid="uid://dmnmtx5l8t2ih" path="res://ink/environment-demo.ink" id="2_kek77"]
 [ext_resource type="AudioStream" uid="uid://b52ro50rvpwqu" path="res://sounds/01 - LEGIT Audio - TheShopCollection_convenience_store_drinks_fridge_drone.mp3" id="3_h2yge"]
 [ext_resource type="AudioStream" uid="uid://22c5f3h52yu7" path="res://sounds/water.ogg" id="4_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://bpera11hm3dpk" path="res://sounds/atmosbasement.mp3_.ogg" id="4_272bh"]
-[ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://entrance_area.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://game_ship/entrance_area.tscn" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://dqkv5dubtui7h" path="res://sounds/machine_06.ogg" id="5_lquwl"]
-[ext_resource type="StyleBox" uid="uid://ydpljdxtg8r4" path="res://style_line.tres" id="11_efxa6"]
-[ext_resource type="Script" uid="uid://cn26hw0mq5wki" path="res://options.gd" id="11_ycdy4"]
-[ext_resource type="Script" uid="uid://upscgb2xcq25" path="res://control_settings.gd" id="12_dg77c"]
+[ext_resource type="StyleBox" uid="uid://ydpljdxtg8r4" path="res://styles/style_line.tres" id="11_efxa6"]
+[ext_resource type="Script" uid="uid://cn26hw0mq5wki" path="res://menus/options.gd" id="11_ycdy4"]
+[ext_resource type="Script" uid="uid://upscgb2xcq25" path="res://menus/control_settings.gd" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://c57ak7282wp2n" path="res://menus/general_settings.gd" id="13_w48qg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.677468, 0.697863, 0.972412, 1)
@@ -395,6 +396,7 @@ follow_focus = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
+script = ExtResource("13_w48qg")
 
 [node name="SoundSettingsLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
 layout_mode = 2
@@ -543,6 +545,11 @@ theme_override_constants/separation = 20
 
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/GeneralSettingsButton" to="Options" method="_on_general_settings_button_pressed"]
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlSettingsButton" to="Options" method="_on_control_settings_button_pressed"]
+[connection signal="value_changed" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MasterSlider" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MusicSlider" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/AmbientSlider" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_ambient_slider_value_changed"]
+[connection signal="value_changed" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/SoundSlider" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_sound_slider_value_changed"]
+[connection signal="toggled" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings/TTSCheck" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_check_toggled"]
 
 [editable path="SubViewportContainer/SubViewport/Node3D/Blue/BlueToPink"]
 [editable path="SubViewportContainer/SubViewport/Node3D/Orange/OrangeToPink"]

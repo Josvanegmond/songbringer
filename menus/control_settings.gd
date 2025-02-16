@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-var key_bind_row_tscn = preload('res://key_bind_row.tscn')
+var key_bind_row_tscn = preload('res://menus/key_bind_row.tscn')
 
 @onready var key_bindings: VBoxContainer = $KeyBindings
 
