@@ -155,21 +155,21 @@ omni_attenuation = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9228, 0, -1.99067)
 
 [node name="DummyShape6" parent="SubViewportContainer/SubViewport/Node3D/Blue" instance=ExtResource("5_qhcbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.174479, 0.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74055, 0.3, 0)
 shape = SubResource("BoxShape3D_efxa6")
 
 [node name="DummyShape7" parent="SubViewportContainer/SubViewport/Node3D/Blue" instance=ExtResource("5_qhcbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.07448, 0.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159451, 0.3, 0)
 shape = SubResource("BoxShape3D_vivmo")
 
 [node name="BlueToPink" parent="SubViewportContainer/SubViewport/Node3D/Blue" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_f1jbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59155, 0.352846, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323479, 0.352846, 0)
 choice_name = "engine"
 connected_area = NodePath("../../Pink/PinkToBlue")
 metadata/_edit_group_ = true
 
 [node name="Ground" parent="SubViewportContainer/SubViewport/Node3D/Blue" instance=ExtResource("5_qhcbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.10939, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.805638, 0, 0)
 shape = SubResource("BoxShape3D_0xm2m")
 color = Color(2.88785e-07, 0.577388, 0.798947, 1)
 
@@ -196,7 +196,7 @@ connected_area = NodePath("../../Red/RedToOrange")
 metadata/_edit_group_ = true
 
 [node name="OrangeToYellow" parent="SubViewportContainer/SubViewport/Node3D/Orange" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_f1jbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0147076, 0.371696, 0.0281088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402012, 0.371696, 0.0281088)
 choice_name = "machine"
 connected_area = NodePath("../../Yellow/YellowToOrange")
 metadata/_edit_group_ = true
@@ -212,6 +212,7 @@ shape = SubResource("BoxShape3D_yaehf")
 color = Color(0.889506, 0.319593, 0, 1)
 
 [node name="Red" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56167, 0, 0)
 
 [node name="RedToOrange" parent="SubViewportContainer/SubViewport/Node3D/Red" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_f1jbl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48926, 0.371696, -2.00522)
@@ -261,7 +262,7 @@ color = Color(0.656023, 0, 0.0995413, 1)
 [node name="Yellow" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D/Yellow"]
-transform = Transform3D(0.999999, -1.98729e-05, 0.00115184, -1.13181e-08, 0.999851, 0.0172605, -0.00115201, -0.0172605, 0.99985, 0.0470185, 0.312295, 2.93067)
+transform = Transform3D(0.999999, -1.9873e-05, 0.00115184, -1.13181e-08, 0.999851, 0.0172605, -0.00115201, -0.0172605, 0.99985, 0.0470185, 0.312295, 2.78175)
 stream = ExtResource("8_i2p71")
 max_db = 1.0
 autoplay = true
@@ -293,7 +294,7 @@ color = Color(0.699612, 0.488272, 3.85046e-07, 1)
 [node name="Pink" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D/Pink"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.38044, 0.23419, -2.44662)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.29547, 0.23419, -2.44662)
 stream = ExtResource("9_xa8c5")
 volume_db = 10.0
 max_db = 1.0
@@ -307,7 +308,7 @@ emission_angle_filter_attenuation_db = -8.9
 attenuation_filter_db = -4.9
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/Node3D/Pink"]
-transform = Transform3D(1.2666e-07, 0, -1, 0, 1, 0, 1, 0, 1.2666e-07, -6.22966, 0.310475, -2.10629)
+transform = Transform3D(1.2666e-07, 0, -1, 0, 1, 0, 1, 0, 1.2666e-07, -8.14469, 0.310475, -2.10629)
 stream = ExtResource("10_5b14r")
 volume_db = 10.0
 max_db = 1.0
@@ -319,27 +320,27 @@ emission_angle_filter_attenuation_db = -8.9
 attenuation_filter_db = -4.9
 
 [node name="DummyShape6" parent="SubViewportContainer/SubViewport/Node3D/Pink" instance=ExtResource("5_qhcbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6028, 0.312943, -1.99301)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51783, 0.312943, -1.99301)
 shape = SubResource("BoxShape3D_5vw27")
 
 [node name="DummyShape8" parent="SubViewportContainer/SubViewport/Node3D/Pink" instance=ExtResource("5_qhcbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60281, 0.312943, -1.99301)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51784, 0.312943, -1.99301)
 shape = SubResource("BoxShape3D_272bh")
 
 [node name="PinkToOrange" parent="SubViewportContainer/SubViewport/Node3D/Pink" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_f1jbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09662, 0.371696, -1.98409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01165, 0.371696, -1.98409)
 choice_name = "hallway"
 connected_area = NodePath("../../Orange/OrangeToPink")
 metadata/_edit_group_ = true
 
 [node name="PinkToBlue" parent="SubViewportContainer/SubViewport/Node3D/Pink" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_f1jbl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.09662, 0.371696, -1.98409)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01165, 0.371696, -1.98409)
 choice_name = "sewers"
 connected_area = NodePath("../../Blue/BlueToPink")
 metadata/_edit_group_ = true
 
 [node name="Ground" parent="SubViewportContainer/SubViewport/Node3D/Pink" instance=ExtResource("5_qhcbd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.66486, 5.96046e-08, -1.99301)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57989, 5.96046e-08, -1.99301)
 shape = SubResource("BoxShape3D_ig7tw")
 color = Color(0.948258, 1.92523e-07, 0.555958, 1)
 
