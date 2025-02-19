@@ -21,7 +21,8 @@ var actions = [
 
 func _ready() -> void:
 	for action in actions:
-		var key_bind_row = key_bind_row_tscn.instantiate()
+		var row_scene = key_bind_row_tscn.instantiate()
+		var key_bind_row = row_scene.get_node('KeyBindRow')
 
 		var action_label = key_bind_row.get_node('ActionLabel')
 		action_label.text = action
@@ -45,7 +46,7 @@ func _ready() -> void:
 		var reset_button: Button = key_bind_row.get_node('ResetButton')
 		reset_button.pressed.connect(func(): reset_bindings(key_bind_row))
 
-		key_bindings.add_child(key_bind_row)
+		key_bindings.add_child(row_scene)
 
 
 func _input(event):

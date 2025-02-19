@@ -20,15 +20,14 @@ func _input(event) -> void:
 	if event.is_action_pressed("repeat_text"):
 		read_text(subtitles.text + "")
 
-	if event.is_action_released('main_menu'):
-		$Options.toggle()
+	if event.is_action_pressed('main_menu'):
+		$MainMenu.toggle()
 
 
 func continue_story():
 	GameState.story.ContinueMaximally()
 	var text = GameState.story.GetCurrentText()
 	var tags = GameState.story.GetCurrentTags()
-	print(tags)
 
 	for tag in tags:
 		GameBus.handle_tag.emit(tag.split(':'))

@@ -19,6 +19,7 @@ func _ready() -> void:
 	load_scene()
 
 
+
 func load_scene():
 	if current_scene_node:
 		remove_child(current_scene_node)

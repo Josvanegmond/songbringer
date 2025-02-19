@@ -35,5 +35,5 @@ The sewers are cold and damp.
 
 = machine
 The machine works tirelessly.
-* [to hallway #entrance_to hallway]
++ [to hallway #entrance_to hallway]
   -> hallway

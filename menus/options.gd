@@ -13,7 +13,15 @@ extends Control
 var current_tab_index = 0
 
 
+func _ready() -> void:
+	setting_tab_buttons[current_tab_index].grab_focus()
+
+
 func _input(event: InputEvent) -> void:
+	if visible && event.is_action_pressed('main_menu'):
+		accept_event()
+		toggle()
+
 	if GameState.key_rebinding: return
 
 	if event.is_action_pressed('next_tab'):
@@ -53,10 +61,11 @@ func switch_to(setting_tab_index):
 
 func toggle():
 	visible = !visible
-	GameState.paused = visible
 
 	if visible:
 		setting_tab_buttons[current_tab_index].grab_focus()
+	else:
+		get_parent().options_closed()
 
 
 func _on_close_button_pressed() -> void:

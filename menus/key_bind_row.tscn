@@ -1,33 +1,38 @@
 [gd_scene format=3 uid="uid://blo07d12uwu7j"]
 
-[node name="KeyBindRow" type="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 31.0
+offset_bottom = 39.0
 grow_horizontal = 2
-size_flags_horizontal = 2
+
+[node name="KeyBindRow" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="ActionLabel" type="Label" parent="."]
+[node name="ActionLabel" type="Label" parent="KeyBindRow"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 0
 text = "action"
 
-[node name="OverrideButton" type="Button" parent="."]
+[node name="OverrideButton" type="Button" parent="KeyBindRow"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Override"
 
-[node name="ResetButton" type="Button" parent="."]
+[node name="ResetButton" type="Button" parent="KeyBindRow"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Reset"
 
-[node name="ActionKeysLabel" type="Label" parent="."]
+[node name="ActionKeysLabel" type="Label" parent="KeyBindRow"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 14
-text = ""
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
