@@ -1,73 +1,44 @@
-extends Node
+extends Control
 
 
-@export var story: InkStory:
-	get():
-		return GameState.story
-	set(_story):
-		GameState.story = _story
+signal scene_finished(node)
 
 
-var subtitles: Label = null
+@export var scenes: Array[PackedScene] = []
+var load_scene_index = 0
+var current_scene_node: Node = null
 
 
-func _ready():
-	GameBus.select_choice.connect(_select_choice)
-	continue_story()
+func _ready() -> void:
+	scene_finished.connect(handle_scene_finished)
+
+	GameState.available_voices = DisplayServer.tts_get_voices_for_language('en')
+	if GameState.available_voices.size() > 0:
+		GameState.selected_voice = GameState.available_voices[0]
+
+	load_scene()
 
 
-func _input(event) -> void:
-	if event.is_action_pressed("repeat_text"):
-		read_text(subtitles.text + "")
+func load_scene():
+	if current_scene_node:
+		remove_child(current_scene_node)
+		current_scene_node.queue_free()
 
-	if event.is_action_released('main_menu'):
-		toggle_pause()
-
-
-func continue_story():
-	GameState.story.ContinueMaximally()
-	var text = GameState.story.GetCurrentText()
-	var tags = GameState.story.GetCurrentTags()
-	print(tags)
-
-	for tag in tags:
-		GameBus.handle_tag.emit(tag.split(':'))
-
-	read_text(text)
+	var packed_scene: PackedScene = scenes[load_scene_index]
+	current_scene_node = packed_scene.instantiate()
+	add_child(current_scene_node)
 
 
-func read_text(text):
-	var children = $VBox.get_children()
-	for child in children:
-		$VBox.remove_child(child)
+func _input(event: InputEvent) -> void:
+	if GameState.key_rebinding: return
 	
-	subtitles = Label.new()
-	subtitles.add_theme_font_size_override('font_size', 30)
+	if event.is_action_released("toggle_text_to_speech"):
+		GameState.toggle_tts_over_screenreader()
 
-	# Works only for godot with acesskit 
-	if 'accessibility_name' in subtitles:
-		subtitles.accessibility_name = 'narration_text'
-
-	subtitles.text = text
-	subtitles.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	$VBox.add_child(subtitles)
-	subtitles.focus_mode = Control.FOCUS_ALL
-	subtitles.grab_focus()
+	if event.is_action_released("skip_speech"):
+		TtsHelper.speak('')
 
 
-func _ended():
-	print("The End")
-
-
-func _select_choice(index):
-	GameState.story.ChooseChoiceIndex(index)
-	continue_story()
-
-
-func _on_texture_button_pressed() -> void:
-	toggle_pause()
-
-
-func toggle_pause():
-	$Options.visible = !$Options.visible
-	GameState.paused = $Options.visible
+func handle_scene_finished(_node: Node):
+	load_scene_index += 1
+	load_scene()
