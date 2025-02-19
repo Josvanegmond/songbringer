@@ -8,7 +8,7 @@ extends Node
 		GameState.story = _story
 
 
-var subtitles = null
+var subtitles: Label = null
 
 
 func _ready():
@@ -21,8 +21,7 @@ func _input(event) -> void:
 		read_text(subtitles.text + "")
 
 	if event.is_action_released('main_menu'):
-		$Options.visible = !$Options.visible
-		GameState.paused = $Options.visible
+		toggle_pause()
 
 
 func continue_story():
@@ -43,7 +42,9 @@ func read_text(text):
 		$VBox.remove_child(child)
 	
 	subtitles = Label.new()
+	subtitles.add_theme_font_size_override('font_size', 30)
 
+	# Works only for godot with acesskit 
 	if 'accessibility_name' in subtitles:
 		subtitles.accessibility_name = 'narration_text'
 
@@ -61,3 +62,12 @@ func _ended():
 func _select_choice(index):
 	GameState.story.ChooseChoiceIndex(index)
 	continue_story()
+
+
+func _on_texture_button_pressed() -> void:
+	toggle_pause()
+
+
+func toggle_pause():
+	$Options.visible = !$Options.visible
+	GameState.paused = $Options.visible

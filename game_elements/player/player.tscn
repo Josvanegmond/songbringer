@@ -1,0 +1,96 @@
+[gd_scene load_steps=16 format=3 uid="uid://dvbe8t3nr0xhm"]
+
+[ext_resource type="Script" uid="uid://dntvjbif11iiq" path="res://game_elements/player/player.gd" id="1_4flbx"]
+[ext_resource type="AudioStream" uid="uid://pve64ywxe55h" path="res://sounds/footsteps/footsteps_boot_random.tres" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://c1hhfrhnd125l" path="res://sounds/GP_PutDown_8.wav" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://c4twou4p3fq83" path="res://game_elements/player/spritewalk_0000.png" id="4_8nby0"]
+[ext_resource type="Texture2D" uid="uid://r1d1dcwgyui" path="res://game_elements/player/spritewalk_0001.png" id="5_miqxt"]
+[ext_resource type="Texture2D" uid="uid://mqelsarkyvc1" path="res://game_elements/player/spritewalk_0002.png" id="6_d36pv"]
+[ext_resource type="Texture2D" uid="uid://bobl7ui7nqqhl" path="res://game_elements/player/spritewalk_0003.png" id="7_lpls8"]
+[ext_resource type="Texture2D" uid="uid://cmbbnc1tetbvu" path="res://game_elements/player/spritewalk_0004.png" id="8_cwy2w"]
+[ext_resource type="Texture2D" uid="uid://b5tdq2w3ewp32" path="res://game_elements/player/spritewalk_0005.png" id="9_q8rcg"]
+[ext_resource type="Texture2D" uid="uid://bccggxax5x28f" path="res://game_elements/player/spritewalk_0006.png" id="10_5hkun"]
+[ext_resource type="Texture2D" uid="uid://qf7yfi14288i" path="res://game_elements/player/spritewalk_0007.png" id="11_q3lty"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pttpv"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 0.642223, 0.643862, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
+material = SubResource("StandardMaterial3D_pttpv")
+radius = 0.1
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+radius = 0.1
+height = 0.4
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_23wg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_lpls8")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8nby0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_miqxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d36pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lpls8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cwy2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q8rcg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5hkun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q3lty")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.80356, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_sh265")
+
+[node name="FootstepsBootRandom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_onrkg")
+volume_db = -18.627
+bus = &"Sound"
+
+[node name="EnterAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i3pqv")
+volume_db = -11.383
+pitch_scale = 0.28
+bus = &"Sound"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.80838, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_4flbx")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.277, 0, 0.0392805, 0.162)
+sprite_frames = SubResource("SpriteFrames_23wg4")
+animation = &"walking"
+speed_scale = 3.0

@@ -10,7 +10,7 @@ var can_enter_to_position = null
 var can_enter_to_name = null
 
 var moving_in_progress = false
-var footstep_cooldown = 0
+var footstep_cooldown = false
 
 
 func _ready() -> void:
@@ -51,13 +51,22 @@ func handle_moving(delta: float):
 
 	move_and_slide()
 
-	if velocity.length() > 0 && footstep_cooldown <= 0:
-		$FootstepsBootRandom.play()
-		footstep_cooldown = 1
-	
-	if footstep_cooldown > 0:
-		footstep_cooldown -= delta * velocity.length() * 3
+	handle_moving_animation(velocity, delta)
 
+
+func handle_moving_animation(move_velocity, _delta):
+	if abs(move_velocity.x) > 0:
+		$AnimatedSprite3D.play('walking')
+		$AnimatedSprite3D.flip_h = move_velocity.x > 0
+
+		if $AnimatedSprite3D.frame == 1 && !footstep_cooldown:
+			$FootstepsBootRandom.play()
+			footstep_cooldown = true
+		if $AnimatedSprite3D.frame != 1:
+			footstep_cooldown = false
+
+	else:
+		$AnimatedSprite3D.play('standing')
 
 
 func _can_enter_to(pos: Vector3, choice_name):

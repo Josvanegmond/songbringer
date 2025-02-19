@@ -1,9 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://t6sdpx1qi6k1"]
+[gd_scene load_steps=39 format=3 uid="uid://t6sdpx1qi6k1"]
 
 [ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://styles/main.tres" id="1_4c57u"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="2_0xm2m"]
 [ext_resource type="Resource" uid="uid://dmnmtx5l8t2ih" path="res://ink/environment-demo.ink" id="2_kek77"]
 [ext_resource type="AudioStream" uid="uid://b52ro50rvpwqu" path="res://sounds/01 - LEGIT Audio - TheShopCollection_convenience_store_drinks_fridge_drone.mp3" id="3_h2yge"]
 [ext_resource type="AudioStream" uid="uid://22c5f3h52yu7" path="res://sounds/water.ogg" id="4_1bvp3"]
@@ -12,7 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://dqkv5dubtui7h" path="res://sounds/machine_06.ogg" id="5_lquwl"]
 [ext_resource type="StyleBox" uid="uid://ydpljdxtg8r4" path="res://styles/style_line.tres" id="11_efxa6"]
 [ext_resource type="Script" uid="uid://cn26hw0mq5wki" path="res://menus/options.gd" id="11_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bugjtqov40k3d" path="res://menus/close.png" id="12_074og"]
 [ext_resource type="Script" uid="uid://upscgb2xcq25" path="res://menus/control_settings.gd" id="12_dg77c"]
+[ext_resource type="Texture2D" uid="uid://d1y4e8dpmvjy8" path="res://menus/close_hover.png" id="13_cegan"]
 [ext_resource type="Script" uid="uid://c57ak7282wp2n" path="res://menus/general_settings.gd" id="13_w48qg"]
 [ext_resource type="AudioStream" uid="uid://isdbrp3oc6hj" path="res://game_sounds/echoes.mp3" id="15_2cqfq"]
 [ext_resource type="AudioStream" uid="uid://cwm26p5jd6vsr" path="res://game_sounds/silence.tres" id="17_074og"]
@@ -63,6 +65,10 @@ resource_local_to_scene = true
 size = Vector3(0.1, 0.7, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+resource_local_to_scene = true
+size = Vector3(11, 0.1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yaehf"]
 resource_local_to_scene = true
 size = Vector3(11, 0.1, 1)
 
@@ -147,7 +153,8 @@ current = true
 fov = 40.0079
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Node3D/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.236165)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.244671)
+omni_attenuation = 2.0
 
 [node name="Blue" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.9228, 0, -1.99067)
@@ -204,6 +211,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03627, 2.98023e-08, 0)
 shape = SubResource("BoxShape3D_ycdy4")
 color = Color(0.889506, 0.319593, 0, 1)
 
+[node name="Ground2" parent="SubViewportContainer/SubViewport/Node3D/Orange" instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.03627, 0.182433, -0.542769)
+shape = SubResource("BoxShape3D_yaehf")
+color = Color(0.889506, 0.319593, 0, 1)
+
 [node name="Red" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
 
 [node name="RedToOrange" parent="SubViewportContainer/SubViewport/Node3D/Red" node_paths=PackedStringArray("connected_area") instance=ExtResource("5_7mycd")]
@@ -221,6 +233,7 @@ max_db = 1.0
 autoplay = true
 max_distance = 3.0
 panning_strength = 5.0
+bus = &"Ambient"
 emission_angle_enabled = true
 emission_angle_degrees = 7.0
 
@@ -234,6 +247,7 @@ pitch_scale = 0.71
 autoplay = true
 max_distance = 2.0
 panning_strength = 0.4
+bus = &"Ambient"
 emission_angle_degrees = 7.0
 
 [node name="DummyShape7" parent="SubViewportContainer/SubViewport/Node3D/Red" instance=ExtResource("1_ig7tw")]
@@ -291,6 +305,7 @@ max_db = 1.0
 autoplay = true
 max_distance = 3.0
 panning_strength = 5.0
+bus = &"Ambient"
 emission_angle_enabled = true
 emission_angle_degrees = 7.0
 emission_angle_filter_attenuation_db = -8.9
@@ -303,6 +318,7 @@ volume_db = 10.0
 max_db = 1.0
 autoplay = true
 max_distance = 2.5
+bus = &"Ambient"
 emission_angle_degrees = 23.0
 emission_angle_filter_attenuation_db = -8.9
 attenuation_filter_db = -4.9
@@ -340,9 +356,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_type_variation = &"bigfont"
 
 [node name="Options" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -389,6 +405,14 @@ text = "General"
 layout_mode = 2
 text = "Controls"
 
+[node name="TextureButton" type="TextureButton" parent="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+texture_normal = ExtResource("12_074og")
+texture_hover = ExtResource("13_cegan")
+stretch_mode = 4
+
 [node name="Divider" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("11_efxa6")
@@ -425,6 +449,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
 ticks_on_borders = true
 
 [node name="MusicSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
@@ -437,6 +464,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
 ticks_on_borders = true
 
 [node name="AmbientSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
@@ -449,6 +479,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
 ticks_on_borders = true
 
 [node name="SoundSliderLabel" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
@@ -462,6 +495,9 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
 ticks_on_borders = true
 
 [node name="Divider" type="Label" parent="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
@@ -550,11 +586,13 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
 script = ExtResource("17_yaehf")
 music_list = Array[AudioStream]([ExtResource("15_2cqfq"), ExtResource("17_074og")])
 
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/GeneralSettingsButton" to="Options" method="_on_general_settings_button_pressed"]
 [connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlSettingsButton" to="Options" method="_on_control_settings_button_pressed"]
+[connection signal="pressed" from="Options/Panel/MarginContainer/VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="value_changed" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MasterSlider" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MusicSlider" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/AmbientSlider" to="Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_ambient_slider_value_changed"]
