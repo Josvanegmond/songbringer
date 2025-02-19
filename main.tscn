@@ -64,7 +64,7 @@ size = Vector3(0.1, 0.7, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
-size = Vector3(4.9, 0.1, 1)
+size = Vector3(11, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
 resource_local_to_scene = true
@@ -174,21 +174,21 @@ color = Color(2.88785e-07, 0.577388, 0.798947, 1)
 [node name="Orange" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
 
 [node name="DummyShape6" parent="SubViewportContainer/SubViewport/Node3D/Orange" instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51541, 0.312944, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.51541, 0.312944, 0)
 shape = SubResource("BoxShape3D_w48qg")
 
 [node name="DummyShape2" parent="SubViewportContainer/SubViewport/Node3D/Orange" instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48459, 0.312944, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48459, 0.312944, 0)
 shape = SubResource("BoxShape3D_dg77c")
 
 [node name="OrangeToPink" parent="SubViewportContainer/SubViewport/Node3D/Orange" node_paths=PackedStringArray("connected_area") instance=ExtResource("5_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09662, 0.371696, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09662, 0.371696, 0)
 choice_name = "engine"
 connected_area = NodePath("../../Pink/PinkToOrange")
 metadata/_edit_group_ = true
 
 [node name="OrangeToRed" parent="SubViewportContainer/SubViewport/Node3D/Orange" node_paths=PackedStringArray("connected_area") instance=ExtResource("5_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98926, 0.371696, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98926, 0.371696, 0)
 choice_name = "river"
 connected_area = NodePath("../../Red/RedToOrange")
 metadata/_edit_group_ = true
@@ -200,7 +200,7 @@ connected_area = NodePath("../../Yellow/YellowToOrange")
 metadata/_edit_group_ = true
 
 [node name="Ground" parent="SubViewportContainer/SubViewport/Node3D/Orange" instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013734, 2.98023e-08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03627, 2.98023e-08, 0)
 shape = SubResource("BoxShape3D_ycdy4")
 color = Color(0.889506, 0.319593, 0, 1)
 
