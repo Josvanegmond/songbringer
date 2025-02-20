@@ -9,6 +9,9 @@ var _gravity := -10.0
 var can_enter_to_position = null
 var can_enter_to_name = null
 
+var can_scavenge_shard = null
+var can_scavenge_stats = null
+
 var moving_in_progress = false
 var footstep_cooldown = false
 
@@ -22,6 +25,7 @@ func _physics_process(delta: float) -> void:
 	if GameState.paused || moving_in_progress: return
 
 	handle_entering()
+	handle_scavenging()
 	handle_moving(delta)
 
 
@@ -37,8 +41,13 @@ func handle_entering():
 
 		can_enter_to_position = prev_pos
 		moving_in_progress = false
+		
 
-
+func handle_scavenging():
+	# character is in a scavenging location and has chosen to pick up item
+	if can_scavenge_shard != null && Input.is_action_just_pressed('interact'):
+		# TO DO: add to inventory
+		GameBus.player_scavenges.emit(can_scavenge_shard,can_scavenge_stats)
 
 func handle_moving(delta: float):
 	var raw_input =	Input.get_axis("left", "right")
@@ -77,3 +86,12 @@ func _can_enter_to(pos: Vector3, choice_name):
 func _cant_enter_to():
 	can_enter_to_position = null
 	can_enter_to_name = null
+
+func _can_scavenge(shard: String, shard_stats: Array):
+	can_scavenge_shard = shard
+	can_scavenge_stats = shard_stats
+
+
+func _cant_scavenge():
+	can_scavenge_shard = null
+	can_scavenge_stats = null

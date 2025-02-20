@@ -132,6 +132,7 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 size_2d_override_stretch = true
 render_target_update_mode = 4
+script = ExtResource("2_e36ub")
 
 [node name="Node3D" type="Node3D" parent="SubViewportContainer/SubViewport"]
 

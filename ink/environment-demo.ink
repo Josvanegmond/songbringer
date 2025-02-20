@@ -12,6 +12,7 @@ Apart from the sounds of machinery, the hallway is devoid of life.
   -> river
 + [to machine #entrance_to machine]
   -> machine
++ [scavenge #scavenge_at hallway_1]
 
 = river
 The river is flowing briskly.
