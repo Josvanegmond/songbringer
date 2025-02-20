@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bghsjbsbn2dsc"]
+[gd_scene load_steps=35 format=3 uid="uid://bghsjbsbn2dsc"]
 
 [ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://styles/main.tres" id="1_boyg6"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://game.gd" id="2_e36ub"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="4_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="5_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://game_ship/entrance_area.tscn" id="6_f1jbl"]
+[ext_resource type="PackedScene" uid="uid://bpg8pebd3ymge" path="res://game_ship/scavenge_area.tscn" id="7_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://22c5f3h52yu7" path="res://sounds/water.ogg" id="7_vaj68"]
 [ext_resource type="AudioStream" uid="uid://dqkv5dubtui7h" path="res://sounds/machine_06.ogg" id="8_i2p71"]
 [ext_resource type="AudioStream" uid="uid://b52ro50rvpwqu" path="res://sounds/01 - LEGIT Audio - TheShopCollection_convenience_store_drinks_fridge_drone.mp3" id="9_xa8c5"]
@@ -211,6 +212,10 @@ color = Color(0.889506, 0.319593, 0, 1)
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.03627, 0.182433, -0.542769)
 shape = SubResource("BoxShape3D_yaehf")
 color = Color(0.889506, 0.319593, 0, 1)
+
+[node name="Area3D" parent="SubViewportContainer/SubViewport/Node3D/Orange" instance=ExtResource("7_7sc4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78082, 0.0756957, 0.02343)
+loot_pool = ["", null]
 
 [node name="Red" type="Node3D" parent="SubViewportContainer/SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56167, 0, 0)
