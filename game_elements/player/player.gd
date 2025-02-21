@@ -12,6 +12,8 @@ var can_enter_to_name = null
 var moving_in_progress = false
 var footstep_cooldown = false
 
+var can_scavenge_shard = null
+var can_scavenge_stats = null
 
 func _ready() -> void:
 	GameBus.player_can_enter_to.connect(_can_enter_to)
@@ -22,6 +24,7 @@ func _physics_process(delta: float) -> void:
 	if GameState.paused || moving_in_progress: return
 
 	handle_entering()
+	handle_scavenging()
 	handle_moving(delta)
 
 
@@ -68,7 +71,13 @@ func handle_moving_animation(move_velocity, _delta):
 	else:
 		$AnimatedSprite3D.play('standing')
 
-
+func handle_scavenging():
+	# character is in a scavenging location and has chosen to pick up item
+	if can_scavenge_shard != null && Input.is_action_just_pressed('interact'):
+		# TO DO: add to inventory
+		GameBus.player_scavenges.emit(can_scavenge_shard,can_scavenge_stats)
+		
+		
 func _can_enter_to(pos: Vector3, choice_name):
 	can_enter_to_position = pos
 	can_enter_to_name = choice_name
@@ -77,3 +86,13 @@ func _can_enter_to(pos: Vector3, choice_name):
 func _cant_enter_to():
 	can_enter_to_position = null
 	can_enter_to_name = null
+
+
+func _can_scavenge(shard: String, shard_stats: Array):
+	can_scavenge_shard = shard
+	can_scavenge_stats = shard_stats
+
+
+func _cant_scavenge():
+	can_scavenge_shard = null
+	can_scavenge_stats = null

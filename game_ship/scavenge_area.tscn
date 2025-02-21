@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgbh3gloyct1e"]
+
+[ext_resource type="Script" uid="uid://bghwosa63khn5" path="res://game_ship/scavenge_area.gd" id="1_sblk3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r66kj"]
+size = Vector3(0.875977, 0.602905, 1)
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_sblk3")
+choice_name = "scavenge"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_r66kj")
+
+[node name="PickupNote1" type="AudioStreamPlayer3D" parent="."]
+bus = &"Sound"
+
+[node name="PickupNote2" type="AudioStreamPlayer3D" parent="."]
+bus = &"Sound"
+
+[node name="PickupNote3" type="AudioStreamPlayer3D" parent="."]
+bus = &"Sound"
+
+[node name="PickupNote4" type="AudioStreamPlayer3D" parent="."]
+bus = &"Sound"
+
+[node name="PickupNote5" type="AudioStreamPlayer3D" parent="."]
+bus = &"Sound"
+
+[node name="PickupNote6" type="AudioStreamPlayer3D" parent="."]
+bus = &"Sound"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
