@@ -43,6 +43,12 @@ movie_writer/movie_file="/home/joozey/Projects/blind-gamers-jam/media/demo.avi"
 
 enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
 
+[importer_defaults]
+
+wav={
+&"edit/loop_mode": 2
+}
+
 [inkgd]
 
 register_templates=true

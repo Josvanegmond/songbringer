@@ -6,7 +6,7 @@ class_name ScavengeArea
 # specify any written loot that is already on floor at start of game. store any additional loot that is generated.
 # note: discarded loot is removed from floor and lost forever
 # format: "shard name": [type <"note", "rock", "crystal", etc>, untunedsound, pickupsound, putdownsound, description, soundcaption], 
-@export var floor = {}
+@export var floor_init = []
 # specify what types of loot that can be found here. full inventory is <temp: "rock", "crystal", "scrap", "glass",>
 @export var loot_pool = []
 # specify largest amount of loot the floor can hold before no new sounds are generated, to prevent player from generating infinite loot. 
@@ -15,6 +15,7 @@ class_name ScavengeArea
 # default null, unlimited loot. this is generally favorable so player won't get softlocked if they need a certain shard type
 @export var loot_total = null
 
+var floor = {}
 var selected_shard = null
 
 var rng = RandomNumberGenerator.new()
@@ -29,12 +30,12 @@ var sound_paths = {
 	}
 #table to store data of written loot and notes the player finds. if you want this instance of scavenge_area to be found here, add to @export floor
 var written_loot = {
-	"notetone1": ["note", [sound_paths["notetone"], 1, 0], sound_paths["notetone_pickup"], sound_paths["notetone_putdown"], "This is a note left by the pilot. It has a slightly grating ringtone.", "A cheery jingle plays through a small speaker"]
+	"notetone1": ["note", [sound_paths["notetone"], 1, 0, 10, "loop"], sound_paths["notetone_pickup"], sound_paths["notetone_putdown"], "This is a note left by the pilot. It has a slightly grating ringtone.", "A cheery jingle plays through a small speaker"]
 }
 
 func _ready() -> void:
 	GameBus.player_scavenges.connect(_pick_scavenge_choice)
-	for w in floor.keys():
+	for w in floor_init:
 		floor[w] = written_loot[w]
 
 
@@ -86,11 +87,12 @@ func _pick_scavenge_choice(scavenge_spot: String):
 		GameBus.select_choice.emit(choice_index)
 
 func play_shard(shard_name):
-	for s in floor[shard_name][1]:
-		var pitch = s[1]
-		if pitch == null:
-			pitch = rng.randf_range(.83,1.2)
-		playnote(s[0], pitch, s[1])
+	var sound_configs = floor[shard_name][1]
+	var pitch = sound_configs[1]
+	if pitch == null:
+		pitch = rng.randf_range(.83,1.2)
+	playnote(sound_configs[0], pitch, sound_configs[2])
+
 func playnote(file, pitch, volume):
 	file = load(file)
 	# select roundrobin:

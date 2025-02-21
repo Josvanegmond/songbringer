@@ -3,12 +3,11 @@
 importer="ink"
 type="Resource"
 uid="uid://dmnmtx5l8t2ih"
-path="res://.godot/imported/environment-demo.ink-2406d69edfa9c9764aef01603159da2b.res"
+valid=false
 
 [deps]
 
 source_file="res://ink/environment-demo.ink"
-dest_files=["res://.godot/imported/environment-demo.ink-2406d69edfa9c9764aef01603159da2b.res"]
 
 [params]
 
