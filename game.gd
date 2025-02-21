@@ -8,10 +8,15 @@ extends Node
 		GameState.story = _story
 
 
+@onready var viewport = $SubViewportContainer
+
 var subtitles: Label = null
 
 
 func _ready():
+	var viewport_shader: ShaderMaterial = viewport.material
+	viewport_shader.set_shader_parameter('aspect_ratio', viewport.size.x / viewport.size.y)
+
 	GameBus.select_choice.connect(_select_choice)
 	continue_story()
 

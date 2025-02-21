@@ -1,9 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://bghsjbsbn2dsc"]
+[gd_scene load_steps=39 format=3 uid="uid://bghsjbsbn2dsc"]
 
 [ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://styles/main.tres" id="1_boyg6"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://game.gd" id="2_e36ub"]
 [ext_resource type="Resource" uid="uid://dmnmtx5l8t2ih" path="res://ink/environment-demo.ink" id="3_hb5m1"]
+[ext_resource type="Shader" uid="uid://oa73qt2aysk1" path="res://camera_viewport_shader.tres" id="4_80cx4"]
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="4_x5p1p"]
+[ext_resource type="Texture2D" uid="uid://c8eskjch3eiph" path="res://shaders/hatching.png" id="5_e8heu"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="5_qhcbd"]
 [ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://game_ship/entrance_area.tscn" id="6_f1jbl"]
 [ext_resource type="AudioStream" uid="uid://22c5f3h52yu7" path="res://sounds/water.ogg" id="7_vaj68"]
@@ -14,6 +16,25 @@
 [ext_resource type="Script" uid="uid://ct8qc3ehjq1kj" path="res://game_sounds/music_player.gd" id="17_xex6t"]
 [ext_resource type="AudioStream" uid="uid://isdbrp3oc6hj" path="res://game_sounds/echoes.mp3" id="18_aa0lp"]
 [ext_resource type="AudioStream" uid="uid://cwm26p5jd6vsr" path="res://game_sounds/silence.tres" id="19_iu0sx"]
+
+[sub_resource type="Gradient" id="Gradient_rvswv"]
+offsets = PackedFloat32Array(0.2, 0.471483, 1)
+colors = PackedColorArray(0.047418, 0.047418, 0.047418, 1, 0.252966, 0.252966, 0.252966, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boyg6"]
+gradient = SubResource("Gradient_rvswv")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e36ub"]
+shader = ExtResource("4_80cx4")
+shader_parameter/aspect_ratio = 2.0
+shader_parameter/hatching = ExtResource("5_e8heu")
+shader_parameter/light_level = 0.5
+shader_parameter/center_circle = SubResource("GradientTexture2D_boyg6")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.677468, 0.697863, 0.972412, 1)
@@ -37,7 +58,7 @@ ambient_light_energy = 0.0
 fog_enabled = true
 fog_light_color = Color(0.146946, 0.191599, 0.271199, 1)
 fog_light_energy = 0.0
-fog_density = 2.0
+fog_density = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
 resource_local_to_scene = true
@@ -117,6 +138,7 @@ script = ExtResource("2_e36ub")
 story = ExtResource("3_hb5m1")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_e36ub")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,7 +146,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -142,10 +163,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.63522, 0.255824, 0)
 current = true
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Node3D/Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.102852, 0.991987)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0114746, 1.26528)
 environment = SubResource("Environment_h2yge")
 current = true
-fov = 40.0079
+fov = 27.7022
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/Node3D/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.244671)
