@@ -119,6 +119,7 @@ color_default = 1
 texture_repeat = 1
 
 [resource]
+resource_local_to_scene = true
 code = "shader_type canvas_item;
 render_mode blend_mix, unshaded;
 
@@ -262,7 +263,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1011.7, 109.71)
+graph_offset = Vector2(-1622.13, -400.198)
 mode = 1
 flags/unshaded = true
 flags/light_only = false

@@ -43,3 +43,8 @@ func _input(event: InputEvent) -> void:
 func handle_scene_finished(_node: Node):
 	load_scene_index += 1
 	load_scene()
+
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		TtsHelper.stop_speak()

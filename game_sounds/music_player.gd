@@ -4,6 +4,8 @@ extends AudioStreamPlayer
 @export var music_list: Array[AudioStream] = []
 
 var name_to_index = {}
+var current_song = null
+
 
 func _ready() -> void:
 	for i in range(music_list.size()):
@@ -15,14 +17,16 @@ func _ready() -> void:
 	GameBus.handle_tag.connect(handle_tag)
 
 
-func handle_tag(tag_parts):
-	print(tag_parts)
-	if tag_parts[0] == 'music_play':
-		transition_music_to(tag_parts[1])
+func handle_tag(tag_command, tag_args):
+	if tag_command == 'music_play':
+		transition_music_to(tag_args[0])
 
 
 func transition_music_to(song_name):
-	var audio_stream: AudioStream = music_list[name_to_index[song_name]]
+	if current_song == song_name:
+		return
 
+	var audio_stream: AudioStream = music_list[name_to_index[song_name]]
+	current_song = song_name
 	stream = audio_stream
 	play()

@@ -13,9 +13,14 @@ var moving_in_progress = false
 var footstep_cooldown = false
 
 
+@export var play_sounds: Array[AudioStream] = []
+@onready var sound_player: AudioStreamPlayer = $SoundPlayer
+
+
 func _ready() -> void:
 	GameBus.player_can_enter_to.connect(_can_enter_to)
 	GameBus.player_cant_enter.connect(_cant_enter_to)
+	GameBus.handle_tag.connect(handle_tag)
 
 
 func _physics_process(delta: float) -> void:
@@ -76,3 +81,16 @@ func _can_enter_to(pos: Vector3, choice_name):
 func _cant_enter_to():
 	can_enter_to_position = null
 	can_enter_to_name = null
+
+
+func handle_tag(tag_command, tag_args):
+	if tag_command == 'player_sound':
+		print(tag_args[0])
+		for sound: AudioStream in play_sounds:
+			var path_split = sound.resource_path.split('/')
+			var sound_name = path_split[path_split.size() - 1]
+			print(path_split, sound_name)
+			if sound_name == tag_args[0]:
+				sound_player.stream = sound
+				sound_player.play()
+				return

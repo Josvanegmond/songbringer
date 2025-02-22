@@ -8,15 +8,22 @@ extends Node
 		GameState.story = _story
 
 
-@onready var viewport = $SubViewportContainer
+@onready var main_menu_scene = $MainMenu
+@onready var viewport = $HBoxContainer/SubViewportContainer
+@onready var text_box = $HBoxContainer/SubtitleBox
+
+@onready var intro_scene = $Intro
+@onready var intro_text_box = $Intro/VBoxContainer/SubtitleBox
+@onready var intro_button = $Intro/VBoxContainer/Button
+
+
+var default_label_tscn = preload('res://game_elements/default_label.tscn')
+
 
 var subtitles: Label = null
 
 
 func _ready():
-	var viewport_shader: ShaderMaterial = viewport.material
-	viewport_shader.set_shader_parameter('aspect_ratio', viewport.size.x / viewport.size.y)
-
 	GameBus.select_choice.connect(_select_choice)
 	continue_story()
 
@@ -26,27 +33,61 @@ func _input(event) -> void:
 		read_text(subtitles.text + "")
 
 	if event.is_action_pressed('main_menu'):
-		$MainMenu.toggle()
+		main_menu_scene.toggle()
 
 
 func continue_story():
-	GameState.story.ContinueMaximally()
+	GameState.story.Continue()
 	var text = GameState.story.GetCurrentText()
 	var tags = GameState.story.GetCurrentTags()
 
 	for tag in tags:
-		GameBus.handle_tag.emit(tag.split(':'))
+		# for each tag (separated by space), split it by colon into instruction and arguments
+		var split_tag = tag.split(':')
+		# Split the arguments into an array by comma separation
+		var tag_args = split_tag[1].split(',') if split_tag.size() > 1 else [] 
+		handle_tag(split_tag[0], tag_args) # handle tags here
+		GameBus.handle_tag.emit(split_tag[0], tag_args) # everyone else listening to handle_tag also can handle tags
 
 	read_text(text)
 
+	# Pretty ugly way to do this but whatever works
+	if intro_scene.visible:
+		handle_intro()
 
-func read_text(text):
-	var children = $VBox.get_children()
-	for child in children:
-		$VBox.remove_child(child)
+
+# Will show the choice button on the intro scene, expected to be only one
+func handle_intro():
+	var choices = GameState.story.GetCurrentChoices()
+	if choices.size() > 0:
+		var choice: InkChoice = choices[0]
+		intro_button.text = choice.GetText()
+		intro_button.grab_focus()
+
 	
-	subtitles = Label.new()
-	subtitles.add_theme_font_size_override('font_size', 30)
+# Handles scene tag instructions from ink
+func handle_tag(tag, args):
+	if tag == 'scene':
+		if args[0] == 'reset':
+			intro_scene.visible = false
+
+		if args[0] == 'intro':
+			intro_scene.visible = true
+			intro_button.pressed.connect(func (): _select_choice(0))
+
+
+# Shows text in game or in the intro
+func read_text(text):
+	var active_text_box = text_box
+
+	if intro_scene.visible:
+		active_text_box = intro_text_box
+
+	var children = active_text_box.get_children()
+	for child in children:
+		active_text_box.remove_child(child)
+	
+	subtitles = default_label_tscn.instantiate()
 
 	# Works only for godot with acesskit 
 	if 'accessibility_name' in subtitles:
@@ -54,7 +95,9 @@ func read_text(text):
 
 	subtitles.text = text
 	subtitles.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	$VBox.add_child(subtitles)
+
+	active_text_box.add_child(subtitles)
+
 	subtitles.focus_mode = Control.FOCUS_ALL
 	subtitles.grab_focus()
 
