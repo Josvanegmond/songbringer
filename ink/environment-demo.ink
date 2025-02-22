@@ -12,7 +12,9 @@ Apart from the sounds of machinery, the hallway is devoid of life.
   -> river
 + [to machine #entrance_to machine]
   -> machine
-
+* [notetone1 #note_pickup notetone1]
+  -> notetone1 ->
+  -> hallway
 
 = river
 The river is flowing briskly.
@@ -38,3 +40,8 @@ The sewers are cold and damp.
 The machine works tirelessly.
 + [to hallway #entrance_to hallway]
   -> hallway
+
+
+= notetone1
+This is a note, and you just picked it up!
+  ->-> 
