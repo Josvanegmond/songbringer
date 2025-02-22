@@ -90,7 +90,8 @@ transform = Transform3D(1.80838, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_4flbx")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-transform = Transform3D(0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.277, 0, 0.0392805, 0.162)
+transform = Transform3D(0.0243912, 0, 0, 0, 0.0243912, 0, 0, 0, 0.277, 0, 0.0392805, -0.154319)
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
 sprite_frames = SubResource("SpriteFrames_23wg4")
 animation = &"walking"
 speed_scale = 3.0

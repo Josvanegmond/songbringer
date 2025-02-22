@@ -7,6 +7,7 @@ resource_local_to_scene = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydxff"]
 resource_local_to_scene = true
+shading_mode = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_ydxff"]
 resource_local_to_scene = true
@@ -23,4 +24,5 @@ script = ExtResource("1_ydxff")
 shape = SubResource("BoxShape3D_gnumr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
 mesh = SubResource("BoxMesh_ydxff")

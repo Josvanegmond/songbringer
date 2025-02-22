@@ -39,7 +39,6 @@ func handle_entering():
 		moving_in_progress = false
 
 
-
 func handle_moving(delta: float):
 	var raw_input =	Input.get_axis("left", "right")
 	var move_vector = Vector3(raw_input, 0.0, 0.0).normalized()

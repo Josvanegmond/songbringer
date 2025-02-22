@@ -1,0 +1,340 @@
+[gd_scene load_steps=26 format=3 uid="uid://f7srlnqg6e13"]
+
+[ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_ncaxk"]
+[ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="2_f44qm"]
+[ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_frg3i"]
+[ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_nbsb5"]
+[ext_resource type="Texture2D" uid="uid://favma6wd2prt" path="res://game_ship/engine/Enginegreeble_04.png" id="5_hi3lj"]
+[ext_resource type="Texture2D" uid="uid://6x7b1ijpkx56" path="res://game_ship/engine/Enginegreeble_07.png" id="6_qf6jj"]
+[ext_resource type="Texture2D" uid="uid://dgn7fn7ythuqx" path="res://game_ship/engine/Enginegreeble_02.png" id="7_lstmv"]
+[ext_resource type="Texture2D" uid="uid://ds2xkb7iuadf8" path="res://game_ship/engine/engine_floor_greeble_1.png" id="8_vlmi8"]
+[ext_resource type="Texture2D" uid="uid://b36d542wqnmtd" path="res://game_ship/engine/engine_floor_greeble_2.png" id="9_3lwtb"]
+[ext_resource type="Texture2D" uid="uid://bv7ysm7oiwlkb" path="res://game_ship/engine/engine_floor_greeble_3.png" id="10_62n7y"]
+[ext_resource type="Texture2D" uid="uid://wspt1pkkss3a" path="res://game_ship/engine/engine_floor_greeble_4.png" id="11_4qmj0"]
+[ext_resource type="Texture2D" uid="uid://dg5k3tm4rclas" path="res://game_ship/engine/engine_floor_greeble_5.png" id="12_ikbf1"]
+[ext_resource type="Texture2D" uid="uid://5fuqwyrbo6ti" path="res://game_ship/engine/engine_floor_greeble_6.png" id="13_sv1no"]
+[ext_resource type="Texture2D" uid="uid://brr3sr1cyasy2" path="res://game_ship/engine/engine_floor_greeble_7.png" id="14_3a4sd"]
+[ext_resource type="Texture2D" uid="uid://74828q4y3jtw" path="res://game_ship/engine/Enginegreeble_03.png" id="15_uf42p"]
+[ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_ikb3o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+resource_local_to_scene = true
+size = Vector3(8.9447, 0.298535, 0.410156)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2p71"]
+resource_local_to_scene = true
+size = Vector3(0.380243, 1.62126, 0.377763)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xa8c5"]
+resource_local_to_scene = true
+size = Vector3(0.231561, 1.49968, 1.69655)
+
+[sub_resource type="Gradient" id="Gradient_dhpj7"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7knny"]
+gradient = SubResource("Gradient_dhpj7")
+
+[sub_resource type="Gradient" id="Gradient_f1jbl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vaj68"]
+gradient = SubResource("Gradient_f1jbl")
+
+[sub_resource type="Gradient" id="Gradient_e36ub"]
+colors = PackedColorArray(0, 0, 0, 1, 0.722656, 0.722656, 0.722656, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hb5m1"]
+gradient = SubResource("Gradient_e36ub")
+fill_to = Vector2(0, 1)
+repeat = 1
+
+[node name="EngineRoom" type="Node3D"]
+
+[node name="EngineGround" parent="." instance=ExtResource("1_ncaxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
+visible = false
+shape = SubResource("BoxShape3D_ycdy4")
+color = Color(0.574219, 0.574219, 0.574219, 1)
+
+[node name="EngineWall" parent="." instance=ExtResource("1_ncaxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60299, 0.344695, -0.276088)
+visible = false
+shape = SubResource("BoxShape3D_i2p71")
+color = Color(0, 0, 0, 1)
+
+[node name="EngineWall2" parent="." instance=ExtResource("1_ncaxk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64196, 0.461199, -0.779808)
+visible = false
+shape = SubResource("BoxShape3D_xa8c5")
+color = Color(0, 0, 0, 1)
+
+[node name="EngineFront" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95254)
+
+[node name="Sprite3D11" type="Sprite3D" parent="EngineFront"]
+transform = Transform3D(0.0238178, 0, 0, 0, 0.0238178, 0, 0, 0, 1, -1.33127, 0.394464, -0.616762)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("2_f44qm")
+
+[node name="Sprite3D17" type="Sprite3D" parent="EngineFront"]
+transform = Transform3D(0.0238178, 0, 0, 0, 0.0238178, 0, 0, 0, 1, 1.65333, 0.503508, -0.984359)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_frg3i")
+
+[node name="Sprite3D15" type="Sprite3D" parent="EngineFront"]
+transform = Transform3D(0.013338, 0, 0, 0, 0.013338, 0, 0, 0, 0.56, -3.98392, 0.540496, -0.439579)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("4_nbsb5")
+
+[node name="Sprite3D16" type="Sprite3D" parent="EngineFront"]
+transform = Transform3D(0.013338, 0, 0, 0, 0.013338, 0, 0, 0, 0.56, -2.43587, 0.552495, -0.817588)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("4_nbsb5")
+
+[node name="Sprite3D13" type="Sprite3D" parent="EngineFront"]
+transform = Transform3D(0.0191109, 0, 0, 0, 0.0191109, 0, 0, 0, 1, 2.01826, 0.237001, -0.842299)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("5_hi3lj")
+
+[node name="Sprite3D14" type="Sprite3D" parent="EngineFront"]
+transform = Transform3D(0.0217538, 0, 0, 0, 0.0217538, 0, 0, 0, 1, 4.57334, 0.310592, -0.616762)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("6_qf6jj")
+
+[node name="Sprite3D12" type="Sprite3D" parent="EngineFront"]
+transform = Transform3D(0.0642229, 0, 0, 0, 0.0642229, 0, 0, 0, 1, -4.90304, 0.0402447, -1.0612)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("7_lstmv")
+
+[node name="EngineFloor" type="Node3D" parent="."]
+transform = Transform3D(0.578394, 0, 0, 0, 0.578394, 0, 0, 0, 1, -1.74533, 0.0159395, 8)
+
+[node name="Sprite3D" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, -0.805293, 0.258933, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("8_vlmi8")
+
+[node name="Sprite3D2" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, 0.604859, 0.273239, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("9_3lwtb")
+
+[node name="Sprite3D3" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, -0.255271, 0.209366, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_62n7y")
+
+[node name="Sprite3D9" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.157093, 0, 0, 0, 0.157093, 0, 0, 0, 1, 1.58306, 0.210193, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_62n7y")
+
+[node name="Sprite3D10" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.180305, 0, 0, 0, 0.180305, 0, 0, 0, 1, 5.86578, 0.215253, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_62n7y")
+
+[node name="Sprite3D4" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, 1.15308, 0.292483, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("11_4qmj0")
+
+[node name="Sprite3D5" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.157093, 0, 0, 0, 0.157093, 0, 0, 0, 1, 2.0648, 0.256411, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_ikbf1")
+
+[node name="Sprite3D11" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.158449, 0, 0, 0, 0.441985, 0, 0, 0, 1, 2.72423, 0.36688, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_ikbf1")
+
+[node name="Sprite3D12" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.158449, 0, 0, 0, 0.166222, 0, 0, 0, 1, 3.38367, 0.285334, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("9_3lwtb")
+
+[node name="Sprite3D8" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.146608, 0, 0, 0, 0.146608, 0, 0, 0, 1, 9.28956, 0.189847, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_ikbf1")
+
+[node name="Sprite3D6" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.146608, 0, 0, 0, 0.146608, 0, 0, 0, 1, 8.32624, 0.283225, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("13_sv1no")
+
+[node name="Sprite3D7" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(0.165558, 0, 0, 0, 0.165558, 0, 0, 0, 1, -2.92514, 0.43385, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("14_3a4sd")
+
+[node name="FloorSprite" type="Sprite3D" parent="EngineFloor"]
+transform = Transform3D(40.5662, 0, 0, 0, 1.55277, 0, 0, 0, 1, 2.7993, -0.324952, -8.48231)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_7knny")
+
+[node name="EngineBack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0349852, 0)
+
+[node name="Sprite3D18" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(0.0585651, 0, 0, 0, 0.0585651, 0, 0, 0, 1, 1.9469, 0.195511, -0.995752)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.7
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("15_uf42p")
+
+[node name="Sprite3D19" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(0.0494007, 0, 0, 0, 0.0494007, 0, 0, 0, 1, 4.48677, 0.403452, -1.45312)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.721
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("7_lstmv")
+
+[node name="Sprite3D20" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(0.0494007, 0, 0, 0, 0.0494007, 0, 0, 0, 1, 0.412862, 0.490828, -1.45312)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.721
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("6_qf6jj")
+
+[node name="Sprite3D21" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(0.0494007, 0, 0, 0, 0.0494007, 0, 0, 0, 1, 3.30719, 0.490828, -1.45312)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.721
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("6_qf6jj")
+
+[node name="BackSprite2" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(0.17653, 0, 0, 0, 0.17653, 0, 0, 0, 1, 2.27413, 0.333123, -1.48655)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.7
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("16_ikb3o")
+
+[node name="BackSprite3" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(15.8252, 0, 0, 0, 3.03195, 0, 0, 0, 1, -6.10789, 0.276856, -1.48655)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+transparent = false
+double_sided = false
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_vaj68")
+
+[node name="BackSprite4" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(7.68852, 0, 0, 0, 3.03195, 0, 0, 0, 1, 8.0614, 0.276856, -1.48655)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+transparent = false
+double_sided = false
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_vaj68")
+
+[node name="EngineSky" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(24.6203, 0, 0, 0, 2.47191, 0, 0, 0, 1, 0.124178, 0.593932, -1.56295)
+cast_shadow = 0
+modulate = Color(0.160156, 0.160156, 0.160156, 1)
+alpha_cut = 1
+texture = SubResource("GradientTexture2D_hb5m1")
