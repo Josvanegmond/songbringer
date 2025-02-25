@@ -1,0 +1,353 @@
+[gd_scene load_steps=21 format=3 uid="uid://brr85kafvu5lk"]
+
+[ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_dleeo"]
+[ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_y8x50"]
+[ext_resource type="Texture2D" uid="uid://dgn7fn7ythuqx" path="res://game_ship/engine/Enginegreeble_02.png" id="7_6gj77"]
+[ext_resource type="Texture2D" uid="uid://ds2xkb7iuadf8" path="res://game_ship/engine/engine_floor_greeble_1.png" id="8_osdtm"]
+[ext_resource type="Texture2D" uid="uid://b36d542wqnmtd" path="res://game_ship/engine/engine_floor_greeble_2.png" id="9_8ki3y"]
+[ext_resource type="Texture2D" uid="uid://bv7ysm7oiwlkb" path="res://game_ship/engine/engine_floor_greeble_3.png" id="10_57q7j"]
+[ext_resource type="Texture2D" uid="uid://wspt1pkkss3a" path="res://game_ship/engine/engine_floor_greeble_4.png" id="11_3r2r2"]
+[ext_resource type="Texture2D" uid="uid://dg5k3tm4rclas" path="res://game_ship/engine/engine_floor_greeble_5.png" id="12_k3wbu"]
+[ext_resource type="Texture2D" uid="uid://5fuqwyrbo6ti" path="res://game_ship/engine/engine_floor_greeble_6.png" id="13_2tkq2"]
+[ext_resource type="Texture2D" uid="uid://brr3sr1cyasy2" path="res://game_ship/engine/engine_floor_greeble_7.png" id="14_bw3p0"]
+[ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_ew37b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+resource_local_to_scene = true
+size = Vector3(8.9447, 0.298535, 0.410156)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2p71"]
+resource_local_to_scene = true
+size = Vector3(0.380243, 1.62126, 0.377763)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xa8c5"]
+resource_local_to_scene = true
+size = Vector3(0.231561, 1.49968, 1.69655)
+
+[sub_resource type="Gradient" id="Gradient_dhpj7"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7knny"]
+gradient = SubResource("Gradient_dhpj7")
+
+[sub_resource type="Gradient" id="Gradient_f1jbl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vaj68"]
+gradient = SubResource("Gradient_f1jbl")
+
+[sub_resource type="Gradient" id="Gradient_e36ub"]
+colors = PackedColorArray(0, 0, 0, 1, 0.722656, 0.722656, 0.722656, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hb5m1"]
+gradient = SubResource("Gradient_e36ub")
+fill_to = Vector2(0, 1)
+repeat = 1
+
+[node name="Hallway1Room" type="Node3D"]
+
+[node name="Hallway1Ground" parent="." instance=ExtResource("1_dleeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
+visible = false
+shape = SubResource("BoxShape3D_ycdy4")
+color = Color(0.574219, 0.574219, 0.574219, 1)
+
+[node name="Hallway1Wall" parent="." instance=ExtResource("1_dleeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60299, 0.344695, -0.276088)
+visible = false
+shape = SubResource("BoxShape3D_i2p71")
+color = Color(0, 0, 0, 1)
+
+[node name="Hallway1Wall2" parent="." instance=ExtResource("1_dleeo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64196, 0.461199, -0.779808)
+visible = false
+shape = SubResource("BoxShape3D_xa8c5")
+color = Color(0, 0, 0, 1)
+
+[node name="Hallway1Front" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95254)
+
+[node name="Sprite3D15" type="Sprite3D" parent="Hallway1Front"]
+transform = Transform3D(0.013338, 0, 0, 0, 0.013338, 0, 0, 0, 0.56, -3.98392, 0.540496, -0.439579)
+visible = false
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("4_y8x50")
+
+[node name="Sprite3D12" type="Sprite3D" parent="Hallway1Front"]
+transform = Transform3D(0.0642229, 0, 0, 0, 0.0642229, 0, 0, 0, 1, -4.90304, 0.0402447, -1.0612)
+visible = false
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("7_6gj77")
+
+[node name="Hallway1Floor" type="Node3D" parent="."]
+transform = Transform3D(0.578394, 0, 0, 0, 0.578394, 0, 0, 0, 1, -1.74533, 0.0159395, 8)
+
+[node name="Sprite3D" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, -5.91248, 0.258933, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("8_osdtm")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, -2.51789, 0.273239, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("9_8ki3y")
+
+[node name="Sprite3D16" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, 9.62984, 0.273239, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("9_8ki3y")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, -0.255271, 0.209366, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_57q7j")
+
+[node name="Sprite3D20" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, 11.8946, 0.209366, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_57q7j")
+
+[node name="Sprite3D21" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, 12.9697, 0.209366, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_k3wbu")
+
+[node name="Sprite3D22" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, 14.704, 0.376181, -8.49033)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("14_bw3p0")
+
+[node name="Sprite3D18" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, 11.0781, 0.252298, -8.48561)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("8_osdtm")
+
+[node name="Sprite3D19" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, 11.4605, 0.309267, -8.48563)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("11_3r2r2")
+
+[node name="Sprite3D17" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, 7.53637, 0.207764, -8.48552)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_57q7j")
+
+[node name="Sprite3D13" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, -5.41362, 0.209366, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_57q7j")
+
+[node name="Sprite3D15" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, -9.196, 0.209366, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_57q7j")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.157093, 0, 0, 0, 0.157093, 0, 0, 0, 1, 1.58306, 0.210193, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_57q7j")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.180305, 0, 0, 0, 0.180305, 0, 0, 0, 1, 5.86578, 0.215253, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_57q7j")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, 1.699, 0.292483, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("11_3r2r2")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.157093, 0, 0, 0, 0.157093, 0, 0, 0, 1, 2.19353, 0.256411, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_k3wbu")
+
+[node name="Sprite3D11" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.158449, 0, 0, 0, 0.441985, 0, 0, 0, 1, 3.43426, 0.36688, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_k3wbu")
+
+[node name="Sprite3D12" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.158449, 0, 0, 0, 0.166222, 0, 0, 0, 1, 8.71333, 0.285334, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("9_8ki3y")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.146608, 0, 0, 0, 0.146608, 0, 0, 0, 1, 9.28956, 0.167301, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_k3wbu")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.146608, 0, 0, 0, 0.146608, 0, 0, 0, 1, -3.17195, 0.283225, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("13_2tkq2")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.165558, 0, 0, 0, 0.165558, 0, 0, 0, 1, 3.89471, 0.43385, -8.48655)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("14_bw3p0")
+
+[node name="Sprite3D14" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(0.165558, 0, 0, 0, 0.165558, 0, 0, 0, 1, -8.1466, 0.345549, -8.48655)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("14_bw3p0")
+
+[node name="FloorSprite" type="Sprite3D" parent="Hallway1Floor"]
+transform = Transform3D(40.5662, 0, 0, 0, 1.55277, 0, 0, 0, 1, 2.7993, -0.324952, -8.48231)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_7knny")
+
+[node name="Hallway1Back" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0349852, 0)
+
+[node name="BackSprite2" type="Sprite3D" parent="Hallway1Back"]
+transform = Transform3D(0.280682, 0, 0, 0, 0.203963, 0, 0, 0, 1, 2.94263, 0.186326, -1.46461)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.7
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("16_ew37b")
+
+[node name="BackSprite5" type="Sprite3D" parent="Hallway1Back"]
+transform = Transform3D(0.110755, 0, 0, 0, 0.146538, 0, 0, 0, 1, -6.39461, 0.495243, -1.48655)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.7
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("16_ew37b")
+
+[node name="BackSprite3" type="Sprite3D" parent="Hallway1Back"]
+transform = Transform3D(3.10286, 0, 0, 0, 3.03195, 0, 0, 0, 0.842685, -3.33515, 0.286631, -1.48689)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+transparent = false
+double_sided = false
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_vaj68")
+
+[node name="BackSprite4" type="Sprite3D" parent="Hallway1Back"]
+transform = Transform3D(7.68852, 0, 0, 0, 3.03195, 0, 0, 0, 1, 11.8079, 0.276856, -1.48655)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+transparent = false
+double_sided = false
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_vaj68")
+
+[node name="Hallway1Sky" type="Sprite3D" parent="Hallway1Back"]
+transform = Transform3D(24.6203, 0, 0, 0, 2.47191, 0, 0, 0, 1, 0.124178, 0.593932, -1.56295)
+cast_shadow = 0
+modulate = Color(0.160156, 0.160156, 0.160156, 1)
+alpha_cut = 1
+texture = SubResource("GradientTexture2D_hb5m1")
