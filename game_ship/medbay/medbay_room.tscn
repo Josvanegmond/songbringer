@@ -1,17 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://ctadlqxj5dyhr"]
+[gd_scene load_steps=23 format=3 uid="uid://ctadlqxj5dyhr"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_b8ats"]
+[ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_ulgox"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_gvwlu"]
 [ext_resource type="Texture2D" uid="uid://cb30f82op24ui" path="res://game_ship/medbay/Medbaygreeble_01.png" id="4_niput"]
 [ext_resource type="Texture2D" uid="uid://d2hdw3y1g6c2y" path="res://game_ship/medbay/Medbaygreeble_02.png" id="5_dxs77"]
 [ext_resource type="Texture2D" uid="uid://6x7b1ijpkx56" path="res://game_ship/engine/Enginegreeble_07.png" id="6_5v6sj"]
-[ext_resource type="Texture2D" uid="uid://cjabog8rq281q" path="res://game_ship/medbay/Medbaygreeble_03.png" id="6_dns6j"]
 [ext_resource type="Texture2D" uid="uid://vxr0gjewvgbb" path="res://game_ship/medbay/Medbaygreeble_04.png" id="7_5jwcd"]
 [ext_resource type="Texture2D" uid="uid://beiogdmct6r8i" path="res://game_ship/medbay/Medbaygreeble_05.png" id="8_u0ge6"]
 [ext_resource type="Texture2D" uid="uid://b36d542wqnmtd" path="res://game_ship/engine/engine_floor_greeble_2.png" id="9_hk6o8"]
 [ext_resource type="Texture2D" uid="uid://bv7ysm7oiwlkb" path="res://game_ship/engine/engine_floor_greeble_3.png" id="10_mldre"]
-[ext_resource type="Texture2D" uid="uid://dg5k3tm4rclas" path="res://game_ship/engine/engine_floor_greeble_5.png" id="12_efge7"]
-[ext_resource type="Texture2D" uid="uid://5fuqwyrbo6ti" path="res://game_ship/engine/engine_floor_greeble_6.png" id="13_mj7dp"]
 [ext_resource type="Texture2D" uid="uid://dptvc3q2qm6pp" path="res://game_ship/medbay/gramophone_sheet.png" id="13_vyyjn"]
 [ext_resource type="Texture2D" uid="uid://brr3sr1cyasy2" path="res://game_ship/engine/engine_floor_greeble_7.png" id="14_c31xw"]
 [ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_m5a55"]
@@ -48,7 +46,7 @@ gradient = SubResource("Gradient_e36ub")
 fill_to = Vector2(0, 1)
 repeat = 1
 
-[node name="MedbayRoomRoom" type="Node3D"]
+[node name="MedbayRoom" type="Node3D"]
 
 [node name="MedbayGround" parent="." instance=ExtResource("1_b8ats")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
@@ -68,10 +66,10 @@ visible = false
 shape = SubResource("BoxShape3D_xa8c5")
 color = Color(0, 0, 0, 1)
 
-[node name="EngineFront" type="Node3D" parent="."]
+[node name="MedbayFront" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95254)
 
-[node name="Sprite3D16" type="Sprite3D" parent="EngineFront"]
+[node name="Sprite3D16" type="Sprite3D" parent="MedbayFront"]
 transform = Transform3D(0.0133301, 0.000457812, 0, -0.000457812, 0.0133301, 0, 0, 0, 0.56, -0.248045, 0.54813, -1.12371)
 cast_shadow = 0
 flip_h = true
@@ -80,44 +78,20 @@ alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = ExtResource("4_gvwlu")
 
-[node name="MBGREEB1" type="Sprite3D" parent="EngineFront"]
-transform = Transform3D(0.0237943, 0.00105678, 0, -0.00105678, 0.0237943, 0, 0, 0, 1, -0.47234, 0.231361, -1.71691)
+[node name="Sprite3D17" type="Sprite3D" parent="MedbayFront"]
+transform = Transform3D(0.0237641, 0.00159841, 0, -0.00159841, 0.0237641, 0, 0, 0, 1, -1.52856, 0.183645, -1.17558)
 cast_shadow = 0
 modulate = Color(0, 0, 0, 1)
 alpha_cut = 1
 alpha_antialiasing_mode = 1
-texture = ExtResource("4_niput")
+texture = ExtResource("13_vyyjn")
+hframes = 5
 
-[node name="MBGREEB2" type="Sprite3D" parent="EngineFront"]
-transform = Transform3D(0.0238177, -6.52646e-05, 0, 6.52646e-05, 0.0238177, 0, 0, 0, 1, -0.688278, 0.375509, -1.61251)
-cast_shadow = 0
-modulate = Color(0, 0, 0, 1)
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("5_dxs77")
-
-[node name="MBGREEB3" type="Sprite3D" parent="EngineFront"]
-transform = Transform3D(0.0238178, 0, 0, 0, 0.0238178, 0, 0, 0, 1, 0.848195, 0.394464, -0.616762)
-visible = false
-cast_shadow = 0
-modulate = Color(0, 0, 0, 1)
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("6_dns6j")
-
-[node name="MBGREEB5" type="Sprite3D" parent="EngineFront"]
-transform = Transform3D(0.0237994, 0.000937159, 0, -0.000937159, 0.0237994, 0, 0, 0, 1, -2.17039, 0.346652, -1.52694)
-cast_shadow = 0
-modulate = Color(0, 0, 0, 1)
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("8_u0ge6")
-
-[node name="Sprite3D20" type="Sprite3D" parent="."]
-transform = Transform3D(0.0493396, -0.00245541, 0, 0.00245541, 0.0493396, 0, 0, 0, 1, 0.374409, 0.242593, -0.200917)
+[node name="Sprite3D20" type="Sprite3D" parent="MedbayFront"]
+transform = Transform3D(0.0493396, -0.00245541, 0, 0.00245541, 0.0493396, 0, 0, 0, 1, 0.374409, 0.242593, -1.15346)
 cast_shadow = 0
 flip_h = true
-modulate = Color(0.121141, 0.121141, 0.121141, 1)
+modulate = Color(0, 0, 0, 1)
 double_sided = false
 alpha_cut = 1
 alpha_scissor_threshold = 0.721
@@ -125,10 +99,21 @@ alpha_antialiasing_mode = 1
 texture_filter = 2
 texture = ExtResource("6_5v6sj")
 
-[node name="EngineFloor" type="Node3D" parent="."]
+[node name="Sprite3D21" type="Sprite3D" parent="MedbayFront"]
+transform = Transform3D(0.049354, 0.00214708, 0, -0.00214708, 0.049354, 0, 0, 0, 1, -2.68663, 0.853404, -1.33502)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.721
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("3_ulgox")
+
+[node name="MedbayFloor" type="Node3D" parent="."]
 transform = Transform3D(0.578394, 0, 0, 0, 0.578394, 0, 0, 0, 1, -1.74533, 0.0159395, 8)
 
-[node name="Sprite3D3" type="Sprite3D" parent="EngineFloor"]
+[node name="Sprite3D3" type="Sprite3D" parent="MedbayFloor"]
 transform = Transform3D(0.154502, 0, 0, 0, 0.154502, 0, 0, 0, 1, 1.979, 0.209366, -8.48655)
 cast_shadow = 0
 modulate = Color(0.489982, 0.489982, 0.489982, 1)
@@ -137,7 +122,7 @@ alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = ExtResource("10_mldre")
 
-[node name="Sprite3D9" type="Sprite3D" parent="EngineFloor"]
+[node name="Sprite3D9" type="Sprite3D" parent="MedbayFloor"]
 transform = Transform3D(0.157093, 0, 0, 0, 0.157093, 0, 0, 0, 1, 3.07044, 0.210193, -8.48655)
 cast_shadow = 0
 modulate = Color(0.489982, 0.489982, 0.489982, 1)
@@ -146,17 +131,7 @@ alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = ExtResource("10_mldre")
 
-[node name="Sprite3D10" type="Sprite3D" parent="EngineFloor"]
-transform = Transform3D(0.180305, 0, 0, 0, 0.180305, 0, 0, 0, 1, 5.86578, 0.215253, -8.48655)
-cast_shadow = 0
-flip_h = true
-modulate = Color(0.489982, 0.489982, 0.489982, 1)
-double_sided = false
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("10_mldre")
-
-[node name="Sprite3D12" type="Sprite3D" parent="EngineFloor"]
+[node name="Sprite3D12" type="Sprite3D" parent="MedbayFloor"]
 transform = Transform3D(0.158449, 0, 0, 0, 0.166222, 0, 0, 0, 1, 3.38367, 0.285334, -8.48655)
 cast_shadow = 0
 flip_h = true
@@ -166,26 +141,7 @@ alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = ExtResource("9_hk6o8")
 
-[node name="Sprite3D8" type="Sprite3D" parent="EngineFloor"]
-transform = Transform3D(0.146608, 0, 0, 0, 0.146608, 0, 0, 0, 1, 9.28956, 0.189847, -8.48655)
-cast_shadow = 0
-flip_h = true
-modulate = Color(0.489982, 0.489982, 0.489982, 1)
-double_sided = false
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("12_efge7")
-
-[node name="Sprite3D6" type="Sprite3D" parent="EngineFloor"]
-transform = Transform3D(0.146608, 0, 0, 0, 0.146608, 0, 0, 0, 1, 8.32624, 0.283225, -8.48655)
-cast_shadow = 0
-modulate = Color(0.489982, 0.489982, 0.489982, 1)
-double_sided = false
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("13_mj7dp")
-
-[node name="Sprite3D7" type="Sprite3D" parent="EngineFloor"]
+[node name="Sprite3D7" type="Sprite3D" parent="MedbayFloor"]
 transform = Transform3D(0.165558, 0, 0, 0, 0.165558, 0, 0, 0, 1, -1.47319, 0.43385, -8.48655)
 cast_shadow = 0
 modulate = Color(0.489982, 0.489982, 0.489982, 1)
@@ -194,7 +150,7 @@ alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = ExtResource("14_c31xw")
 
-[node name="FloorSprite" type="Sprite3D" parent="EngineFloor"]
+[node name="FloorSprite" type="Sprite3D" parent="MedbayFloor"]
 transform = Transform3D(40.5662, 0, 0, 0, 1.55277, 0, 0, 0, 1, 2.7993, -0.324952, -8.48231)
 cast_shadow = 0
 modulate = Color(0.489982, 0.489982, 0.489982, 1)
@@ -203,31 +159,14 @@ alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = SubResource("GradientTexture2D_7knny")
 
-[node name="EngineBack" type="Node3D" parent="."]
+[node name="MedbayBack" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0349852, 0)
 
-[node name="Sprite3D17" type="Sprite3D" parent="EngineBack"]
-transform = Transform3D(0.0237641, 0.00159841, 0, -0.00159841, 0.0237641, 0, 0, 0, 1, -1.52856, 0.21863, -0.223037)
-cast_shadow = 0
-modulate = Color(0, 0, 0, 1)
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("13_vyyjn")
-hframes = 5
-
-[node name="MBGREEB4" type="Sprite3D" parent="EngineBack"]
-transform = Transform3D(0.023811, -0.000569869, 0, 0.000569869, 0.023811, 0, 0, 0, 1, -0.169414, 0.263821, -0.871975)
-cast_shadow = 0
-modulate = Color(0, 0, 0, 1)
-alpha_cut = 1
-alpha_antialiasing_mode = 1
-texture = ExtResource("7_5jwcd")
-
-[node name="BackSprite2" type="Sprite3D" parent="EngineBack"]
+[node name="BackSprite2" type="Sprite3D" parent="MedbayBack"]
 transform = Transform3D(0.17653, 0, 0, 0, 0.17653, 0, 0, 0, 1, -1.60545, 0.379, -1.28608)
 cast_shadow = 0
 flip_h = true
-modulate = Color(0.121141, 0.121141, 0.121141, 1)
+modulate = Color(0.0338533, 0.0338533, 0.0338533, 1)
 double_sided = false
 alpha_cut = 1
 alpha_scissor_threshold = 0.7
@@ -235,28 +174,59 @@ alpha_antialiasing_mode = 1
 texture_filter = 2
 texture = ExtResource("16_m5a55")
 
-[node name="BackSprite3" type="Sprite3D" parent="EngineBack"]
+[node name="BackSprite3" type="Sprite3D" parent="MedbayBack"]
 transform = Transform3D(15.8252, 0, 0, 0, 3.03195, 0, 0, 0, 1, -9.93908, 0.309215, -1.2893)
 cast_shadow = 0
-modulate = Color(0.121141, 0.121141, 0.121141, 1)
+modulate = Color(0.0352941, 0.0352941, 0.0352941, 1)
 transparent = false
 double_sided = false
 alpha_antialiasing_mode = 1
 texture = SubResource("GradientTexture2D_vaj68")
 
-[node name="BackSprite4" type="Sprite3D" parent="EngineBack"]
+[node name="BackSprite4" type="Sprite3D" parent="MedbayBack"]
 transform = Transform3D(7.68852, 0, 0, 0, 3.03195, 0, 0, 0, 1, 4.17653, 0.325, -1.2831)
 cast_shadow = 0
-modulate = Color(0.121141, 0.121141, 0.121141, 1)
+modulate = Color(0.0352941, 0.0352941, 0.0352941, 1)
 transparent = false
 double_sided = false
 alpha_antialiasing_mode = 1
 texture = SubResource("GradientTexture2D_vaj68")
 
-[node name="EngineSky" type="Sprite3D" parent="EngineBack"]
+[node name="EngineSky" type="Sprite3D" parent="MedbayBack"]
 transform = Transform3D(24.6203, 0, 0, 0, 2.47191, 0, 0, 0, 1, 0.124178, 0.593932, -1.56295)
-visible = false
 cast_shadow = 0
 modulate = Color(0.160156, 0.160156, 0.160156, 1)
 alpha_cut = 1
 texture = SubResource("GradientTexture2D_hb5m1")
+
+[node name="MBGREEB5" type="Sprite3D" parent="MedbayBack"]
+transform = Transform3D(0.0237994, 0.000937159, 0, -0.000937159, 0.0237994, 0, 0, 0, 1, -2.17039, 0.381637, -0.574403)
+cast_shadow = 0
+modulate = Color(0.121569, 0.121569, 0.121569, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("8_u0ge6")
+
+[node name="MBGREEB2" type="Sprite3D" parent="MedbayBack"]
+transform = Transform3D(0.0238177, -6.52646e-05, 0, 6.52646e-05, 0.0238177, 0, 0, 0, 1, -0.688278, 0.410495, -0.65997)
+cast_shadow = 0
+modulate = Color(0.121569, 0.121569, 0.121569, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("5_dxs77")
+
+[node name="MBGREEB4" type="Sprite3D" parent="MedbayBack"]
+transform = Transform3D(0.023811, -0.000569869, 0, 0.000569869, 0.023811, 0, 0, 0, 1, -0.169414, 0.263821, -0.763663)
+cast_shadow = 0
+modulate = Color(0.121569, 0.121569, 0.121569, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("7_5jwcd")
+
+[node name="MBGREEB1" type="Sprite3D" parent="MedbayBack"]
+transform = Transform3D(0.0237943, 0.00105678, 0, -0.00105678, 0.0237943, 0, 0, 0, 1, -1.69794, 0.261097, -0.660394)
+cast_shadow = 0
+modulate = Color(0.121569, 0.121569, 0.121569, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("4_niput")
