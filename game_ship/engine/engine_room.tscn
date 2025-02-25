@@ -58,13 +58,13 @@ shape = SubResource("BoxShape3D_ycdy4")
 color = Color(0.574219, 0.574219, 0.574219, 1)
 
 [node name="EngineWall" parent="." instance=ExtResource("1_ncaxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60299, 0.344695, -0.276088)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60299, 2.1888, -0.276088)
 visible = false
 shape = SubResource("BoxShape3D_i2p71")
 color = Color(0, 0, 0, 1)
 
 [node name="EngineWall2" parent="." instance=ExtResource("1_ncaxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64196, 0.461199, -0.779808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64196, 2.18861, -0.779808)
 visible = false
 shape = SubResource("BoxShape3D_xa8c5")
 color = Color(0, 0, 0, 1)

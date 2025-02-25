@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://ctt4qbftwu0xg"]
+[gd_scene load_steps=35 format=3 uid="uid://ctt4qbftwu0xg"]
 
 [ext_resource type="Shader" uid="uid://cdsk5onr44jrj" path="res://camera_viewport_shader.tres" id="1_ykcb3"]
 [ext_resource type="Texture2D" uid="uid://c8eskjch3eiph" path="res://shaders/hatching.png" id="2_m4pj2"]
 [ext_resource type="Script" uid="uid://qxtvs655qhyq" path="res://game_subviewport.gd" id="3_m4pj2"]
 [ext_resource type="PackedScene" uid="uid://f7srlnqg6e13" path="res://game_ship/engine/engine_room.tscn" id="3_nt0l3"]
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="4_ncr7u"]
+[ext_resource type="PackedScene" uid="uid://bafjojm4m3fkv" path="res://game_ship/hallway2/hallway2.tscn" id="4_nt0l3"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="5_pj4en"]
 [ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://game_ship/entrance_area.tscn" id="6_w4ibg"]
 [ext_resource type="AudioStream" uid="uid://22c5f3h52yu7" path="res://sounds/water.ogg" id="7_eoj5a"]
@@ -140,8 +141,12 @@ render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="SubViewport"]
 
+[node name="Hallway2Room" parent="SubViewport/Node3D" instance=ExtResource("4_nt0l3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00653601, -8.03535)
+
 [node name="EngineRoom" parent="SubViewport/Node3D" instance=ExtResource("3_nt0l3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00683749)
+visible = false
 
 [node name="Player" parent="SubViewport/Node3D" instance=ExtResource("4_ncr7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09553, 0.310742, -8.34247)
