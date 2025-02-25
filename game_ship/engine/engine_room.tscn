@@ -1,7 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://f7srlnqg6e13"]
+[gd_scene load_steps=29 format=3 uid="uid://f7srlnqg6e13"]
 
+[ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="1_f44qm"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_ncaxk"]
 [ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="2_f44qm"]
+[ext_resource type="AudioStream" uid="uid://cj2am2qdgy1u3" path="res://game_sounds/gass-pipes.ogg" id="2_frg3i"]
 [ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_frg3i"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_nbsb5"]
 [ext_resource type="Texture2D" uid="uid://favma6wd2prt" path="res://game_ship/engine/Enginegreeble_04.png" id="5_hi3lj"]
@@ -16,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://brr3sr1cyasy2" path="res://game_ship/engine/engine_floor_greeble_7.png" id="14_3a4sd"]
 [ext_resource type="Texture2D" uid="uid://74828q4y3jtw" path="res://game_ship/engine/Enginegreeble_03.png" id="15_uf42p"]
 [ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_ikb3o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frg3i"]
+resource_local_to_scene = true
+size = Vector3(0.332092, 0.66214, 0.334961)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -50,6 +56,20 @@ fill_to = Vector2(0, 1)
 repeat = 1
 
 [node name="EngineRoom" type="Node3D"]
+
+[node name="Poi" type="Node3D" parent="."]
+
+[node name="GasPipes" parent="Poi" instance=ExtResource("1_f44qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65151, 0.163934, -0.449602)
+choice_tag = "pipes"
+sound = ExtResource("2_frg3i")
+
+[node name="AreaShape" parent="Poi/GasPipes/Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.212967, 0)
+shape = SubResource("BoxShape3D_frg3i")
+
+[node name="AudioStreamPlayer3D" parent="Poi/GasPipes" index="1"]
+max_distance = 1.5
 
 [node name="EngineGround" parent="." instance=ExtResource("1_ncaxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
@@ -338,3 +358,5 @@ cast_shadow = 0
 modulate = Color(0.160156, 0.160156, 0.160156, 1)
 alpha_cut = 1
 texture = SubResource("GradientTexture2D_hb5m1")
+
+[editable path="Poi/GasPipes"]
