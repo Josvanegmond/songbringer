@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb30f82op24ui"
-path.s3tc="res://.godot/imported/Medbaygreeble_01.png-04d9d7d2d0a04c18302a32de2e29ec29.s3tc.ctex"
-path.etc2="res://.godot/imported/Medbaygreeble_01.png-04d9d7d2d0a04c18302a32de2e29ec29.etc2.ctex"
+uid="uid://dptvc3q2qm6pp"
+path.s3tc="res://.godot/imported/gramophone_sheet.png-bdbdbaa60855284a458be0bb55093121.s3tc.ctex"
+path.etc2="res://.godot/imported/gramophone_sheet.png-bdbdbaa60855284a458be0bb55093121.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://game_ship/medbay/Medbaygreeble_01.png"
-dest_files=["res://.godot/imported/Medbaygreeble_01.png-04d9d7d2d0a04c18302a32de2e29ec29.s3tc.ctex", "res://.godot/imported/Medbaygreeble_01.png-04d9d7d2d0a04c18302a32de2e29ec29.etc2.ctex"]
+source_file="res://game_ship/medbay/gramophone_sheet.png"
+dest_files=["res://.godot/imported/gramophone_sheet.png-bdbdbaa60855284a458be0bb55093121.s3tc.ctex", "res://.godot/imported/gramophone_sheet.png-bdbdbaa60855284a458be0bb55093121.etc2.ctex"]
 
 [params]
 
