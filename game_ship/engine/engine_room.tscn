@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://f7srlnqg6e13"]
+[gd_scene load_steps=30 format=3 uid="uid://f7srlnqg6e13"]
 
 [ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="1_f44qm"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_ncaxk"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://brr3sr1cyasy2" path="res://game_ship/engine/engine_floor_greeble_7.png" id="14_3a4sd"]
 [ext_resource type="Texture2D" uid="uid://74828q4y3jtw" path="res://game_ship/engine/Enginegreeble_03.png" id="15_uf42p"]
 [ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_ikb3o"]
+[ext_resource type="Texture2D" uid="uid://qxinmiopqkna" path="res://game_ship/engine/SacredTree.png" id="18_nbsb5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_frg3i"]
 resource_local_to_scene = true
@@ -25,7 +26,7 @@ size = Vector3(0.332092, 0.66214, 0.334961)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
-size = Vector3(8.9447, 0.298535, 0.410156)
+size = Vector3(14.0908, 0.298535, 0.410156)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i2p71"]
 resource_local_to_scene = true
@@ -60,7 +61,7 @@ repeat = 1
 [node name="Poi" type="Node3D" parent="."]
 
 [node name="GasPipes" parent="Poi" instance=ExtResource("1_f44qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65151, 0.163934, -0.449602)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68061, 0.163934, -0.32998)
 choice_tag = "pipes"
 sound = ExtResource("2_frg3i")
 
@@ -72,7 +73,7 @@ shape = SubResource("BoxShape3D_frg3i")
 max_distance = 1.5
 
 [node name="EngineGround" parent="." instance=ExtResource("1_ncaxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195313, -0.0410196, -0.294922)
 visible = false
 shape = SubResource("BoxShape3D_ycdy4")
 color = Color(0.574219, 0.574219, 0.574219, 1)
@@ -84,7 +85,7 @@ shape = SubResource("BoxShape3D_i2p71")
 color = Color(0, 0, 0, 1)
 
 [node name="EngineWall2" parent="." instance=ExtResource("1_ncaxk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64196, 0.461199, -0.779808)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08615, 0.461199, -0.779808)
 visible = false
 shape = SubResource("BoxShape3D_xa8c5")
 color = Color(0, 0, 0, 1)
@@ -101,7 +102,7 @@ alpha_antialiasing_mode = 1
 texture = ExtResource("2_f44qm")
 
 [node name="Sprite3D17" type="Sprite3D" parent="EngineFront"]
-transform = Transform3D(0.0238178, 0, 0, 0, 0.0238178, 0, 0, 0, 1, 1.65333, 0.503508, -0.984359)
+transform = Transform3D(0.0238178, 0, 0, 0, 0.0238178, 0, 0, 0, 1, 4.67243, 0.503508, -0.984359)
 cast_shadow = 0
 modulate = Color(0, 0, 0, 1)
 alpha_cut = 1
@@ -125,7 +126,7 @@ alpha_antialiasing_mode = 1
 texture = ExtResource("4_nbsb5")
 
 [node name="Sprite3D13" type="Sprite3D" parent="EngineFront"]
-transform = Transform3D(0.0191109, 0, 0, 0, 0.0191109, 0, 0, 0, 1, 2.01826, 0.237001, -0.842299)
+transform = Transform3D(0.0191109, 0, 0, 0, 0.0191109, 0, 0, 0, 1, 5.03736, 0.237001, -0.842299)
 cast_shadow = 0
 modulate = Color(0, 0, 0, 1)
 double_sided = false
@@ -134,7 +135,7 @@ alpha_antialiasing_mode = 1
 texture = ExtResource("5_hi3lj")
 
 [node name="Sprite3D14" type="Sprite3D" parent="EngineFront"]
-transform = Transform3D(0.0217538, 0, 0, 0, 0.0217538, 0, 0, 0, 1, 4.57334, 0.310592, -0.616762)
+transform = Transform3D(0.0217538, 0, 0, 0, 0.0217538, 0, 0, 0, 1, 7.02673, 0.310592, -0.616762)
 cast_shadow = 0
 modulate = Color(0, 0, 0, 1)
 double_sided = false
@@ -279,15 +280,26 @@ texture = SubResource("GradientTexture2D_7knny")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0349852, 0)
 
 [node name="Sprite3D18" type="Sprite3D" parent="EngineBack"]
-transform = Transform3D(0.0585651, 0, 0, 0, 0.0585651, 0, 0, 0, 1, 1.9469, 0.195511, -0.995752)
+transform = Transform3D(0.0585651, 0, 0, 0, 0.0585651, 0, 0, 0, 1, -3.36889, 0.217864, -0.70355)
 cast_shadow = 0
-modulate = Color(0.121141, 0.121141, 0.121141, 1)
+modulate = Color(0.490196, 0.490196, 0.490196, 1)
 double_sided = false
 alpha_cut = 1
 alpha_scissor_threshold = 0.7
 alpha_antialiasing_mode = 1
 texture_filter = 2
 texture = ExtResource("15_uf42p")
+
+[node name="Sprite3D22" type="Sprite3D" parent="EngineBack"]
+transform = Transform3D(0.0252588, 0, 0, 0, 0.0252588, 0, 0, 0, 1, 1.73502, 0.625319, -0.704775)
+cast_shadow = 0
+modulate = Color(0.121569, 0.121569, 0.121569, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.7
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("18_nbsb5")
 
 [node name="Sprite3D19" type="Sprite3D" parent="EngineBack"]
 transform = Transform3D(0.0494007, 0, 0, 0, 0.0494007, 0, 0, 0, 1, 4.48677, 0.403452, -1.45312)

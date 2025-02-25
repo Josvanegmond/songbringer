@@ -22,11 +22,20 @@ A song beckons to you across space.
 
 === engine_room ===
 #music_play:silence
-#light_level:1.0
+#light_level:0.4
 {engine_room == 1: You crawl into the ship through a gap in its underside, surfacing in what appears to be the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.}
 
-* [pipes #area:pipes]
-    - You hear the faint sound of pipes sputtering, the occasional hiss of escaping steam, a low groan as the ship shifts. And then beating beneath it all, in the heart of the tree: the whisper of the same song that brought you here.
++ [pipes #area:pipes]
+    - (pipes)
+    {
+        - pipes <= 1:
+            You hear the faint sound of pipes sputtering, the occasional hiss of escaping steam, a low groan as the ship shifts.
+        - else:
+            Gas still flows through rusted and worn pipes. You wonder what other parts of this ship still cling to life.
+    }
+
+* [tree #area:tree]
+    - Beating beneath it all, in the heart of the tree: the whisper of the same song that brought you here.
 
 {not tape_1: A small, rectangular device sits at the base of the tree.}
 
@@ -48,7 +57,8 @@ A song beckons to you across space.
     
 + {tape_1} [GO TO HALLWAY]
     -> hallway_lvl1
-    
+
+
 === cassette ===
 Oh, it's a cassette recorder! A single tape is loaded into it.
 

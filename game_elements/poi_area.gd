@@ -19,7 +19,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
+	if player_in_area && event.is_action_pressed("interact"):
 		var choices = GameState.story.GetCurrentChoices()
 		for i in range(choices.size()):
 			var choice: InkChoice = choices[i]
@@ -33,16 +33,19 @@ func _input(event: InputEvent) -> void:
 
 
 func update_sound():
-		$AudioStreamPlayer3D.stream = sound
-		if sound: $AudioStreamPlayer3D.play()
-		else: $AudioStreamPlayer3D.stop()
+	if !audio_stream: return
+	
+	audio_stream.stream = sound
+	if sound: audio_stream.play()
+	else: audio_stream.stop()
+
 
 
 func _on_area_body_entered(body: Node3D) -> void:
-	if body.name == 'player':
+	if body.name == 'Player':
 		player_in_area = true
 
 
 func _on_area_body_exited(body: Node3D) -> void:
-	if body.name == 'player':
+	if body.name == 'Player':
 		player_in_area = false
