@@ -1,6 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://ctt4qbftwu0xg"]
+[gd_scene load_steps=31 format=3 uid="uid://ctt4qbftwu0xg"]
 
-[ext_resource type="Material" uid="uid://d0eyr1a4r7125" path="res://game_viewport_material.tres" id="1_ykcb3"]
+[ext_resource type="Material" path="res://game_viewport_material.tres" id="1_ykcb3"]
 [ext_resource type="Script" uid="uid://qxtvs655qhyq" path="res://game_subviewport.gd" id="3_m4pj2"]
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="4_ncr7u"]
 [ext_resource type="PackedScene" uid="uid://bafjojm4m3fkv" path="res://game_ship/hallway2/hallway2.tscn" id="4_nt0l3"]
@@ -123,8 +123,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00653601, -8.03535)
 
 [node name="EngineRoom" parent="SubViewport/Node3D" instance=ExtResource("3_nt0l3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00683749)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0756, 0, -3.02227)
 
 [node name="Player" parent="SubViewport/Node3D" instance=ExtResource("4_ncr7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.49056, 0.295084, -8.34247)
