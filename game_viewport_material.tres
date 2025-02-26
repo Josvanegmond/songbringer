@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://f3tj1hd8ogwa"]
+
+[ext_resource type="Shader" uid="uid://cdsk5onr44jrj" path="res://camera_viewport_shader.tres" id="1_flxiq"]
+[ext_resource type="Texture2D" uid="uid://c8eskjch3eiph" path="res://shaders/hatching.png" id="3_sbre4"]
+
+[sub_resource type="Gradient" id="Gradient_iotsf"]
+offsets = PackedFloat32Array(0.2, 0.471483, 1)
+colors = PackedColorArray(0.047418, 0.047418, 0.047418, 1, 0.252966, 0.252966, 0.252966, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boyg6"]
+gradient = SubResource("Gradient_iotsf")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.4, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[resource]
+shader = ExtResource("1_flxiq")
+shader_parameter/aspect_ratio = 2.0
+shader_parameter/hatching = ExtResource("3_sbre4")
+shader_parameter/light_level = 0.4
+shader_parameter/growth = 0.0
+shader_parameter/center_circle = SubResource("GradientTexture2D_boyg6")

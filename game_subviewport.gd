@@ -3,14 +3,16 @@ extends SubViewportContainer
 
 var viewport_shader: ShaderMaterial = null
 
+
 func _ready():
 	GameBus.handle_tag.connect(handle_tag)
+	get_viewport().size_changed.connect(resize)
+	resize()
 
-	material.set_shader_parameter('aspect_ratio', size.x / size.y)
 
-
-func _on_sub_viewport_container_resized() -> void:
-	material.set_shader_parameter('aspect_ratio', size.x / size.y)
+func resize():
+	var viewport_size = get_viewport().get_visible_rect().size
+	material.set_shader_parameter('aspect_ratio', viewport_size.x / viewport_size.y)
 
 
 func handle_tag(tag_command, tag_args):

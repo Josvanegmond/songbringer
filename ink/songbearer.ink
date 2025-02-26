@@ -22,13 +22,8 @@ A song beckons to you across space.
 
 === engine_room ===
 #music_play:silence
-#light_level:1.0
+#light_level:0.4
 {engine_room == 1: You crawl into the ship through a gap in its underside, surfacing in what appears to be the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.}
-
-* [pipes #area:pipes]
-    - You hear the faint sound of pipes sputtering, the occasional hiss of escaping steam, a low groan as the ship shifts. And then beating beneath it all, in the heart of the tree: the whisper of the same song that brought you here.
-
-{not tape_1: A small, rectangular device sits at the base of the tree.}
 
 {tape_1: The tape has ended, but the ghost of a voice lingers.}
 
@@ -36,37 +31,29 @@ A song beckons to you across space.
 
 {flute_song && drum_song && piano_song && violin_song && voice: This was the Mechanic's last wish: the final symphony of the crew.}
 
+// + {flute_song && drum_song && piano_song && violin_song && voice} [LISTEN]
+//     -> final_song
+    
+// + {tape_1} [LISTEN TO TAPE]
+//     ->tape_1
+    
+// + {tape_1} [GO TO HALLWAY]
+//     -> hallway_lvl1
+- (choices)
++ [pipes #area:pipes]
+    {You hear the faint sound of pipes sputtering, the occasional hiss of escaping steam, a low groan as the ship shifts. You hear the faint melody on your etherphone that brought you here.|Gas still {~flows|rushes|travels} through rusted and worn pipes that entangle the engine room. {~You wonder w|W}hat other {~ship parts|parts of this {~vessel|ship}} still {~function|breathe|{~hold on|cling} to life...}}
 
-+ {flute_song && drum_song && piano_song && violin_song && voice} [LISTEN]
-    -> final_song
-    
-+ {not tape_1} [PICK UP DEVICE]
-    -> cassette
-    
-+ {tape_1} [LISTEN TO TAPE]
-    ->tape_1
-    
-+ {tape_1} [GO TO HALLWAY]
-    -> hallway_lvl1
-    
-=== cassette ===
-Oh, it's a cassette recorder! A single tape is loaded into it.
++ [tree #area:tree]
+    {The tree has rooted itself deep inside the ship's engine. Yet somehow, it is still humming, still glowing. Its purpose no longer to propel. What its purpose is, eludes you still.|The engine casts a strange warm light on the dense tangle of tree roots. It seems like the tree is connected to the engine.|The tree is {~waiting|looking|longing} for something, {~what could it be|what does it want}?|perhaps you can {~bring|find} it?}
 
-+ [EXAMINE]
-    -> examine_cassette
-    
-+ [PLAY]
-    -> tape_1
-    
-+ [RETURN]
-    -> engine_room
++ [recorder #area:recorder]
+    {A small, rectangular device sits at the base of the tree. It's a cassette recorder! A single tape is loaded into it.|<- tape_1}
 
-=== examine_cassette ===
-How fascinating! You don't see this kind of make in most star systems anymore. Like all forgotten relics that get unearthed, it’s as if time has reimbued it with the whimsy of existence.
+- -> engine_room.choices
 
--> cassette
 
-=== tape_1 ===
+= tape_1
+#show:all
 A voice crackles to life.
 
 "Hey.
@@ -93,9 +80,9 @@ I guess that's all I can really ask you to do in the end. The you who arrived he
 
 Please listen."
 
-The tape ends.
+The tape ends. A shard lies next to the tape recorder, it's the source of the melody you keep hearing!
+-> DONE
 
--> cassette
 
 === hallway_lvl1 ===
 
