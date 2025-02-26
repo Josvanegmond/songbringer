@@ -1,16 +1,33 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctt4qbftwu0xg"]
+[gd_scene load_steps=15 format=3 uid="uid://ctt4qbftwu0xg"]
 
-[ext_resource type="Material" path="res://game_viewport_material.tres" id="1_ykcb3"]
+[ext_resource type="Shader" uid="uid://cdsk5onr44jrj" path="res://camera_viewport_shader.tres" id="1_ykcb3"]
+[ext_resource type="Texture2D" uid="uid://c8eskjch3eiph" path="res://shaders/hatching.png" id="2_m4pj2"]
 [ext_resource type="Script" uid="uid://qxtvs655qhyq" path="res://game_subviewport.gd" id="3_m4pj2"]
+[ext_resource type="PackedScene" uid="uid://f7srlnqg6e13" path="res://game_ship/engine/engine_room.tscn" id="3_nt0l3"]
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="4_ncr7u"]
 [ext_resource type="PackedScene" uid="uid://ctadlqxj5dyhr" path="res://game_ship/medbay/medbay_room.tscn" id="4_nt0l3"]
-[ext_resource type="PackedScene" uid="uid://bafjojm4m3fkv" path="res://game_ship/hallway2/hallway2.tscn" id="4_nt0l3"]
-[ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="5_pj4en"]
+[ext_resource type="PackedScene" uid="uid://bafjojm4m3fkv" path="res://game_ship/hallway2/hallway2.tscn" id="6_v2xn6"]
 [ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://game_ship/entrance_area.tscn" id="6_w4ibg"]
-[ext_resource type="AudioStream" uid="uid://22c5f3h52yu7" path="res://sounds/water.ogg" id="7_eoj5a"]
-[ext_resource type="AudioStream" uid="uid://dqkv5dubtui7h" path="res://sounds/machine_06.ogg" id="8_5utuw"]
-[ext_resource type="AudioStream" uid="uid://b52ro50rvpwqu" path="res://sounds/01 - LEGIT Audio - TheShopCollection_convenience_store_drinks_fridge_drone.mp3" id="9_mp2ba"]
-[ext_resource type="AudioStream" uid="uid://bpera11hm3dpk" path="res://sounds/atmosbasement.mp3_.ogg" id="10_vdj81"]
+
+[sub_resource type="Gradient" id="Gradient_iotsf"]
+offsets = PackedFloat32Array(0.2, 0.471483, 1)
+colors = PackedColorArray(0.047418, 0.047418, 0.047418, 1, 0.252966, 0.252966, 0.252966, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_boyg6"]
+gradient = SubResource("Gradient_iotsf")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.4, 0.5)
+fill_to = Vector2(0, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e36ub"]
+shader = ExtResource("1_ykcb3")
+shader_parameter/aspect_ratio = 2.0
+shader_parameter/hatching = ExtResource("2_m4pj2")
+shader_parameter/light_level = 0.5
+shader_parameter/growth = 0.0
+shader_parameter/center_circle = SubResource("GradientTexture2D_boyg6")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.677468, 0.697863, 0.972412, 1)
@@ -35,72 +52,8 @@ fog_light_color = Color(0.146946, 0.191599, 0.271199, 1)
 fog_light_energy = 0.0
 fog_density = 1.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vivmo"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
-resource_local_to_scene = true
-size = Vector3(1.83181, 0.1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_vaj68"]
-resource_local_to_scene = true
-size = Vector3(8.9447, 0.298535, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yaehf"]
-resource_local_to_scene = true
-size = Vector3(11, 0.1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kek77"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1bvp3"]
-resource_local_to_scene = true
-size = Vector3(4.9, 0.1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7mycd"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lquwl"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h2yge"]
-resource_local_to_scene = true
-size = Vector3(4.9, 0.1, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5vw27"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
-resource_local_to_scene = true
-size = Vector3(0.1, 0.7, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ig7tw"]
-resource_local_to_scene = true
-size = Vector3(4, 0.1, 1)
-
 [node name="SubViewportContainer" type="SubViewportContainer"]
-material = ExtResource("1_ykcb3")
+material = SubResource("ShaderMaterial_e36ub")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -120,16 +73,8 @@ render_target_update_mode = 4
 
 [node name="Node3D" type="Node3D" parent="SubViewport"]
 
-[node name="Hallway2Room" parent="SubViewport/Node3D" instance=ExtResource("4_nt0l3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00653601, -8.03535)
-
-[node name="MedbayRoom" parent="SubViewport/Node3D" instance=ExtResource("4_nt0l3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.19213, -0.0723033, -8.02452)
-[node name="EngineRoom" parent="SubViewport/Node3D" instance=ExtResource("3_nt0l3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0756, 0, -3.02227)
-
 [node name="Player" parent="SubViewport/Node3D" instance=ExtResource("4_ncr7u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.49056, 0.295084, -8.34247)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0256, 0.310742, 4.00486)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="SubViewport/Node3D/Player"]
 current = true
@@ -141,207 +86,48 @@ current = true
 fov = 30.0397
 size = 0.763536
 
-[node name="Blue" type="Node3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9228, 0, -1.99067)
+[node name="MedbayRoom" parent="SubViewport/Node3D" instance=ExtResource("4_nt0l3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92873, -0.0723033, -6.17891)
 
-[node name="DummyShape6" parent="SubViewport/Node3D/Blue" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74055, 0.3, 0)
-shape = SubResource("BoxShape3D_efxa6")
+[node name="MedbayToHallway2" parent="SubViewport/Node3D/MedbayRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
+transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 1.04415, 0.493393, -0.279859)
+choice_name = "hallway2"
+connected_area = NodePath("../../Hallway2Room/Hallway2ToMedbay")
 
-[node name="DummyShape7" parent="SubViewport/Node3D/Blue" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159451, 0.3, 0)
-shape = SubResource("BoxShape3D_vivmo")
+[node name="CollisionShape3D" parent="SubViewport/Node3D/MedbayRoom/MedbayToHallway2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195312, -0.00737223, -0.00499755)
 
-[node name="BlueToPink" parent="SubViewport/Node3D/Blue" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.323479, 0.352846, 0)
-choice_name = "engine"
-connected_area = NodePath("../../Pink/PinkToBlue")
-metadata/_edit_group_ = true
+[node name="Hallway2Room" parent="SubViewport/Node3D" instance=ExtResource("6_v2xn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13926, 0, 0)
 
-[node name="Ground" parent="SubViewport/Node3D/Blue" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.805638, 0, 0)
-shape = SubResource("BoxShape3D_0xm2m")
-color = Color(2.88785e-07, 0.577388, 0.798947, 1)
+[node name="Hallway2ToEngine" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
+transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 5.18669, 0.42109, -0.269099)
+choice_name = "hallway2"
+connected_area = NodePath("../../EngineRoom/EngineToHallway2")
 
-[node name="Orange" type="Node3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
+[node name="CollisionShape3D" parent="SubViewport/Node3D/Hallway2Room/Hallway2ToEngine" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195312, -0.00737223, -0.00499755)
 
-[node name="DummyShape6" parent="SubViewport/Node3D/Orange" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.51541, 0.312944, 0)
-shape = SubResource("BoxShape3D_w48qg")
+[node name="Hallway2ToMedbay" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
+transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 0.254682, 0.42109, -0.269099)
+choice_name = "hallway2"
+connected_area = NodePath("../../MedbayRoom/MedbayToHallway2")
 
-[node name="DummyShape2" parent="SubViewport/Node3D/Orange" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.48459, 0.312944, 0)
-shape = SubResource("BoxShape3D_dg77c")
+[node name="CollisionShape3D" parent="SubViewport/Node3D/Hallway2Room/Hallway2ToMedbay" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195312, -0.00737223, -0.00499755)
 
-[node name="OrangeToPink" parent="SubViewport/Node3D/Orange" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09662, 0.371696, 0)
-choice_name = "engine"
-connected_area = NodePath("../../Pink/PinkToOrange")
-metadata/_edit_group_ = true
+[node name="EngineRoom" parent="SubViewport/Node3D" instance=ExtResource("3_nt0l3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.13166, 0, 4.32808)
 
-[node name="OrangeToRed" parent="SubViewport/Node3D/Orange" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.98926, 0.371696, 0)
-choice_name = "river"
-connected_area = NodePath("../../Red/RedToOrange")
-metadata/_edit_group_ = true
+[node name="EngineToHallway2" parent="SubViewport/Node3D/EngineRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.96993, 0.27059, -0.477699)
+choice_name = "hallway2"
+connected_area = NodePath("../../Hallway2Room/Hallway2ToEngine")
 
-[node name="OrangeToYellow" parent="SubViewport/Node3D/Orange" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0402012, 0.371696, 0.0281088)
-choice_name = "machine"
-connected_area = NodePath("../../Yellow/YellowToOrange")
-metadata/_edit_group_ = true
+[node name="CollisionShape3D" parent="SubViewport/Node3D/EngineRoom/EngineToHallway2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132812, 0.0591735, 0.191406)
 
-[node name="Ground" parent="SubViewport/Node3D/Orange" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03627, 2.98023e-08, 0)
-shape = SubResource("BoxShape3D_vaj68")
-color = Color(0.889506, 0.319593, 0, 1)
-
-[node name="Ground2" parent="SubViewport/Node3D/Orange" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.03627, 0.182433, -0.542769)
-shape = SubResource("BoxShape3D_yaehf")
-color = Color(0.889506, 0.319593, 0, 1)
-
-[node name="Red" type="Node3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4383, 0, 0)
-
-[node name="RedToOrange" parent="SubViewport/Node3D/Red" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48926, 0.371696, -2.00522)
-choice_name = "hallway"
-connected_area = NodePath("../../Orange/OrangeToRed")
-metadata/_edit_group_ = true
-
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Red"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.20165, 0.312295, -2.44662)
-stream = ExtResource("7_eoj5a")
-volume_db = 10.0
-unit_size = 1.0
-max_db = 1.0
-autoplay = true
-max_distance = 3.0
-panning_strength = 5.0
-bus = &"Ambient"
-emission_angle_enabled = true
-emission_angle_degrees = 7.0
-
-[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Red"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.46601, -0.21574, -1.65777)
-stream = ExtResource("7_eoj5a")
-attenuation_model = 2
-unit_size = 1.0
-max_db = 1.0
-pitch_scale = 0.71
-autoplay = true
-max_distance = 2.0
-panning_strength = 0.4
-bus = &"Ambient"
-emission_angle_degrees = 7.0
-
-[node name="DummyShape7" parent="SubViewport/Node3D/Red" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96203, 0.312943, -1.99301)
-shape = SubResource("BoxShape3D_kek77")
-
-[node name="DummyShape3" parent="SubViewport/Node3D/Red" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.96203, 0.312943, -1.99301)
-shape = SubResource("BoxShape3D_4c57u")
-
-[node name="Ground" parent="SubViewport/Node3D/Red" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44997, 5.96046e-08, -1.99301)
-shape = SubResource("BoxShape3D_1bvp3")
-color = Color(0.656023, 0, 0.0995413, 1)
-
-[node name="Yellow" type="Node3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
-
-[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Yellow"]
-transform = Transform3D(0.999999, -1.9873e-05, 0.00115184, -1.13181e-08, 0.999851, 0.0172605, -0.00115201, -0.0172605, 0.99985, 0.0470185, 0.312295, 2.78175)
-stream = ExtResource("8_5utuw")
-max_db = 1.0
-autoplay = true
-max_distance = 3.5
-emission_angle_enabled = true
-emission_angle_degrees = 13.0
-doppler_tracking = 1
-parameters/looping = true
-
-[node name="DummyShape5" parent="SubViewport/Node3D/Yellow" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48459, 0.312943, 2.01996)
-shape = SubResource("BoxShape3D_7mycd")
-
-[node name="DummyShape9" parent="SubViewport/Node3D/Yellow" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515408, 0.312943, 2.01996)
-shape = SubResource("BoxShape3D_lquwl")
-
-[node name="YellowToOrange" parent="SubViewport/Node3D/Yellow" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0217154, 0.371696, 2.03796)
-choice_name = "hallway"
-connected_area = NodePath("../../Orange/OrangeToYellow")
-metadata/_edit_group_ = true
-
-[node name="Ground" parent="SubViewport/Node3D/Yellow" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97253, 5.96046e-08, 2.01996)
-shape = SubResource("BoxShape3D_h2yge")
-color = Color(0.699612, 0.488272, 3.85046e-07, 1)
-
-[node name="Pink" type="Node3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Pink"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.29547, 0.23419, -2.44662)
-stream = ExtResource("9_mp2ba")
-volume_db = 10.0
-max_db = 1.0
-autoplay = true
-max_distance = 3.0
-panning_strength = 5.0
-bus = &"Ambient"
-emission_angle_enabled = true
-emission_angle_degrees = 7.0
-emission_angle_filter_attenuation_db = -8.9
-attenuation_filter_db = -4.9
-
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Pink"]
-transform = Transform3D(1.2666e-07, 0, -1, 0, 1, 0, 1, 0, 1.2666e-07, -8.14469, 0.310475, -2.10629)
-stream = ExtResource("10_vdj81")
-volume_db = 10.0
-max_db = 1.0
-autoplay = true
-max_distance = 2.5
-bus = &"Ambient"
-emission_angle_degrees = 23.0
-emission_angle_filter_attenuation_db = -8.9
-attenuation_filter_db = -4.9
-
-[node name="DummyShape6" parent="SubViewport/Node3D/Pink" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.51783, 0.312943, -1.99301)
-shape = SubResource("BoxShape3D_5vw27")
-
-[node name="DummyShape8" parent="SubViewport/Node3D/Pink" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.51784, 0.312943, -1.99301)
-shape = SubResource("BoxShape3D_272bh")
-
-[node name="PinkToOrange" parent="SubViewport/Node3D/Pink" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01165, 0.371696, -1.98409)
-choice_name = "hallway"
-connected_area = NodePath("../../Orange/OrangeToPink")
-metadata/_edit_group_ = true
-
-[node name="PinkToBlue" parent="SubViewport/Node3D/Pink" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01165, 0.371696, -1.98409)
-choice_name = "sewers"
-connected_area = NodePath("../../Blue/BlueToPink")
-metadata/_edit_group_ = true
-
-[node name="Ground" parent="SubViewport/Node3D/Pink" instance=ExtResource("5_pj4en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.57989, 5.96046e-08, -1.99301)
-shape = SubResource("BoxShape3D_ig7tw")
-color = Color(0.948258, 1.92523e-07, 0.555958, 1)
-
-[editable path="SubViewport/Node3D/Blue/BlueToPink"]
-[editable path="SubViewport/Node3D/Orange/OrangeToPink"]
-[editable path="SubViewport/Node3D/Orange/OrangeToRed"]
-[editable path="SubViewport/Node3D/Orange/OrangeToYellow"]
-[editable path="SubViewport/Node3D/Red/RedToOrange"]
-[editable path="SubViewport/Node3D/Yellow/YellowToOrange"]
-[editable path="SubViewport/Node3D/Pink/PinkToOrange"]
-[editable path="SubViewport/Node3D/Pink/PinkToBlue"]
+[editable path="SubViewport/Node3D/MedbayRoom/MedbayToHallway2"]
+[editable path="SubViewport/Node3D/Hallway2Room/Hallway2ToEngine"]
+[editable path="SubViewport/Node3D/Hallway2Room/Hallway2ToMedbay"]
+[editable path="SubViewport/Node3D/EngineRoom/EngineToHallway2"]
