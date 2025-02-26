@@ -3,7 +3,6 @@
 [ext_resource type="Shader" uid="uid://cdsk5onr44jrj" path="res://camera_viewport_shader.tres" id="1_ykcb3"]
 [ext_resource type="Texture2D" uid="uid://c8eskjch3eiph" path="res://shaders/hatching.png" id="2_m4pj2"]
 [ext_resource type="Script" uid="uid://qxtvs655qhyq" path="res://game_subviewport.gd" id="3_m4pj2"]
-[ext_resource type="PackedScene" uid="uid://f7srlnqg6e13" path="res://game_ship/engine/engine_room.tscn" id="3_nt0l3"]
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="4_ncr7u"]
 [ext_resource type="PackedScene" uid="uid://ctadlqxj5dyhr" path="res://game_ship/medbay/medbay_room.tscn" id="4_nt0l3"]
 [ext_resource type="PackedScene" uid="uid://bafjojm4m3fkv" path="res://game_ship/hallway2/hallway2.tscn" id="6_v2xn6"]
