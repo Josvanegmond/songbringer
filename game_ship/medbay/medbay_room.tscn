@@ -45,7 +45,6 @@ repeat = 1
 
 [node name="MedbayGround" parent="." instance=ExtResource("1_b8ats")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
-visible = false
 shape = SubResource("BoxShape3D_ycdy4")
 color = Color(0.574219, 0.574219, 0.574219, 1)
 
