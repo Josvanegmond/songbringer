@@ -64,7 +64,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [node name="Player" type="CharacterBody3D"]
