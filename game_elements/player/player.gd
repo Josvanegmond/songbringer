@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-var move_speed := 1.0
-var acceleration := 4
+var move_speed = 0.7
+var acceleration = 4
 
 var _gravity := -10.0
 
