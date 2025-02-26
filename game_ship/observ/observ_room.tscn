@@ -49,19 +49,16 @@ repeat = 1
 
 [node name="ObservGround" parent="." instance=ExtResource("1_lwvhl")]
 transform = Transform3D(1.67839, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
-visible = false
 shape = SubResource("BoxShape3D_ycdy4")
 color = Color(0.574219, 0.574219, 0.574219, 1)
 
 [node name="ObservWall" parent="." instance=ExtResource("1_lwvhl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.39607, -7.80123, 0.373579, -0.533341)
-visible = false
 shape = SubResource("BoxShape3D_i2p71")
 color = Color(0, 0, 0, 1)
 
 [node name="ObservWall2" parent="." instance=ExtResource("1_lwvhl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83268, 0.461199, -0.779808)
-visible = false
 shape = SubResource("BoxShape3D_xa8c5")
 color = Color(0, 0, 0, 1)
 

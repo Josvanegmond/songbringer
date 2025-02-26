@@ -1,12 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctt4qbftwu0xg"]
+[gd_scene load_steps=16 format=3 uid="uid://ctt4qbftwu0xg"]
 
 [ext_resource type="Shader" uid="uid://cdsk5onr44jrj" path="res://camera_viewport_shader.tres" id="1_ykcb3"]
 [ext_resource type="Texture2D" uid="uid://c8eskjch3eiph" path="res://shaders/hatching.png" id="2_m4pj2"]
 [ext_resource type="Script" uid="uid://qxtvs655qhyq" path="res://game_subviewport.gd" id="3_m4pj2"]
+[ext_resource type="PackedScene" uid="uid://f7srlnqg6e13" path="res://game_ship/engine/engine_room.tscn" id="3_nt0l3"]
 [ext_resource type="PackedScene" uid="uid://dvbe8t3nr0xhm" path="res://game_elements/player/player.tscn" id="4_ncr7u"]
 [ext_resource type="PackedScene" uid="uid://ctadlqxj5dyhr" path="res://game_ship/medbay/medbay_room.tscn" id="4_nt0l3"]
 [ext_resource type="PackedScene" uid="uid://bafjojm4m3fkv" path="res://game_ship/hallway2/hallway2.tscn" id="6_v2xn6"]
 [ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://game_ship/entrance_area.tscn" id="6_w4ibg"]
+[ext_resource type="PackedScene" uid="uid://clq0n33g52x3h" path="res://game_ship/observ/observ_room.tscn" id="9_0tr0x"]
 
 [sub_resource type="Gradient" id="Gradient_iotsf"]
 offsets = PackedFloat32Array(0.2, 0.471483, 1)
@@ -115,6 +117,14 @@ connected_area = NodePath("../../MedbayRoom/MedbayToHallway2")
 [node name="CollisionShape3D" parent="SubViewport/Node3D/Hallway2Room/Hallway2ToMedbay" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195312, -0.00737223, -0.00499755)
 
+[node name="Hallway2ToObs" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
+transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 10.1631, 0.42109, -0.269099)
+choice_name = "hallway2"
+connected_area = NodePath("../../ObservRoom/ObsToHallway2")
+
+[node name="CollisionShape3D" parent="SubViewport/Node3D/Hallway2Room/Hallway2ToObs" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195312, -0.00737223, -0.00499755)
+
 [node name="EngineRoom" parent="SubViewport/Node3D" instance=ExtResource("3_nt0l3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.13166, 0, 4.32808)
 
@@ -126,7 +136,20 @@ connected_area = NodePath("../../Hallway2Room/Hallway2ToEngine")
 [node name="CollisionShape3D" parent="SubViewport/Node3D/EngineRoom/EngineToHallway2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132812, 0.0591735, 0.191406)
 
+[node name="ObservRoom" parent="SubViewport/Node3D" instance=ExtResource("9_0tr0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9194, 0, -4.54351)
+
+[node name="ObsToHallway2" parent="SubViewport/Node3D/ObservRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
+transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, -6.89554, 0.42109, -0.336031)
+choice_name = "hallway2"
+connected_area = NodePath("../../Hallway2Room/Hallway2ToObs")
+
+[node name="CollisionShape3D" parent="SubViewport/Node3D/ObservRoom/ObsToHallway2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0195312, -0.00737223, -0.00499755)
+
 [editable path="SubViewport/Node3D/MedbayRoom/MedbayToHallway2"]
 [editable path="SubViewport/Node3D/Hallway2Room/Hallway2ToEngine"]
 [editable path="SubViewport/Node3D/Hallway2Room/Hallway2ToMedbay"]
+[editable path="SubViewport/Node3D/Hallway2Room/Hallway2ToObs"]
 [editable path="SubViewport/Node3D/EngineRoom/EngineToHallway2"]
+[editable path="SubViewport/Node3D/ObservRoom/ObsToHallway2"]
