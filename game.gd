@@ -67,6 +67,10 @@ func handle_intro():
 	
 # Handles scene tag instructions from ink
 func handle_tag(tag, args):
+	if tag == 'show_all':
+		story.ContinueMaximally()
+		return
+
 	if tag == 'scene':
 		if args[0] == 'reset':
 			intro_scene.visible = false

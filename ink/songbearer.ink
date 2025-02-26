@@ -53,36 +53,13 @@ A song beckons to you across space.
 
 
 = tape_1
-#show:all
-A voice crackles to life.
-
-"Hey.
-
-I don't know who's going to be on the other end of this, but if you've gotten here, I just ask that you listen this once.
-
-I'm the last survivor of the Eurydice. The last of my crew. And — hah — I'll be joining them soon, so I guess you can consider this my will. Congratulations on stumbling across this. A silly, selfish request from someone who’s running out of time.
-
-I don't have the luxury to explain everything that happened here, but maybe you're clever enough to figure it out. Or maybe you don't even care, and I'm just nattering to a strip of tape like I always do! They always teased me for that.
-
-...
-
-But ... if you really are here with me ... let me say this.
-
-We poured all of ourselves into this hunk of steel and wires. I refuse to let the Eurydice end up being a cold, empty tomb swallowed up by —  by silence. She was never meant to be this quiet. 
-
-There were five of us. Five songs. The Captain... the Mechanic... the Medic... the Pilot... and the Navigator. Each one of us left a piece of ourselves behind, like... like a little memory. 
-
-I want you to find these Shards and bring them back here to this tree. You'll find mine a few steps away from here. Just follow the music. The tree, the plants, this planet — it'll make sense the deeper you venture in.
-
-I just want to be with my crew again. I can’t bring them back, but I want to know some part of the universe recognized our small existence. That someone was listening.
-
-I guess that's all I can really ask you to do in the end. The you who arrived here with me.
-
-Please listen."
-
-The tape ends. A shard lies next to the tape recorder, it's the source of the melody you keep hearing!
+{A voice crackles to life. "Hey. I don't know who's going to be on the other end of this, but if you've gotten here, I just ask that you listen this once."|I'm the last survivor of the Eurydice. The last of my crew. And — hah — I'll be joining them soon, so I guess you can consider this my will. Congratulations on stumbling across this. A silly, selfish request from someone who’s running out of time.|I don't have the luxury to explain everything that happened here, but maybe you're clever enough to figure it out. Or maybe you don't even care, and I'm just nattering to a strip of tape like I always do! They always teased me for that.|But ... if you really are here with me ... let me say this. We poured all of ourselves into this hunk of steel and wires. I refuse to let the Eurydice end up being a cold, empty tomb swallowed up by —  by silence. She was never meant to be this quiet. | There were five of us. Five songs. The Captain... the Mechanic... the Medic... the Pilot... and the Navigator. Each one of us left a piece of ourselves behind, like... like a little memory. I want you to find these Shards and bring them back here to this tree. You'll find mine a few steps away from here. Just follow the music. The tree, the plants, this planet — it'll make sense the deeper you venture in. | I just want to be with my crew again. I can’t bring them back, but I want to know some part of the universe recognized our small existence. That someone was listening. | I guess that's all I can really ask you to do in the end. The you who arrived here with me. Please listen." The tape ends. A shard lies next to the tape recorder. | <- found_shard|}
 -> DONE
 
+= found_shard
+# player_sound:piano_shard.ogg
+It's the source of the melody you keep hearing!
+-> DONE
 
 === hallway_lvl1 ===
 

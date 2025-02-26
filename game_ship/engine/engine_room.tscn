@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://f7srlnqg6e13"]
+[gd_scene load_steps=33 format=3 uid="uid://f7srlnqg6e13"]
 
 [ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="1_f44qm"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_ncaxk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_frg3i"]
 [ext_resource type="AudioStream" uid="uid://c53djnjlpjjg5" path="res://game_sounds/engine.ogg" id="3_hi3lj"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_nbsb5"]
+[ext_resource type="AudioStream" uid="uid://lw7sn1wb61t3" path="res://game_sounds/recorder.ogg" id="4_qf6jj"]
 [ext_resource type="Texture2D" uid="uid://favma6wd2prt" path="res://game_ship/engine/Enginegreeble_04.png" id="5_hi3lj"]
 [ext_resource type="Texture2D" uid="uid://6x7b1ijpkx56" path="res://game_ship/engine/Enginegreeble_07.png" id="6_qf6jj"]
 [ext_resource type="Texture2D" uid="uid://dgn7fn7ythuqx" path="res://game_ship/engine/Enginegreeble_02.png" id="7_lstmv"]
@@ -27,7 +28,7 @@ size = Vector3(0.332092, 0.66214, 0.334961)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbsb5"]
 resource_local_to_scene = true
-size = Vector3(1, 1, 0.534668)
+size = Vector3(0.226227, 1, 0.534668)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -79,7 +80,7 @@ max_distance = 1.5
 bus = &"Sound"
 
 [node name="Engine" parent="Poi" instance=ExtResource("1_f44qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91029, 0.495713, -0.732704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91029, 0.495713, -0.594796)
 choice_tag = "tree"
 sound = ExtResource("3_hi3lj")
 
@@ -88,23 +89,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.232666)
 shape = SubResource("BoxShape3D_nbsb5")
 
 [node name="AudioStreamPlayer3D" parent="Poi/Engine" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180612, 0.148298)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.248346, 0.148298)
 max_distance = 1.5
 panning_strength = 2.0
 bus = &"Sound"
 
-[node name="Engine2" parent="Poi" instance=ExtResource("1_f44qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.212765, 0.495713, -0.732704)
-choice_tag = "tree"
+[node name="PianoShard" parent="Poi" instance=ExtResource("1_f44qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96291, 0.495713, -0.458973)
+choice_tag = "recorder"
+sound = ExtResource("4_qf6jj")
 
-[node name="AreaShape" parent="Poi/Engine2/Area" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.232666)
+[node name="AreaShape" parent="Poi/PianoShard/Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00254822, 0, 0.232666)
 shape = SubResource("BoxShape3D_nbsb5")
 
-[node name="AudioStreamPlayer3D" parent="Poi/Engine2" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180612, 0.148298)
-max_distance = 1.5
-panning_strength = 2.0
+[node name="AudioStreamPlayer3D" parent="Poi/PianoShard" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180612, 0.328042)
+attenuation_model = 2
+unit_size = 2.0
+max_db = 0.0
+max_distance = 2.0
+panning_strength = 0.5
 bus = &"Sound"
 
 [node name="EngineGround" parent="." instance=ExtResource("1_ncaxk")]
@@ -414,4 +419,4 @@ texture = SubResource("GradientTexture2D_hb5m1")
 
 [editable path="Poi/GasPipes"]
 [editable path="Poi/Engine"]
-[editable path="Poi/Engine2"]
+[editable path="Poi/PianoShard"]
