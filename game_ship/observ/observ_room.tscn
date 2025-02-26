@@ -1,0 +1,535 @@
+[gd_scene load_steps=26 format=3 uid="uid://clq0n33g52x3h"]
+
+[ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_lwvhl"]
+[ext_resource type="Texture2D" uid="uid://cnq4my8lcgsrr" path="res://game_ship/observ/Observationgreeble_06.png" id="2_w8yte"]
+[ext_resource type="Texture2D" uid="uid://5oj5g1xlkrm3" path="res://game_ship/observ/Observationgreeble_03.png" id="3_2bvch"]
+[ext_resource type="Texture2D" uid="uid://ds2xkb7iuadf8" path="res://game_ship/engine/engine_floor_greeble_1.png" id="8_iv0v4"]
+[ext_resource type="Texture2D" uid="uid://b36d542wqnmtd" path="res://game_ship/engine/engine_floor_greeble_2.png" id="9_fkxt5"]
+[ext_resource type="Texture2D" uid="uid://dku7tavu0b5rp" path="res://game_ship/observ/Observationgreeble_05.png" id="10_bvth1"]
+[ext_resource type="Texture2D" uid="uid://bv7ysm7oiwlkb" path="res://game_ship/engine/engine_floor_greeble_3.png" id="10_d25lh"]
+[ext_resource type="Texture2D" uid="uid://fh6o2xsw5w65" path="res://game_ship/observ/Observation_floor.png" id="10_w8yte"]
+[ext_resource type="Texture2D" uid="uid://wspt1pkkss3a" path="res://game_ship/engine/engine_floor_greeble_4.png" id="11_72q46"]
+[ext_resource type="Texture2D" uid="uid://crpxnbkyds7w5" path="res://game_ship/observ/Observationgreeble_01.png" id="11_rax8i"]
+[ext_resource type="Texture2D" uid="uid://c4y7ayhm0otfn" path="res://game_ship/observ/Observationgreeble_02.png" id="12_2etm1"]
+[ext_resource type="Texture2D" uid="uid://dg5k3tm4rclas" path="res://game_ship/engine/engine_floor_greeble_5.png" id="12_4fkbc"]
+[ext_resource type="Texture2D" uid="uid://1eu1raex1bur" path="res://game_ship/observ/Observationgreeble_04.png" id="13_bvth1"]
+[ext_resource type="Texture2D" uid="uid://5fuqwyrbo6ti" path="res://game_ship/engine/engine_floor_greeble_6.png" id="13_t5t4k"]
+[ext_resource type="Texture2D" uid="uid://brr3sr1cyasy2" path="res://game_ship/engine/engine_floor_greeble_7.png" id="14_wlgo5"]
+[ext_resource type="Texture2D" uid="uid://4jh8xde6sakq" path="res://game_ship/observ/Observationgreeble_07.png" id="15_4yu2g"]
+[ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_8o0ka"]
+[ext_resource type="Texture2D" uid="uid://bmdsia0uow68g" path="res://game_ship/observ/Observationgreeble_08.png" id="17_4yu2g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+resource_local_to_scene = true
+size = Vector3(8.9447, 0.298535, 0.410156)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2p71"]
+resource_local_to_scene = true
+size = Vector3(0.380243, 1.62126, 0.377763)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xa8c5"]
+resource_local_to_scene = true
+size = Vector3(0.231561, 1.49968, 1.69655)
+
+[sub_resource type="Gradient" id="Gradient_f1jbl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vaj68"]
+gradient = SubResource("Gradient_f1jbl")
+
+[sub_resource type="Gradient" id="Gradient_e36ub"]
+colors = PackedColorArray(0, 0, 0, 1, 0.722656, 0.722656, 0.722656, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hb5m1"]
+gradient = SubResource("Gradient_e36ub")
+fill_to = Vector2(0, 1)
+repeat = 1
+
+[node name="ObservRoom" type="Node3D"]
+
+[node name="ObservGround" parent="." instance=ExtResource("1_lwvhl")]
+transform = Transform3D(1.67839, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
+shape = SubResource("BoxShape3D_ycdy4")
+color = Color(0.574219, 0.574219, 0.574219, 1)
+
+[node name="ObservWall" parent="." instance=ExtResource("1_lwvhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.39607, -7.80123, 0.373579, -0.533341)
+shape = SubResource("BoxShape3D_i2p71")
+color = Color(0, 0, 0, 1)
+
+[node name="ObservWall2" parent="." instance=ExtResource("1_lwvhl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83268, 0.461199, -0.779808)
+shape = SubResource("BoxShape3D_xa8c5")
+color = Color(0, 0, 0, 1)
+
+[node name="ObservFront" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95254)
+
+[node name="Sprite3D16" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -3.27327, 0.871301, -0.611661)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="Sprite3D20" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.04856, -0.0119131, 0, 0.0119131, 0.04856, 0, 0, 0, 0.05, -0.427639, 0.629905, 0.608277)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="Sprite3D21" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.0297269, 0.00403878, 0, -0.00403878, 0.0297269, 0, 0, 0, 0.03, -0.244883, 0.276139, 0.608277)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="Sprite3D23" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.0486684, -0.0114626, 0, 0.0114626, 0.0486684, 0, 0, 0, 0.05, 2.1447, 0.275133, -0.828033)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D24" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.0499826, 0.00131757, 0, -0.00130066, 0.0493409, 0.00798631, 0.000210451, -0.00798353, 0.0493581, 4.5534, 0.275133, -0.828033)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D26" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.0499826, 0.00131757, 0, -0.00130066, 0.0493409, 0.00798631, 0.000210451, -0.00798353, 0.0493581, -2.28064, 0.275133, -0.629774)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D27" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.0499826, 0.00131757, 0, -0.00130066, 0.0493409, 0.00798631, 0.000210451, -0.00798353, 0.0493581, -5.42979, 0.275133, -0.629774)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D28" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.047737, -0.0146478, -0.00257279, 0.0148706, 0.0471349, 0.00756055, 0.000210451, -0.00798353, 0.0493581, -5.60308, 0.0672685, -0.629774)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("11_rax8i")
+
+[node name="Sprite3D25" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.0499826, 0.00131757, 0, -0.00130066, 0.0493409, 0.00798631, 0.000210451, -0.00798353, 0.0493581, -3.20066, 0.275133, -0.828033)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("11_rax8i")
+
+[node name="Sprite3D17" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 2.48398, 0.857875, -0.727312)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="Sprite3D18" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, -3.81615, 0.0799749, -0.347229)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="Sprite3D" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 1.904, -2.50479, 0.265431, -0.575752)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("8_iv0v4")
+metadata/_edit_group_ = true
+
+[node name="Sprite3D19" type="Sprite3D" parent="ObservFront"]
+transform = Transform3D(0.0691015, 0.0111796, 0, -0.0111796, 0.0691015, 0, 0, 0, 0.07, 3.42874, 0.0151483, -0.608017)
+cast_shadow = 0
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="ObservFloor" type="Node3D" parent="."]
+transform = Transform3D(0.578394, 0, 0, 0, 0.578394, 0, 0, 0, 1, -1.74533, 0.0159395, 8)
+
+[node name="Sprite3D2" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.14588, 0, 0, 0, 0.14588, 0, 0, 0, 1, -4.25596, 0.226173, -8.68797)
+cast_shadow = 0
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("9_fkxt5")
+
+[node name="Sprite3D3" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.0338357, 0, 0, 0, 0.0338357, 0, 0, 0, 0.218998, 12.569, 0.693974, -8.72296)
+cast_shadow = 0
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_d25lh")
+
+[node name="Sprite3D9" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.157093, 0, 0, 0, 0.157093, 0, 0, 0, 1, -9.31712, 0.138317, -8.635)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_d25lh")
+
+[node name="Sprite3D10" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.180305, 0, 0, 0, 0.180305, 0, 0, 0, 1, -4.85016, 0.266256, -8.68185)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_d25lh")
+
+[node name="Sprite3D13" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.180305, 0, 0, 0, 0.180305, 0, 0, 0, 1, -8.3621, 0.149384, -8.67082)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_d25lh")
+
+[node name="Sprite3D4" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.138089, 0.0470362, 0, -0.0470362, 0.138089, 0, 0, 0, 1, -0.505217, 0.443758, -8.78192)
+cast_shadow = 0
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("11_72q46")
+
+[node name="Sprite3D5" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.157093, 0, 0, 0, 0.157093, 0, 0, 0, 1, -2.36784, 0.170017, -8.7616)
+cast_shadow = 0
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_4fkbc")
+
+[node name="Sprite3D11" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.158449, 0, 0, 0, 0.441985, 0, 0, 0, 1, 15.4897, 0.266326, -8.76442)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_4fkbc")
+
+[node name="tree" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.0988202, 0.0153158, 0, -0.0152941, 0.0986797, 0.00532945, 0.00081625, -0.00526658, 0.0998579, -1.02722, 0.953772, -8.76442)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="sapling" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.0592921, 0.00918949, -3.06243e-11, -0.00914955, 0.0590344, 0.00558811, 0.000855866, -0.00552218, 0.0597392, 12.7438, 0.737226, -8.76442)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="sapling2" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.0897263, -0.00623979, 0.00320272, 0.00666327, 0.0886652, -0.0139313, -0.00218935, 0.0141261, 0.0888575, 15.0435, 0.737226, -8.92906)
+cast_shadow = 0
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="sapling3" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.0874453, -0.0205875, 0.00542745, 0.0211781, 0.0864673, -0.0132243, -0.00218935, 0.0141261, 0.0888575, -1.76748, 0.737226, -8.92906)
+cast_shadow = 0
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D12" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.158449, 0, 0, 0, 0.166222, 0, 0, 0, 1, 1.89019, 0.259034, -8.71719)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("9_fkxt5")
+
+[node name="Sprite3D8" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.14619, 0.0110632, 0.000372089, -0.0110632, 0.14619, -0.000381159, -5.86134e-05, 5.1604e-05, 1, 3.26788, 0.132489, -8.70523)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.435294, 0.435294, 0.435294, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_4fkbc")
+
+[node name="Sprite3D6" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.146608, 0, 0, 0, 0.146608, 0, 0, 0, 1, 5.59759, 0.198201, -8.7217)
+cast_shadow = 0
+modulate = Color(0.435192, 0.435192, 0.435192, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("13_t5t4k")
+
+[node name="chair" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.0697887, 0.00543489, 0, -0.00543489, 0.0697887, 0, 0, 0, 0.476, 8.10149, 0.345481, -8.7217)
+cast_shadow = 0
+modulate = Color(0.435192, 0.435192, 0.435192, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_bvth1")
+
+[node name="FloorSprite" type="Sprite3D" parent="ObservFloor"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 2.7993, -0.386329, -8.67476)
+cast_shadow = 0
+modulate = Color(0.489982, 0.489982, 0.489982, 1)
+double_sided = false
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("10_w8yte")
+
+[node name="ObservBack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0349852, 0)
+
+[node name="tree" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -5.40309, 0.902653, -1.60895)
+cast_shadow = 0
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="tree2" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.0846632, -0.0519014, -0.0117641, 0.0530148, 0.084183, 0.0101315, 0.00464498, -0.0148144, 0.0987874, 1.0802, 0.106092, -2.45432)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="tree4" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 5.54129, 0.613668, -2.72043)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0, 0, 0, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="tree3" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.0492612, 0.00856379, 0, -0.00831423, 0.0478256, -0.0119826, -0.00205233, 0.0118055, 0.048543, -2.93995, 0.712888, -1.12253)
+cast_shadow = 0
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="tree5" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.0831066, 0.0708913, -0.0129508, -0.0694403, 0.0734903, -0.0433269, -0.0192703, 0.0409096, 0.100275, 2.02336, 0.672886, -1.83312)
+cast_shadow = 0
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="Sprite3D15" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.0599998, 0.000157154, -1.82987e-05, -0.000155492, 0.0598533, 0.00419077, 2.92307e-05, -0.00419071, 0.0598535, -1.23997, 0.647172, -1.78036)
+cast_shadow = 0
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("2_w8yte")
+
+[node name="Sprite3D17" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 4.77676, 0.487954, -1.78036)
+cast_shadow = 0
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("11_rax8i")
+
+[node name="Sprite3D18" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 4.38628, 0.487954, -1.50656)
+cast_shadow = 0
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D20" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.05, 0, 0, 0, 0.0429104, -0.0256651, 0, 0.0256651, 0.0429104, -1.57437, 0.487954, -1.50656)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D24" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.0449079, 0.0218679, -0.00225327, -0.0217743, 0.0435405, -0.0114063, -0.00302647, 0.011226, 0.0486294, 3.14376, 0.291978, -1.69362)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D21" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.05, 0, 0, 0, 0.0459719, 0.0196618, 0, -0.0196618, 0.0459719, -3.53951, 0.487954, -1.50656)
+cast_shadow = 0
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("12_2etm1")
+
+[node name="Sprite3D19" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.05, 0, 0, 0, 0.0470494, -0.0169221, 0, 0.0169221, 0.0470494, 3.73076, 0.487954, -1.50656)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("13_bvth1")
+
+[node name="BIGTREE" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.13, 0, 0, 0, 0.128653, -0.0186652, 0, 0.0186652, 0.128653, 2.01844, 0.317155, -2.14524)
+cast_shadow = 0
+modulate = Color(0.0862745, 0.0862745, 0.0862745, 0.984314)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("13_bvth1")
+
+[node name="Sprite3D25" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.104858, -0.0316254, 0.0102253, 0.0327935, 0.0929286, -0.0488759, 0.00541356, 0.0496397, 0.0980132, 1.23042, 0.0343381, -2.09458)
+cast_shadow = 0
+modulate = Color(0.0962047, 0.0962048, 0.0962047, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("3_2bvch")
+
+[node name="Sprite3D22" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -3.7687, 0.0296268, -1.46037)
+cast_shadow = 0
+flip_h = true
+modulate = Color(0.0846899, 0.0846899, 0.0846899, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("15_4yu2g")
+
+[node name="shrinefloor" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.345072, 0.100298, -1.70133)
+cast_shadow = 0
+modulate = Color(0.194349, 0.194349, 0.194349, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("14_wlgo5")
+
+[node name="backfloor" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.99414, 0.0359173, -1.70133)
+cast_shadow = 0
+modulate = Color(0.194349, 0.194349, 0.194349, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("14_wlgo5")
+
+[node name="backfloor2" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.97645, -0.153054, -1.35439)
+cast_shadow = 0
+modulate = Color(0.194349, 0.194349, 0.194349, 1)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("14_wlgo5")
+
+[node name="Sprite3D23" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0.0567608, -0.152578, -1.68345)
+cast_shadow = 0
+modulate = Color(0.241156, 0.241156, 0.241156, 0.984314)
+alpha_cut = 1
+alpha_antialiasing_mode = 1
+texture = ExtResource("17_4yu2g")
+
+[node name="BackSprite2" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(0.17653, 0, 0, 0, 0.17653, 0, 0, 0, 1, 2.27413, 0.333123, -2.85702)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+double_sided = false
+alpha_cut = 1
+alpha_scissor_threshold = 0.7
+alpha_antialiasing_mode = 1
+texture_filter = 2
+texture = ExtResource("16_8o0ka")
+
+[node name="BackSprite3" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(16.7952, 0.481224, 0, -1.75606, 4.6025, 0, 0, 0, 1, -6.10789, 0.222322, -2.85702)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+transparent = false
+double_sided = false
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_vaj68")
+
+[node name="BackSprite4" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(8.17148, -0.143491, 0, 0.385643, 3.04047, 0, 0, 0, 1.00663, 8.24546, 0.371265, -2.85702)
+cast_shadow = 0
+modulate = Color(0.121141, 0.121141, 0.121141, 1)
+transparent = false
+double_sided = false
+alpha_antialiasing_mode = 1
+texture = SubResource("GradientTexture2D_vaj68")
+
+[node name="ObservSky" type="Sprite3D" parent="ObservBack"]
+transform = Transform3D(39.1451, 0, 0, 0, 7.70514, 0, 0, 0, 1, 0.124178, 0.593932, -3.92446)
+cast_shadow = 0
+modulate = Color(0.160156, 0.160156, 0.160156, 1)
+alpha_cut = 1
+texture = SubResource("GradientTexture2D_hb5m1")

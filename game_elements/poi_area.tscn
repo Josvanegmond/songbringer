@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcfq5xab2h6r5"]
+
+[ext_resource type="Script" uid="uid://c6q3aqv8nf8a6" path="res://game_elements/poi_area.gd" id="1_ssxc4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fnhna"]
+resource_local_to_scene = true
+
+[node name="PoiArea" type="Node3D"]
+script = ExtResource("1_ssxc4")
+
+[node name="Area" type="Area3D" parent="."]
+audio_bus_name = &"Sound"
+
+[node name="AreaShape" type="CollisionShape3D" parent="Area"]
+shape = SubResource("BoxShape3D_fnhna")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+max_db = 2.0
+max_distance = 1.0
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
