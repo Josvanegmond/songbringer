@@ -9,6 +9,7 @@ resource_local_to_scene = true
 script = ExtResource("1_ssxc4")
 
 [node name="Area" type="Area3D" parent="."]
+audio_bus_name = &"Sound"
 
 [node name="AreaShape" type="CollisionShape3D" parent="Area"]
 shape = SubResource("BoxShape3D_fnhna")

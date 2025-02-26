@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://f7srlnqg6e13"]
+[gd_scene load_steps=32 format=3 uid="uid://f7srlnqg6e13"]
 
 [ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="1_f44qm"]
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_ncaxk"]
 [ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="2_f44qm"]
 [ext_resource type="AudioStream" uid="uid://cj2am2qdgy1u3" path="res://game_sounds/gass-pipes.ogg" id="2_frg3i"]
 [ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_frg3i"]
+[ext_resource type="AudioStream" uid="uid://c53djnjlpjjg5" path="res://game_sounds/engine.ogg" id="3_hi3lj"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_nbsb5"]
 [ext_resource type="Texture2D" uid="uid://favma6wd2prt" path="res://game_ship/engine/Enginegreeble_04.png" id="5_hi3lj"]
 [ext_resource type="Texture2D" uid="uid://6x7b1ijpkx56" path="res://game_ship/engine/Enginegreeble_07.png" id="6_qf6jj"]
@@ -23,6 +24,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_frg3i"]
 resource_local_to_scene = true
 size = Vector3(0.332092, 0.66214, 0.334961)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbsb5"]
+resource_local_to_scene = true
+size = Vector3(1, 1, 0.534668)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -71,6 +76,36 @@ shape = SubResource("BoxShape3D_frg3i")
 
 [node name="AudioStreamPlayer3D" parent="Poi/GasPipes" index="1"]
 max_distance = 1.5
+bus = &"Sound"
+
+[node name="Engine" parent="Poi" instance=ExtResource("1_f44qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91029, 0.495713, -0.732704)
+choice_tag = "tree"
+sound = ExtResource("3_hi3lj")
+
+[node name="AreaShape" parent="Poi/Engine/Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.232666)
+shape = SubResource("BoxShape3D_nbsb5")
+
+[node name="AudioStreamPlayer3D" parent="Poi/Engine" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180612, 0.148298)
+max_distance = 1.5
+panning_strength = 2.0
+bus = &"Sound"
+
+[node name="Engine2" parent="Poi" instance=ExtResource("1_f44qm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.212765, 0.495713, -0.732704)
+choice_tag = "tree"
+
+[node name="AreaShape" parent="Poi/Engine2/Area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.232666)
+shape = SubResource("BoxShape3D_nbsb5")
+
+[node name="AudioStreamPlayer3D" parent="Poi/Engine2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180612, 0.148298)
+max_distance = 1.5
+panning_strength = 2.0
+bus = &"Sound"
 
 [node name="EngineGround" parent="." instance=ExtResource("1_ncaxk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195313, -0.0410196, -0.294922)
@@ -279,6 +314,11 @@ texture = SubResource("GradientTexture2D_7knny")
 [node name="EngineBack" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0349852, 0)
 
+[node name="OmniLight3D" type="OmniLight3D" parent="EngineBack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91728, 0.557336, -0.541453)
+light_color = Color(0, 0.671875, 1, 1)
+omni_range = 0.733626
+
 [node name="Sprite3D18" type="Sprite3D" parent="EngineBack"]
 transform = Transform3D(0.0585651, 0, 0, 0, 0.0585651, 0, 0, 0, 1, -3.36889, 0.217864, -0.70355)
 cast_shadow = 0
@@ -294,6 +334,7 @@ texture = ExtResource("15_uf42p")
 transform = Transform3D(0.0252588, 0, 0, 0, 0.0252588, 0, 0, 0, 1, 1.73502, 0.625319, -0.704775)
 cast_shadow = 0
 modulate = Color(0.121569, 0.121569, 0.121569, 1)
+shaded = true
 double_sided = false
 alpha_cut = 1
 alpha_scissor_threshold = 0.7
@@ -372,3 +413,5 @@ alpha_cut = 1
 texture = SubResource("GradientTexture2D_hb5m1")
 
 [editable path="Poi/GasPipes"]
+[editable path="Poi/Engine"]
+[editable path="Poi/Engine2"]
