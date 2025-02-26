@@ -54,16 +54,19 @@ repeat = 1
 
 [node name="Hallway2Ground" parent="." instance=ExtResource("1_2p44f")]
 transform = Transform3D(2.5, 0, 0, 0, 1, 0, 0, 0, 1, 0.0890503, -0.0410196, -0.294922)
+visible = false
 shape = SubResource("BoxShape3D_ycdy4")
 color = Color(0.574219, 0.574219, 0.574219, 1)
 
 [node name="Hallway2Wall" parent="." instance=ExtResource("1_2p44f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02685, 0.344695, -0.276088)
+visible = false
 shape = SubResource("BoxShape3D_i2p71")
 color = Color(0, 0, 0, 1)
 
 [node name="Hallway2Wall2" parent="." instance=ExtResource("1_2p44f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7019, 0.461199, -0.779808)
+visible = false
 shape = SubResource("BoxShape3D_xa8c5")
 color = Color(0, 0, 0, 1)
 
