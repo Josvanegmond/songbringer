@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://ctadlqxj5dyhr"]
+[gd_scene load_steps=30 format=3 uid="uid://ctadlqxj5dyhr"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_b8ats"]
 [ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_ulgox"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_gvwlu"]
 [ext_resource type="Texture2D" uid="uid://cb30f82op24ui" path="res://game_ship/medbay/Medbaygreeble_01.png" id="4_niput"]
+[ext_resource type="Texture2D" uid="uid://mmfvv10xkdj6" path="res://game_ship/gramophone_sheet.png" id="4_ub3vh"]
 [ext_resource type="Texture2D" uid="uid://d2hdw3y1g6c2y" path="res://game_ship/medbay/Medbaygreeble_02.png" id="5_dxs77"]
 [ext_resource type="Texture2D" uid="uid://6x7b1ijpkx56" path="res://game_ship/engine/Enginegreeble_07.png" id="6_5v6sj"]
 [ext_resource type="Texture2D" uid="uid://vxr0gjewvgbb" path="res://game_ship/medbay/Medbaygreeble_04.png" id="7_5jwcd"]
@@ -11,9 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://kfybnt23cjn5" path="res://game_ship/medbay/Medbay_floor.png" id="9_1xlqw"]
 [ext_resource type="Texture2D" uid="uid://b36d542wqnmtd" path="res://game_ship/engine/engine_floor_greeble_2.png" id="9_hk6o8"]
 [ext_resource type="Texture2D" uid="uid://bv7ysm7oiwlkb" path="res://game_ship/engine/engine_floor_greeble_3.png" id="10_mldre"]
-[ext_resource type="Texture2D" uid="uid://dptvc3q2qm6pp" path="res://game_ship/medbay/gramophone_sheet.png" id="13_vyyjn"]
 [ext_resource type="Texture2D" uid="uid://brr3sr1cyasy2" path="res://game_ship/engine/engine_floor_greeble_7.png" id="14_c31xw"]
+[ext_resource type="AudioStream" uid="uid://bs7ktn4eux4qu" path="res://game_sounds/grammaphone/Crackle sound 12.ogg" id="15_vyyjn"]
 [ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_m5a55"]
+[ext_resource type="Script" uid="uid://bltnfiobvqufx" path="res://game_ship/medbay/audio_bits_player.gd" id="16_ub3vh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -26,6 +28,49 @@ size = Vector3(0.380243, 1.62126, 0.377763)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xa8c5"]
 resource_local_to_scene = true
 size = Vector3(0.231561, 1.49968, 1.69655)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anbqy"]
+atlas = ExtResource("4_ub3vh")
+region = Rect2(0, 0, 1386, 3243)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h75t"]
+atlas = ExtResource("4_ub3vh")
+region = Rect2(1386, 0, 1386, 3243)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cldtl"]
+atlas = ExtResource("4_ub3vh")
+region = Rect2(2772, 0, 1386, 3243)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prgc1"]
+atlas = ExtResource("4_ub3vh")
+region = Rect2(4158, 0, 1386, 3243)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70pyh"]
+atlas = ExtResource("4_ub3vh")
+region = Rect2(5544, 0, 1386, 3243)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_niput"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anbqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h75t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cldtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prgc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70pyh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_f1jbl"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -82,14 +127,14 @@ alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = ExtResource("4_gvwlu")
 
-[node name="Sprite3D17" type="Sprite3D" parent="MedbayFront"]
+[node name="Sprite3D17" type="AnimatedSprite3D" parent="MedbayFront"]
 transform = Transform3D(0.0598647, 0.00402659, 0, -0.00402659, 0.0598647, 0, 0, 0, 2.5, -0.853675, -0.12336, -1.17558)
 cast_shadow = 0
 modulate = Color(0, 0, 0, 1)
 alpha_cut = 1
 alpha_antialiasing_mode = 1
-texture = ExtResource("13_vyyjn")
-hframes = 5
+sprite_frames = SubResource("SpriteFrames_niput")
+frame_progress = 0.0421218
 
 [node name="Sprite3D20" type="Sprite3D" parent="MedbayFront"]
 transform = Transform3D(0.0493396, -0.00245541, 0, 0.00245541, 0.0493396, 0, 0, 0, 1, 1.54621, 0.406108, -0.985756)
@@ -258,3 +303,15 @@ modulate = Color(0.121569, 0.121569, 0.121569, 1)
 alpha_cut = 1
 alpha_antialiasing_mode = 1
 texture = ExtResource("4_niput")
+
+[node name="AudioCracklePlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76059, 0.503418, -0.48481)
+stream = ExtResource("15_vyyjn")
+unit_size = 50.0
+autoplay = true
+max_distance = 3.0
+
+[node name="AudioBitsPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841705, 0.484665, -0.506592)
+max_distance = 3.0
+script = ExtResource("16_ub3vh")

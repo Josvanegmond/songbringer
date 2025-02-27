@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dvbe8t3nr0xhm"]
+[gd_scene load_steps=19 format=3 uid="uid://dvbe8t3nr0xhm"]
 
 [ext_resource type="Script" uid="uid://dntvjbif11iiq" path="res://game_elements/player/player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://ddc3xl5p8kj8f" path="res://game_sounds/etherphone_open.ogg" id="2_ch0e6"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bplah7rre2hak" path="res://game_sounds/generic_door.ogg" id="5_eyvhf"]
 [ext_resource type="Texture2D" uid="uid://r1d1dcwgyui" path="res://game_elements/player/spritewalk_0001.png" id="5_miqxt"]
 [ext_resource type="Texture2D" uid="uid://mqelsarkyvc1" path="res://game_elements/player/spritewalk_0002.png" id="6_d36pv"]
+[ext_resource type="Texture2D" uid="uid://cfaer2tarlflf" path="res://game_elements/player/spritestand.png" id="6_mxa82"]
 [ext_resource type="Texture2D" uid="uid://bobl7ui7nqqhl" path="res://game_elements/player/spritewalk_0003.png" id="7_lpls8"]
 [ext_resource type="Texture2D" uid="uid://cmbbnc1tetbvu" path="res://game_elements/player/spritewalk_0004.png" id="8_cwy2w"]
 [ext_resource type="Texture2D" uid="uid://b5tdq2w3ewp32" path="res://game_elements/player/spritewalk_0005.png" id="9_q8rcg"]
@@ -32,7 +33,7 @@ height = 0.4
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_lpls8")
+"texture": ExtResource("6_mxa82")
 }],
 "loop": true,
 "name": &"standing",

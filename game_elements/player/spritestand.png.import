@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mmfvv10xkdj6"
-path.s3tc="res://.godot/imported/gramophone_sheet.png-25feb66e7d9ffd8b22e653662f5fc88d.s3tc.ctex"
-path.etc2="res://.godot/imported/gramophone_sheet.png-25feb66e7d9ffd8b22e653662f5fc88d.etc2.ctex"
+uid="uid://cfaer2tarlflf"
+path.s3tc="res://.godot/imported/spritestand.png-f6e4c00e607dc820f61e0f3802975021.s3tc.ctex"
+path.etc2="res://.godot/imported/spritestand.png-f6e4c00e607dc820f61e0f3802975021.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://game_ship/gramophone_sheet.png"
-dest_files=["res://.godot/imported/gramophone_sheet.png-25feb66e7d9ffd8b22e653662f5fc88d.s3tc.ctex", "res://.godot/imported/gramophone_sheet.png-25feb66e7d9ffd8b22e653662f5fc88d.etc2.ctex"]
+source_file="res://game_elements/player/spritestand.png"
+dest_files=["res://.godot/imported/spritestand.png-f6e4c00e607dc820f61e0f3802975021.s3tc.ctex", "res://.godot/imported/spritestand.png-f6e4c00e607dc820f61e0f3802975021.etc2.ctex"]
 
 [params]
 
