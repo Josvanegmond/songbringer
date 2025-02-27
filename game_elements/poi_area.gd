@@ -21,11 +21,9 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if player_in_area && event.is_action_pressed("interact"):
 		var choices = GameState.story.GetCurrentChoices()
-		print('interact')
 		for i in range(choices.size()):
 			var choice: InkChoice = choices[i]
 			var tags = choice.GetTags()
-			print('found!', tags)
 			for tag in tags:
 				var tag_parts = tag.split(':')
 				if tag_parts[0] == 'area' && tag_parts[1] == choice_tag:
@@ -36,7 +34,6 @@ func _input(event: InputEvent) -> void:
 
 func update_sound():
 	if !audio_stream: return
-	print('new sound')
 	
 	audio_stream.stream = sound
 	if sound: audio_stream.play()

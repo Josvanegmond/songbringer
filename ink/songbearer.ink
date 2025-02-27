@@ -25,8 +25,6 @@ A song beckons to you across space.
 #light_level:0.4
 {engine_room == 1: You crawl into the ship through a gap in its underside, surfacing in what appears to be the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.}
 
-{tape_1: The tape has ended, but the ghost of a voice lingers.}
-
 {flute_song && drum_song && piano_song && violin_song && voice: You gather the five shards before the heart of the tree: the Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation.}
 
 {flute_song && drum_song && piano_song && violin_song && voice: This was the Mechanic's last wish: the final symphony of the crew.}
@@ -44,22 +42,30 @@ A song beckons to you across space.
     {You hear the faint sound of pipes sputtering, the occasional hiss of escaping steam, a low groan as the ship shifts. You hear the faint melody on your etherphone that brought you here.|Gas still {~flows|rushes|travels} through rusted and worn pipes that entangle the engine room. {~You wonder w|W}hat other {~ship parts|parts of this {~vessel|ship}} still {~function|breathe|{~hold on|cling} to life...}}
 
 + [tree #area:tree]
-    {The tree has rooted itself deep inside the ship's engine. Yet somehow, it is still humming, still glowing. Its purpose no longer to propel. What its purpose is, eludes you still.|The engine casts a strange warm light on the dense tangle of tree roots. It seems like the tree is connected to the engine.|The tree is {~waiting|looking|longing} for something, {~what could it be|what does it want}?|perhaps you can {~bring|find} it?}
+    {
+        - piano_song:
+            You brought the piano shard
+        - flute_song:
+            You brought the flute shard
+        - violin_song:
+            You brought the violin shard
+        - drum_song:
+            You brought the drum shard
+        - else:
+            {The tree has rooted itself deep inside the ship's engine. Yet somehow, it is still humming, still glowing. Its purpose no longer to propel. What its purpose is, eludes you still.|The engine casts a strange warm light on the dense tangle of tree roots. It seems like the tree is connected to the engine.|The tree is {~waiting|looking|longing} for something, {~perhaps you can {~bring|find} it|what could it be|what does it want}?}
+    }
 
 + [recorder #area:recorder]
     {A small, rectangular device sits at the base of the tree. It's a cassette recorder! A single tape is loaded into it.|<- tape_1}
 
++ [engine_to_hallway #entrance_to:hallway]
 - -> engine_room.choices
 
 
 = tape_1
-{A voice crackles to life. "Hey. I don't know who's going to be on the other end of this, but if you've gotten here, I just ask that you listen this once."|I'm the last survivor of the Eurydice. The last of my crew. And — hah — I'll be joining them soon, so I guess you can consider this my will. Congratulations on stumbling across this. A silly, selfish request from someone who’s running out of time.|I don't have the luxury to explain everything that happened here, but maybe you're clever enough to figure it out. Or maybe you don't even care, and I'm just nattering to a strip of tape like I always do! They always teased me for that.|But ... if you really are here with me ... let me say this. We poured all of ourselves into this hunk of steel and wires. I refuse to let the Eurydice end up being a cold, empty tomb swallowed up by —  by silence. She was never meant to be this quiet. | There were five of us. Five songs. The Captain... the Mechanic... the Medic... the Pilot... and the Navigator. Each one of us left a piece of ourselves behind, like... like a little memory. I want you to find these Shards and bring them back here to this tree. You'll find mine a few steps away from here. Just follow the music. The tree, the plants, this planet — it'll make sense the deeper you venture in. | I just want to be with my crew again. I can’t bring them back, but I want to know some part of the universe recognized our small existence. That someone was listening. | I guess that's all I can really ask you to do in the end. The you who arrived here with me. Please listen." The tape ends. A shard lies next to the tape recorder. | <- found_shard|}
+{A voice crackles to life. "Hey. I don't know who's going to be on the other end of this, but if you've gotten here, I just ask that you listen this once."|I'm the last survivor of the Eurydice. The last of my crew. And — hah — I'll be joining them soon, so I guess you can consider this my will. Congratulations on stumbling across this. A silly, selfish request from someone who’s running out of time.|I don't have the luxury to explain everything that happened here, but maybe you're clever enough to figure it out. Or maybe you don't even care, and I'm just nattering to a strip of tape like I always do! They always teased me for that.|But ... if you really are here with me ... let me say this. We poured all of ourselves into this hunk of steel and wires. I refuse to let the Eurydice end up being a cold, empty tomb swallowed up by —  by silence. She was never meant to be this quiet.|There were five of us. Five songs. The Captain... the Mechanic... the Medic... the Pilot... and the Navigator.|Each one of us left a piece of ourselves behind, like... like a little memory. I want you to find these Shards and bring them back here to this tree. You'll find mine a few steps away from here. Just follow the music. The tree, the plants, this planet — it'll make sense the deeper you venture in.|I just want to be with my crew again. I can’t bring them back, but I want to know some part of the universe recognized our small existence. That someone was listening.|I guess that's all I can really ask you to do in the end. The you who arrived here with me. Please listen." The tape ends.|{~The tape has ended, but the ghost of a voice lingers.|The voice asked you to find the music shards of the five crew members, and bring it to the tree in the engine.}}
 -> DONE
 
-= found_shard
-# player_sound:piano_shard.ogg
-It's the source of the melody you keep hearing!
--> DONE
 
 === hallway_lvl1 ===
 
