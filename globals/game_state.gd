@@ -15,6 +15,7 @@ var sound_volume = 0
 var tts_over_screenreader = true
 var selected_voice = null
 var available_voices = 0
+var inventory = {}
 
 signal on_toggle_tts_over_screenreader(enabled: bool)
 

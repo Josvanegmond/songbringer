@@ -58,6 +58,7 @@ A song beckons to you across space.
 
 = found_shard
 # player_sound:piano_shard.ogg
+# add_shard:piano
 It's the source of the melody you keep hearing!
 -> DONE
 

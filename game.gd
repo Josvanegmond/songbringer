@@ -78,6 +78,18 @@ func handle_tag(tag, args):
 		if args[0] == 'intro':
 			intro_scene.visible = true
 			intro_button.pressed.connect(func (): _select_choice(0))
+	
+	if tag == "add_shard" and args.size() > 0:
+		add_shard_to_inventory(args[0])
+
+func add_shard_to_inventory(shard_name: String):
+	if not GameState.inventory.has("shards"):
+		GameState.inventory["shards"] = []
+	
+	if shard_name not in GameState.inventory["shards"]:
+		GameState.inventory["shards"].append(shard_name)
+		print("Shard added: ", shard_name)
+
 
 
 # Shows text in game or in the intro
