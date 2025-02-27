@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvbe8t3nr0xhm"]
+[gd_scene load_steps=18 format=3 uid="uid://dvbe8t3nr0xhm"]
 
 [ext_resource type="Script" uid="uid://dntvjbif11iiq" path="res://game_elements/player/player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://ddc3xl5p8kj8f" path="res://game_sounds/etherphone_open.ogg" id="2_ch0e6"]
 [ext_resource type="AudioStream" uid="uid://pve64ywxe55h" path="res://sounds/footsteps/footsteps_boot_random.tres" id="2_onrkg"]
-[ext_resource type="AudioStream" uid="uid://c1hhfrhnd125l" path="res://sounds/GP_PutDown_8.wav" id="3_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://x06b1j8enfhw" path="res://game_sounds/piano_shard.ogg" id="3_eyvhf"]
 [ext_resource type="Texture2D" uid="uid://c4twou4p3fq83" path="res://game_elements/player/spritewalk_0000.png" id="4_8nby0"]
+[ext_resource type="AudioStream" uid="uid://bplah7rre2hak" path="res://game_sounds/generic_door.ogg" id="5_eyvhf"]
 [ext_resource type="Texture2D" uid="uid://r1d1dcwgyui" path="res://game_elements/player/spritewalk_0001.png" id="5_miqxt"]
 [ext_resource type="Texture2D" uid="uid://mqelsarkyvc1" path="res://game_elements/player/spritewalk_0002.png" id="6_d36pv"]
 [ext_resource type="Texture2D" uid="uid://bobl7ui7nqqhl" path="res://game_elements/player/spritewalk_0003.png" id="7_lpls8"]
@@ -69,7 +70,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
-play_sounds = Array[AudioStream]([ExtResource("2_ch0e6")])
+play_sounds = Array[AudioStream]([ExtResource("2_ch0e6"), ExtResource("3_eyvhf")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.80356, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -82,9 +83,7 @@ volume_db = -18.627
 bus = &"Sound"
 
 [node name="EnterAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_i3pqv")
-volume_db = -11.383
-pitch_scale = 0.28
+stream = ExtResource("5_eyvhf")
 bus = &"Sound"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

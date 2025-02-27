@@ -33,7 +33,7 @@ func _pick_entrance_choice(entrance_name: String):
 		func (choice: InkChoice):
 			var choice_tags = choice.GetTags()
 			for tag in choice_tags:
-				var tag_parts = tag.split(' ')
+				var tag_parts = tag.split(':')
 				return tag_parts.size() == 2 && tag_parts[0] == 'entrance_to' && tag_parts[1] == entrance_name
 			return false
 	)
