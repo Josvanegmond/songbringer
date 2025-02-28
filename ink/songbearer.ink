@@ -69,12 +69,9 @@ A song beckons to you across space.
         ~ voice_returned = true
         <i>You brought the Shard of the Navigator.</i> His voice stirs from the speaker of your etherphone.
     - piano_returned and flute_returned and violin_returned and drum_returned and voice_returned:
-        You gather the five shards before the heart of the tree. The Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation.
-        \| This was the Mechanic's last wish: the final symphony of the crew.
-        \| You listen as the Eurydice performs in song-wed twine, joined together once more. The hum of the tree rises to meet the crew's melodies in full. You wonder if this is what the strange signal had been searching for, too, if this is what drew the Eurydice here, across this lonely stretch of the universe — another voice to answer its call.
-        \| You stand before it all, wreathed in song.
+        {You gather the five shards before the heart of the tree. The Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation. | This was the Mechanic's last wish\: the final symphony of the crew. | You listen as the Eurydice performs in song-wed twine, joined together once more. The hum of the tree rises to meet the crew's melodies in full. You wonder if this is what the strange signal had been searching for, too, if this is what drew the Eurydice here, across this lonely stretch of the universe — another voice to answer its call. | You stand before it all, wreathed in song.}
     - else:
-        The tree has rooted itself deep inside the ship's engine, humming, waiting. Is this what called out to you? Wasn’t Eurydice originally a tree nymph? Maybe she found a home on this strange planet.
+        The tree has rooted itself deep inside the ship's engine, humming, waiting. Is this what called out to you? Wasn't Eurydice originally a tree nymph? Maybe she found a home on this strange planet.
 }
 
 
@@ -117,7 +114,9 @@ A song beckons to you across space.
 	-> command
 
 + [flute #area:flute]
-{not flute_song: {From beneath a tangle of foliage, you hear the muffled sound of pipes. Your etherphone tells you another shard is here.|You try tearing at the plants, and begin dislodging a wooden object. You silently apologize to the plants as its song grows louder.|->found_flute|As the flute echoes freely, the tangle of plants shake and dance, almost as if in response to the whistling.|You salute the plants for having excellent taste in music. You wonder how long it's been since they were able to dance like that.}}
+{From beneath a tangle of foliage, you hear the muffled sound of pipes. Your etherphone tells you another shard is here.|You try tearing at the plants, and begin dislodging a wooden object. You silently apologize to the plants as its song grows louder.|->found_flute|As the flute echoes freely, the tangle of plants shake and dance, almost as if in response to the whistling.|You salute the plants for having excellent taste in music. You wonder how long it's been since they were able to dance like that.}
+
+- -> hallway_lvl1.choices
 
 =found_flute
 #player_sound:flute_shard.ogg
@@ -126,7 +125,7 @@ A song beckons to you across space.
 It's a flute! Strange green pores are speckled across its surface. Its melody is warm and rich — but still, how strange to hear an instrument without a player. <i> You found the Flute. </i>
 -> hallway_lvl1.choices
 
-- -> hallway_lvl1.choices
+
 
 === medbay ===
 #light_level:0.5
@@ -199,7 +198,7 @@ The crash has left the command room in a state of disarray, with wires and debri
 =found_voice
 #player_sound:voice_shard.ogg
 #add_shard:voice
-~ drum_song = true
+~ voice_song = true
 <i> You found the Voice shard. </i>
 -> command.choices
 
