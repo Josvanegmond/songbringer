@@ -20,6 +20,16 @@ var inventory = {}
 signal on_toggle_tts_over_screenreader(enabled: bool)
 
 
+func has_shard(shard_name):
+	return shard_name in inventory
+
+func sync_inventory_with_ink(ink_story):
+	ink_story.variables_state["piano_song"] = has_shard("piano_shard")
+	ink_story.variables_state["flute_song"] = has_shard("flute_shard")
+	ink_story.variables_state["violin_song"] = has_shard("violin_shard")
+	ink_story.variables_state["drum_song"] = has_shard("drum_shard")
+	ink_story.variables_state["voice_song"] = has_shard("voice_shard")
+
 func toggle_tts_over_screenreader():
 	if tts_over_screenreader:
 		inform_tts(false)

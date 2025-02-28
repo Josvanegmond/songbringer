@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bafjojm4m3fkv"]
+[gd_scene load_steps=29 format=3 uid="uid://bafjojm4m3fkv"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_2p44f"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="2_0kbvf"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://74828q4y3jtw" path="res://game_ship/engine/Enginegreeble_03.png" id="13_xuoq6"]
 [ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="14_d3dp5"]
 [ext_resource type="Texture2D" uid="uid://7b8mifyqipts" path="res://game_ship/engine/Enginegreeble_06.png" id="15_xk7h8"]
+[ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="18_d3dp5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -49,6 +50,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0.722656, 0.722656, 0.722656, 1)
 gradient = SubResource("Gradient_e36ub")
 fill_to = Vector2(0, 1)
 repeat = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xk7h8"]
+resource_local_to_scene = true
 
 [node name="Hallway2Room" type="Node3D"]
 
@@ -559,3 +563,12 @@ cast_shadow = 0
 modulate = Color(0.160156, 0.160156, 0.160156, 1)
 alpha_cut = 1
 texture = SubResource("GradientTexture2D_hb5m1")
+
+[node name="PoiArea" parent="." instance=ExtResource("18_d3dp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96385, 0.445288, -0.479898)
+choice_tag = "flute"
+
+[node name="AreaShape" parent="PoiArea/Area" index="0"]
+shape = SubResource("BoxShape3D_xk7h8")
+
+[editable path="PoiArea"]

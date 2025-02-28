@@ -6,6 +6,12 @@ VAR violin_song = false
 VAR drum_song = false
 VAR voice_song = false
 
+VAR piano_returned = false
+VAR flute_returned = false
+VAR violin_returned = false
+VAR drum_returned = false
+VAR voice_returned = false
+
 === game_begins ===
 #music_play:main
 #scene:intro
@@ -39,19 +45,34 @@ A song beckons to you across space.
 {
     - piano_song:
         #remove_shard:piano_shard
+        ~ piano_song = false
+        ~ piano_returned = true
         <i>You brought the Shard of the Medic.</i> The chords of the keyboard tinkle, ethereal, softening the room around you.
     - flute_song:
         #remove_shard:flute_shard
+        ~ flute_song = false
+        ~ flute_returned = true
         <i>You brought the Shard of the Mechanic.</i> The flute whistles a clear, bright tone. The wind rises to meet it in a harmony of breath and song. Soon, it calls to you. Soon the promise of discovery anew.
     - violin_song:
         #remove_shard:violin_shard
-        <i>You brought the Shard of the Captain.</i> You hope one day it finds what it was looking for.     	
+        ~ violin_song = false
+        ~ violin_returned = true
+        <i>You brought the Shard of the Captain.</i> You hope one day it finds what it was looking for.
     - drum_song:
         #remove_shard:drum_shard
+        ~ drum_song = false
+        ~ drum_returned = true
         <i>You brought the Shard of the Pilot.</i> The drum strikes a crisp, lively melody. The shrine thrums to life with each steady beat. Here I am, here I am, it seems to say, joining you in song.
     - voice_song:
         #remove_shard:voice_shard
+        ~ voice_song = false
+        ~ voice_returned = true
         <i>You brought the Shard of the Navigator.</i> His voice stirs from the speaker of your etherphone.
+    - piano_returned and flute_returned and violin_returned and drum_returned and voice_returned:
+        You gather the five shards before the heart of the tree. The Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation.
+        \| This was the Mechanic's last wish: the final symphony of the crew.
+        \| You listen as the Eurydice performs in song-wed twine, joined together once more. The hum of the tree rises to meet the crew's melodies in full. You wonder if this is what the strange signal had been searching for, too, if this is what drew the Eurydice here, across this lonely stretch of the universe — another voice to answer its call.
+        \| You stand before it all, wreathed in song.
     - else:
         The tree has rooted itself deep inside the ship's engine, humming, waiting. Is this what called out to you? Wasn’t Eurydice originally a tree nymph? Maybe she found a home on this strange planet.
 }
@@ -73,12 +94,12 @@ A song beckons to you across space.
 
 = tape_1
 {A voice crackles to life. "Hey. I don't know who's going to be on the other end of this, but if you've gotten here, I just ask that you listen this once."|I'm the last survivor of the Eurydice. The last of my crew. And — hah — I'll be joining them soon, so I guess you can consider this my will. Congratulations on stumbling across this. A silly, selfish request from someone who’s running out of time.|I don't have the luxury to explain everything that happened here, but maybe you're clever enough to figure it out. Or maybe you don't even care, and I'm just nattering to a strip of tape like I always do! They always teased me for that.|But ... if you really are here with me ... let me say this. We poured all of ourselves into this hunk of steel and wires. I refuse to let the Eurydice end up being a cold, empty tomb swallowed up by —  by silence. She was never meant to be this quiet.|There were five of us. Five songs. The Captain... the Mechanic... the Medic... the Pilot... and the Navigator.|Each one of us left a piece of ourselves behind, like... like a little memory. I want you to find these Shards and bring them back here to this tree. You'll find mine a few steps away from here. Just follow the music. The tree, the plants, this planet — it'll make sense the deeper you venture in.|I just want to be with my crew again. I can’t bring them back, but I want to know some part of the universe recognized our small existence. That someone was listening.|I guess that's all I can really ask you to do in the end. The you who arrived here with me. Please listen." The tape ends.|{~The tape has ended, but the ghost of a voice lingers.|The voice asked you to find the music shards of the five crew members, and bring it to the tree in the engine.}}
--> DONE
+-> engine_room.choices
 
 
 === hallway_lvl1 ===
 #light_level:0.6
-#music_play:none
+#music_play:silence
 #ambience_play:hallway_ambience.ogg
 {You uncover a hallway,|The hallway is} narrow and dark. At the end of it is a ladder leading into the ship's second level. Light peeks in from above.
 
@@ -99,10 +120,11 @@ A song beckons to you across space.
 {not flute_song: {From beneath a tangle of foliage, you hear the muffled sound of pipes. Your etherphone tells you another shard is here.|You try tearing at the plants, and begin dislodging a wooden object. You silently apologize to the plants as its song grows louder.|->found_flute|As the flute echoes freely, the tangle of plants shake and dance, almost as if in response to the whistling.|You salute the plants for having excellent taste in music. You wonder how long it's been since they were able to dance like that.}}
 
 =found_flute
-#player_sound:flute_shard
+#player_sound:flute_shard.ogg
 #add_shard:flute
+~ flute_song = true
 It's a flute! Strange green pores are speckled across its surface. Its melody is warm and rich — but still, how strange to hear an instrument without a player. <i> You found the Flute. </i>
--> DONE
+-> hallway_lvl1.choices
 
 - -> hallway_lvl1.choices
 
@@ -121,13 +143,17 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
 + [medbay_to_hallway #entrance_to:medbay_to_hallway]
 	-> hallway_lvl1
 
++ [piano #area:piano]
+    -> found_piano
+
 - -> medbay.choices
 
 =found_piano
-#player_sound:piano_shard
+#player_sound:piano_shard.ogg
 #add_shard:piano
-Phantom chords are strung into a cresting ballad that breaks through the quiet of the medical bay. <i> You found the Piano shard. </i> 
-->DONE
+~ piano_song = true
+Phantom chords are strung into a cresting ballad that breaks through the quiet of the medical bay. You found the Piano shard.
+-> medbay.choices
 
 
 === obsdeck ===
@@ -148,10 +174,11 @@ The tree stretches through most of the observation deck's roof and windows, bath
 - -> obsdeck.choices
 
 =found_drum
-#player_sound:piano_shard
+#player_sound:drum_shard.ogg
 #add_shard:drum
+~ drum_song = true
  It quietly taps out a steady rhythm, as if echoing a melody only it remembers. <i> You found the Drum. </i>
-->DONE
+-> obsdeck.choices
 
 === command ===
 #light_level:0.8
@@ -164,20 +191,23 @@ The crash has left the command room in a state of disarray, with wires and debri
 
 + [drawer #area:drawer]
     {You hear the sound of strings from a desk drawer.|Inside sits a violin with no bow. Spores are speckled on its long neck. It seems lonely by itself here.|->found_violin|The desk lies quietly.}
-
++ [command_to_hallway #entrance_to:command_to_hallway]
+	-> hallway_lvl1
 
 - -> command.choices
 
 =found_voice
-#player_sound:voice_shard
+#player_sound:voice_shard.ogg
 #add_shard:voice
+~ drum_song = true
 <i> You found the Voice shard. </i>
-->DONE
+-> command.choices
 
 =found_violin
-#player_sound:violin_shard
+#player_sound:violin_shard.ogg
 #add_shard:violin
+~ violin_song = true
 The song swells and dances across the strings. You wonder if it's chasing something. <i> You found the Violin shard. </i> 
-->DONE
+-> command.choices
 
 -> END

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dfmg60li3ibwj"]
+[gd_scene load_steps=29 format=3 uid="uid://dfmg60li3ibwj"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_1hqcv"]
 [ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="2_hlx0x"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dn7b874x4tusv" path="res://game_ship/command/Commandgreeble_03.png" id="18_fwqfj"]
 [ext_resource type="Texture2D" uid="uid://vfes7ikqkn5d" path="res://game_ship/command/Commandgreeble_04.png" id="19_lmb7q"]
 [ext_resource type="Texture2D" uid="uid://b3f0mvpcn4kns" path="res://game_ship/command/Commandgreeble_05.png" id="20_2ygm0"]
+[ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="20_5pqpn"]
 [ext_resource type="Texture2D" uid="uid://bye10avqyguns" path="res://game_ship/command/Commandgreeble_06.png" id="21_8e6n1"]
 [ext_resource type="Texture2D" uid="uid://2a03tb8qm67j" path="res://game_ship/command/Observationgreeble_07.png" id="22_mxxqk"]
 [ext_resource type="Texture2D" uid="uid://cp0rjgs2ya3hj" path="res://game_ship/command/Commandgreeble_07.png" id="22_poc5r"]
@@ -46,6 +47,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0.722656, 0.722656, 0.722656, 1)
 gradient = SubResource("Gradient_e36ub")
 fill_to = Vector2(0, 1)
 repeat = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xv3x5"]
+resource_local_to_scene = true
 
 [node name="CommandRoom" type="Node3D"]
 
@@ -497,3 +501,12 @@ cast_shadow = 0
 modulate = Color(0.160156, 0.160156, 0.160156, 1)
 alpha_cut = 1
 texture = SubResource("GradientTexture2D_hb5m1")
+
+[node name="PoiArea" parent="." instance=ExtResource("20_5pqpn")]
+transform = Transform3D(1.6084, 0, 0, 0, 1, 0, 0, 0, 1, -3.57285, 0.511912, -0.448563)
+choice_tag = "drawer"
+
+[node name="AreaShape" parent="PoiArea/Area" index="0"]
+shape = SubResource("BoxShape3D_xv3x5")
+
+[editable path="PoiArea"]

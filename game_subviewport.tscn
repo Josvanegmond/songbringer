@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bs7ktn4eux4qu" path="res://game_sounds/grammaphone/Crackle sound 12.ogg" id="9_eoj5a"]
 [ext_resource type="AudioStream" uid="uid://ym6v5dxuixug" path="res://game_sounds/small_drip.ogg" id="9_m4pj2"]
 [ext_resource type="AudioStream" uid="uid://ciwoqa8olqhap" path="res://game_sounds/leaky_drip.ogg" id="9_pj4en"]
-[ext_resource type="Script" uid="uid://bltnfiobvqufx" path="res://game_ship/medbay/audio_bits_player.gd" id="9_w4ibg"]
+[ext_resource type="Script" path="res://game_ship/medbay/audio_bits_player.gd" id="9_w4ibg"]
 [ext_resource type="PackedScene" uid="uid://dfmg60li3ibwj" path="res://game_ship/command/command_room.tscn" id="10_ykcb3"]
 
 [sub_resource type="Gradient" id="Gradient_iotsf"]
@@ -86,7 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92873, -0.0723033, -6.1789
 
 [node name="MedbayToHallway2" parent="SubViewport/Node3D/MedbayRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 0.832087, 0.493393, -0.279859)
-choice_name = "hallway2"
+choice_name = "medbay_to_hallway"
 connected_area = NodePath("../../Hallway2Room/Hallway2ToMedbay")
 
 [node name="Hallway2Room" parent="SubViewport/Node3D" instance=ExtResource("6_v2xn6")]
@@ -135,7 +135,7 @@ script = ExtResource("9_w4ibg")
 
 [node name="Hallway2ToMedbay" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 0.254682, 0.42109, -0.269099)
-choice_name = "hallway2"
+choice_name = "hallway_to_medbay"
 connected_area = NodePath("../../MedbayRoom/MedbayToHallway2")
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Hallway2Room"]
@@ -148,7 +148,7 @@ bus = &"Sound"
 
 [node name="Hallway2ToCommand" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, -6.33962, 0.42109, -0.269099)
-choice_name = "hallway2"
+choice_name = "hallway_to_command"
 connected_area = NodePath("../../CommandRoom/CommandToHallway2")
 
 [node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Hallway2Room"]
@@ -162,7 +162,7 @@ bus = &"Sound"
 
 [node name="Hallway2ToObs" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 10.1631, 0.42109, -0.269099)
-choice_name = "hallway2"
+choice_name = "hallway_to_obs"
 connected_area = NodePath("../../ObservRoom/ObsToHallway2")
 
 [node name="EngineRoom" parent="SubViewport/Node3D" instance=ExtResource("3_nt0l3")]
@@ -195,7 +195,7 @@ bus = &"Sound"
 
 [node name="ObsToHallway2" parent="SubViewport/Node3D/ObservRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, -6.89554, 0.42109, -0.336031)
-choice_name = "hallway2"
+choice_name = "obs_to_hallway"
 connected_area = NodePath("../../Hallway2Room/Hallway2ToObs")
 
 [node name="CollisionShape3D" parent="SubViewport/Node3D/ObservRoom/ObsToHallway2" index="0"]
@@ -214,7 +214,7 @@ bus = &"Sound"
 
 [node name="CommandToHallway2" parent="SubViewport/Node3D/CommandRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 4.87736, 0.42109, -0.310225)
-choice_name = "hallway2"
+choice_name = "command_to_hallway"
 connected_area = NodePath("../../Hallway2Room/Hallway2ToCommand")
 
 [node name="Player" parent="SubViewport/Node3D" instance=ExtResource("4_ncr7u")]
