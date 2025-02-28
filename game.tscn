@@ -79,5 +79,6 @@ amb_list = Array[AudioStream]([ExtResource("13_rvswv"), ExtResource("15_x5p1p"),
 
 [node name="Eurydice Atm" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_i2p71")
+volume_db = -10.306
 bus = &"Ambient"
 script = ExtResource("18_vaj68")
