@@ -1,12 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvbe8t3nr0xhm"]
+[gd_scene load_steps=22 format=3 uid="uid://dvbe8t3nr0xhm"]
 
 [ext_resource type="Script" uid="uid://dntvjbif11iiq" path="res://game_elements/player/player.gd" id="1_4flbx"]
-[ext_resource type="AudioStream" uid="uid://ddc3xl5p8kj8f" path="res://game_sounds/etherphone_open.ogg" id="2_ch0e6"]
 [ext_resource type="AudioStream" uid="uid://pve64ywxe55h" path="res://sounds/footsteps/footsteps_boot_random.tres" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://cjqpl83ygs5p2" path="res://game_sounds/flute_shard.ogg" id="3_1ruxg"]
 [ext_resource type="AudioStream" uid="uid://x06b1j8enfhw" path="res://game_sounds/piano_shard.ogg" id="3_eyvhf"]
 [ext_resource type="Texture2D" uid="uid://c4twou4p3fq83" path="res://game_elements/player/spritewalk_0000.png" id="4_8nby0"]
+[ext_resource type="AudioStream" uid="uid://dwxyym33jys2a" path="res://game_sounds/violin_shard.ogg" id="4_ajywx"]
 [ext_resource type="AudioStream" uid="uid://bplah7rre2hak" path="res://game_sounds/generic_door.ogg" id="5_eyvhf"]
 [ext_resource type="Texture2D" uid="uid://r1d1dcwgyui" path="res://game_elements/player/spritewalk_0001.png" id="5_miqxt"]
+[ext_resource type="AudioStream" uid="uid://b5bsvebawlktq" path="res://game_sounds/percussion_shard.ogg" id="5_whdcm"]
+[ext_resource type="AudioStream" uid="uid://degauxrisil8d" path="res://game_sounds/etherphone_pickup.tres" id="6_1ruxg"]
 [ext_resource type="Texture2D" uid="uid://mqelsarkyvc1" path="res://game_elements/player/spritewalk_0002.png" id="6_d36pv"]
 [ext_resource type="Texture2D" uid="uid://cfaer2tarlflf" path="res://game_elements/player/spritestand.png" id="6_mxa82"]
 [ext_resource type="Texture2D" uid="uid://bobl7ui7nqqhl" path="res://game_elements/player/spritewalk_0003.png" id="7_lpls8"]
@@ -71,7 +74,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
-play_sounds = Array[AudioStream]([ExtResource("2_ch0e6"), ExtResource("3_eyvhf")])
+play_sounds = Array[AudioStream]([ExtResource("3_eyvhf"), ExtResource("3_1ruxg"), ExtResource("4_ajywx"), ExtResource("5_whdcm"), ExtResource("6_1ruxg")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.80356, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -80,7 +83,7 @@ mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="FootstepsBootRandom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_onrkg")
-volume_db = -18.627
+volume_db = 4.448
 bus = &"Sound"
 
 [node name="EnterAudio" type="AudioStreamPlayer" parent="."]
@@ -99,3 +102,4 @@ animation = &"walking"
 speed_scale = 3.0
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sound"

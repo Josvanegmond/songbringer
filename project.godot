@@ -48,7 +48,7 @@ enabled=PackedStringArray("res://addons/GodotInk/plugin.cfg")
 [importer_defaults]
 
 wav={
-&"edit/loop_mode": 2
+&"edit/loop_mode": 1
 }
 
 [inkgd]

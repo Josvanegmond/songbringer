@@ -19,7 +19,7 @@ VAR shrine_found = false
 A song beckons to you across space.
 
 + [LISTEN]
-	#player_sound:etherphone_open.ogg
+	#player_sound:etherphone_pickup.tres
 	- With your etherphone, you trace its call to an arboreal planet, dense with greenery and foliage. In the midst of this planet’s solitude stands the wreckage of an old ship.
 
 + [CONTINUE]
@@ -163,7 +163,7 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
 #player_sound:piano_shard.ogg
 #add_shard:piano
 ~ piano_song = true
-Phantom chords are strung into a cresting ballad that breaks through the quiet of the medical bay. You found the Piano shard.
+Phantom chords are strung into a cresting ballad that breaks through the quiet of the medical bay. You found the Piano shard. #player_sound:piano_shard.ogg
 -> medbay.choices
 
 
@@ -215,7 +215,7 @@ The crash has left the command room in a state of disarray, with wires and debri
 - -> command.choices
 
 =found_voice
-#player_sound:voice_shard.ogg
+//#player_sound:voice_shard.ogg
 #add_shard:voice
 ~ voice_song = true
 <i> You found the Voice shard. </i>

@@ -1,36 +1,36 @@
 extends AudioStreamPlayer
 
 
-@export var amb_list: Array[AudioStream] = []
+@export var music_list: Array[AudioStream] = []
 
 var name_to_index = {}
-var current_amb = null
+var current_song = null
 
 
 func _ready() -> void:
-	for i in range(amb_list.size()):
-		var amb: AudioStream = amb_list[i]
-		var amb_parts = amb.resource_path.split('.')[0].split('/')
-		var amb_name = amb_parts[amb_parts.size() - 1]
-		name_to_index[amb_name] = i
+	for i in range(music_list.size()):
+		var song: AudioStream = music_list[i]
+		var song_parts = song.resource_path.split('.')[0].split('/')
+		var song_name = song_parts[song_parts.size() - 1]
+		name_to_index[song_name] = i
 	
 	GameBus.handle_tag.connect(handle_tag)
 
 
 func handle_tag(tag_command, tag_args):
-	if tag_command == 'amb_play':
-		#if tag_args != "eurydiceatmloop":
-		transition_amb_to(tag_args[0])
-		print("playing "+str(tag_args[0]))
+	if tag_command == 'music_play':
+		transition_music_to(tag_args[0])
+		print("music switched to "+tag_args[0])
 
 
-func transition_amb_to(amb_name):
-	if current_amb == amb_name:
+
+func transition_music_to(song_name):
+	if current_song == song_name:
 		return
 
-	if name_to_index.has(amb_name):
-		var audio_stream: AudioStream = amb_list[name_to_index[amb_name]]
-		current_amb = amb_name
+	if name_to_index.has(song_name):
+		var audio_stream: AudioStream = music_list[name_to_index[song_name]]
+		current_song = song_name
 		stream = audio_stream
 		play()
 	else:
