@@ -322,10 +322,18 @@ max_distance = 3.0
 script = ExtResource("16_ub3vh")
 
 [node name="PoiArea" parent="." instance=ExtResource("17_anbqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09871, 0.445288, -0.479898)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.54397, 0.445288, -0.479898)
 choice_tag = "piano"
 
 [node name="AreaShape" parent="PoiArea/Area" index="0"]
 shape = SubResource("BoxShape3D_anbqy")
 
+[node name="PoiArea2" parent="." instance=ExtResource("17_anbqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.851056, 0.445288, -0.479898)
+choice_tag = "gramophone"
+
+[node name="AreaShape" parent="PoiArea2/Area" index="0"]
+shape = SubResource("BoxShape3D_anbqy")
+
 [editable path="PoiArea"]
+[editable path="PoiArea2"]

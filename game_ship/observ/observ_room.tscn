@@ -548,4 +548,12 @@ choice_tag = "drum"
 [node name="AreaShape" parent="PoiArea/Area" index="0"]
 shape = SubResource("BoxShape3D_7bhtk")
 
+[node name="PoiArea2" parent="." instance=ExtResource("19_odw0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112714, 0.445288, -0.479898)
+choice_tag = "shrine"
+
+[node name="AreaShape" parent="PoiArea2/Area" index="0"]
+shape = SubResource("BoxShape3D_7bhtk")
+
 [editable path="PoiArea"]
+[editable path="PoiArea2"]
