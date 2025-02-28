@@ -19,9 +19,8 @@ func _ready() -> void:
 
 func handle_tag(tag_command, tag_args):
 	if tag_command == 'amb_play':
-		#if tag_args != "eurydiceatmloop":
 		transition_amb_to(tag_args[0])
-		print("playing "+str(tag_args[0]))
+		print("playing amb "+str(tag_args[0]))
 
 
 func transition_amb_to(amb_name):

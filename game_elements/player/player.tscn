@@ -74,7 +74,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
-play_sounds = Array[AudioStream]([ExtResource("3_eyvhf"), ExtResource("3_1ruxg"), ExtResource("4_ajywx"), ExtResource("5_whdcm"), ExtResource("6_1ruxg")])
+play_sounds = Array[AudioStream]([ExtResource("6_1ruxg"), ExtResource("3_eyvhf"), ExtResource("3_1ruxg"), ExtResource("4_ajywx"), ExtResource("5_whdcm")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.80356, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -102,4 +102,5 @@ animation = &"walking"
 speed_scale = 3.0
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 5.288
 bus = &"Sound"

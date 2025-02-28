@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/engine_door.ogg-125ee898880f4d7d5cefe1e303e88
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

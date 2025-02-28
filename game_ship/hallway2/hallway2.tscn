@@ -730,6 +730,7 @@ texture = SubResource("GradientTexture2D_hb5m1")
 [node name="PoiArea" parent="." instance=ExtResource("18_d3dp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.96385, 0.445288, -0.479898)
 choice_tag = "flute"
+etherphone_active = true
 
 [node name="AreaShape" parent="PoiArea/Area" index="0"]
 shape = SubResource("BoxShape3D_xk7h8")
