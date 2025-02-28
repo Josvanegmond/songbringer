@@ -80,7 +80,7 @@ max_distance = 1.5
 bus = &"Sound"
 
 [node name="Engine" parent="Poi" instance=ExtResource("1_f44qm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2969, 0.495713, -0.594796)
+transform = Transform3D(3.59214, 0, 0, 0, 1.72533, 0, 0, 0, 1, 1.53911, 0.495713, -0.594796)
 choice_tag = "tree"
 etherphone_active = true
 sound = ExtResource("3_lstmv")
@@ -91,7 +91,9 @@ shape = SubResource("BoxShape3D_nbsb5")
 
 [node name="AudioStreamPlayer3D" parent="Poi/Engine" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.237269, -0.248346, 0.148298)
+volume_db = 10.292
 unit_size = 75.0
+max_db = 3.579
 max_distance = 6.0
 panning_strength = 2.0
 bus = &"Sound"
@@ -101,6 +103,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96291, 0.495713, -0.458973
 choice_tag = "recorder"
 etherphone_active = true
 
+[node name="Area" parent="Poi/Recorder" index="0"]
+transform = Transform3D(1.64066, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="AreaShape" parent="Poi/Recorder/Area" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00254822, 0, 0.232666)
 shape = SubResource("BoxShape3D_nbsb5")
@@ -108,7 +113,6 @@ shape = SubResource("BoxShape3D_nbsb5")
 [node name="AudioStreamPlayer3D" parent="Poi/Recorder" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.180612, 0.328042)
 attenuation_model = 2
-volume_db = 5.0
 unit_size = 2.0
 max_db = 0.0
 max_distance = 2.0

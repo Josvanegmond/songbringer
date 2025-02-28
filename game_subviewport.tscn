@@ -204,7 +204,7 @@ choice_name = "command_to_hallway"
 connected_area = NodePath("../../Hallway2Room/Hallway2ToCommand")
 
 [node name="Player" parent="SubViewport/Node3D" instance=ExtResource("4_ncr7u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.89693, 0.310742, 7.39051)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4604, 0.310742, 7.39051)
 
 [node name="AudioListener3D" type="AudioListener3D" parent="SubViewport/Node3D/Player"]
 current = true

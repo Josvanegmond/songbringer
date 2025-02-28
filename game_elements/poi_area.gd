@@ -47,12 +47,12 @@ func update_sound():
 func _on_area_body_entered(body: Node3D) -> void:
 	if body.name == 'Player':
 		player_in_area = true
-	if etherphone_active == true:
-		etherphone_active = false
-		GameBus.etherphone.emit()
-		print("etherphone emitted")
-		await get_tree().create_timer(1.5).timeout
-		etherphone_active = true
+		if etherphone_active == true:
+			etherphone_active = false
+			GameBus.etherphone.emit()
+			print("etherphone emitted")
+			await get_tree().create_timer(2).timeout
+			etherphone_active = true
 
 
 func _on_area_body_exited(body: Node3D) -> void:

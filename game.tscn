@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bghsjbsbn2dsc"]
+[gd_scene load_steps=21 format=3 uid="uid://bghsjbsbn2dsc"]
 
 [ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://styles/main.tres" id="1_boyg6"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://game.gd" id="2_e36ub"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://xkptnatyndd8" path="res://game_sounds/sunshine.ogg" id="11_rvswv"]
 [ext_resource type="AudioStream" uid="uid://d0007x7rhkxd1" path="res://game_sounds/engine_ending_atm_loop.wav" id="12_80cx4"]
 [ext_resource type="Script" uid="uid://b2hpbotw16iw5" path="res://amb_player.gd" id="12_215e1"]
+[ext_resource type="AudioStream" uid="uid://d13g1h0qtfe3g" path="res://game_sounds/symphonictheme.ogg" id="12_e36ub"]
 [ext_resource type="AudioStream" uid="uid://dj6xf5yrckmvs" path="res://game_sounds/eurydice_atm_loop.wav" id="13_215e1"]
 [ext_resource type="Script" uid="uid://rt6yu6sfdxq2" path="res://EurydiceAmb_player.gd" id="14_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://bow5g14dq7n3d" path="res://game_sounds/obs_atm_loop.ogg" id="15_boyg6"]
@@ -63,10 +64,10 @@ layout_mode = 1
 volume_db = -6.559
 bus = &"Music"
 script = ExtResource("17_xex6t")
-music_list = Array[AudioStream]([ExtResource("18_aa0lp"), ExtResource("11_rvswv"), ExtResource("10_hve3p"), ExtResource("19_iu0sx")])
+music_list = Array[AudioStream]([ExtResource("18_aa0lp"), ExtResource("11_rvswv"), ExtResource("10_hve3p"), ExtResource("19_iu0sx"), ExtResource("12_e36ub")])
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-volume_db = -9.905
+volume_db = 5.3
 bus = &"Music"
 script = ExtResource("12_215e1")
 amb_list = Array[AudioStream]([ExtResource("11_7sc4i"), ExtResource("8_iotsf"), ExtResource("15_boyg6"), ExtResource("9_lc2xo"), ExtResource("12_80cx4")])
