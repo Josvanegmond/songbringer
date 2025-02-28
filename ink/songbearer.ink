@@ -11,6 +11,7 @@ VAR flute_returned = false
 VAR violin_returned = false
 VAR drum_returned = false
 VAR voice_returned = false
+VAR shrine_found = false
 
 === game_begins ===
 #music_play:main
@@ -137,7 +138,12 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
     {You spy torn scraps of paper on the desk. Tucked away below is a wide closed drawer.|The papers look like logs from a psych evaluation. You can barely make out the script.| LOG, PSYCH EVALUATION: CAPTAIN, 029.4020.22XX|CAPTAIN:  I'm not going crazy, am I?|MEDIC:  No, you're not crazy. I've experienced loss as well. As you know.|CAPTAIN:  That signal is the last thing we have of him. I'm not abandoning him knowing that he's just waiting for us to listen.|To find him.|That’s all you can read.|You open the drawer. Inside is a piano keyboard.|The keyboard is dusty and blanketed in the same green spores as the other instruments.|Despite this, it still carries an elegant, dignified presence.|->found_piano|The sounds of the keyboard seem to resonate against the scratching gramophone. How sad, how lovely, how alive.}
 
 + [gramophone #area:gramophone]
-    An antique record player. The spinning disk is covered in spores.
+{
+    - !shrine_found:
+        An antique record player. The spinning disk is covered in spores.
+    - shrine_found:
+        You approach the record player, gently placing the worn pilot’s record you found earlier onto the turntable. The needle crackles to life, and for a moment, the room is filled with the faint sound of static, as if the past is slowly waking.
+}
 
 + [medbay_to_hallway #entrance_to:medbay_to_hallway]
 	-> hallway_lvl1
@@ -162,7 +168,9 @@ The tree stretches through most of the observation deck's roof and windows, bath
 - (choices)
 
 + [shrine #area:shrine]
+ ~ shrine_found = true
 {At the center of the shrine is a portrait of a smiling middle-aged human wearing a standard pilot's outfit. There is a small gap in their front teeth. |They seem happy.|Near the shrine, you find a record. It’s too worn for you to read the title, but a small note is taped to the front.|"For my dear Pilot. Thank you for listening.”}
+
 
 + [drum #area:drum]
 {A snare drum, adorned with the same green spores you found earlier.|Its head is battered with faded lines, marking years of use, but the metal wiring and shell remain in impeccable shape. | -> found_drum}
