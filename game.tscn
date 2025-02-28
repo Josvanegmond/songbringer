@@ -1,11 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://bghsjbsbn2dsc"]
+[gd_scene load_steps=19 format=3 uid="uid://bghsjbsbn2dsc"]
 
 [ext_resource type="Theme" uid="uid://3ecs1h65o5cx" path="res://styles/main.tres" id="1_boyg6"]
 [ext_resource type="Script" uid="uid://dsc24jpwc6k87" path="res://game.gd" id="2_e36ub"]
 [ext_resource type="Resource" uid="uid://du6os6cwjers" path="res://ink/songbearer.ink" id="3_rvswv"]
 [ext_resource type="PackedScene" uid="uid://ctt4qbftwu0xg" path="res://game_subviewport.tscn" id="4_hve3p"]
+[ext_resource type="AudioStream" uid="uid://baupdgs1fj71j" path="res://game_sounds/engine_atm_loop.wav" id="8_iotsf"]
+[ext_resource type="AudioStream" uid="uid://b17s3kijo4xqu" path="res://game_sounds/med_atm_loop.wav" id="9_lc2xo"]
+[ext_resource type="AudioStream" uid="uid://c6v35vtwp35e3" path="res://game_sounds/obs_atm_loop.wav" id="10_215e1"]
 [ext_resource type="AudioStream" uid="uid://cya82x3fljpfx" path="res://game_sounds/main.ogg" id="10_hve3p"]
+[ext_resource type="AudioStream" uid="uid://coyhtbvtwj8eb" path="res://game_sounds/command_atm_loop.wav" id="11_7sc4i"]
 [ext_resource type="PackedScene" uid="uid://crgks6cetmi7u" path="res://menus/main_menu.tscn" id="11_215e1"]
+[ext_resource type="AudioStream" uid="uid://xkptnatyndd8" path="res://game_sounds/sunshine.ogg" id="11_rvswv"]
+[ext_resource type="AudioStream" uid="uid://d0007x7rhkxd1" path="res://game_sounds/engine_ending_atm_loop.wav" id="12_80cx4"]
+[ext_resource type="AudioStream" uid="uid://dj6xf5yrckmvs" path="res://game_sounds/eurydice_atm_loop.wav" id="13_215e1"]
+[ext_resource type="Script" uid="uid://rt6yu6sfdxq2" path="res://EurydiceAmb_player.gd" id="14_7sc4i"]
 [ext_resource type="PackedScene" uid="uid://wh7sy6ma76h1" path="res://intro.tscn" id="15_rvswv"]
 [ext_resource type="Script" uid="uid://ct8qc3ehjq1kj" path="res://game_sounds/music_player.gd" id="17_xex6t"]
 [ext_resource type="AudioStream" uid="uid://isdbrp3oc6hj" path="res://game_sounds/echoes.mp3" id="18_aa0lp"]
@@ -51,6 +59,18 @@ visible = false
 layout_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -6.559
 bus = &"Music"
 script = ExtResource("17_xex6t")
-music_list = Array[AudioStream]([ExtResource("18_aa0lp"), ExtResource("19_iu0sx"), ExtResource("10_hve3p")])
+amb_list = Array[AudioStream]([ExtResource("18_aa0lp"), ExtResource("10_hve3p"), ExtResource("19_iu0sx"), ExtResource("11_rvswv")])
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="AudioStreamPlayer"]
+volume_db = -3.962
+bus = &"Music"
+script = ExtResource("17_xex6t")
+amb_list = Array[AudioStream]([ExtResource("8_iotsf"), ExtResource("9_lc2xo"), ExtResource("10_215e1"), ExtResource("11_7sc4i"), ExtResource("12_80cx4")])
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_215e1")
+volume_db = -12.18
+script = ExtResource("14_7sc4i")
