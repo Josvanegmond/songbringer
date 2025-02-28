@@ -19,7 +19,7 @@ VAR shrine_found = false
 A song beckons to you across space.
 
 + [LISTEN]
-	#player_sound:etherphone_open.ogg
+	#player_sound:etherphone_pickup.tres
 	- With your etherphone, you trace its call to an arboreal planet, dense with greenery and foliage. In the midst of this planet’s solitude stands the wreckage of an old ship.
 
 + [CONTINUE]
@@ -36,6 +36,8 @@ A song beckons to you across space.
 === engine_room ===
 #music_play:silence
 #light_level:0.4
+#amb_play:engine_atm_loop
+#amb_play_eurydice:on
 {You crawl into the ship through a gap in its underside, surfacing in the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.|The ghost of a voice lingers.}
 
 - (choices)
@@ -70,7 +72,7 @@ A song beckons to you across space.
         ~ voice_returned = true
         <i>You brought the Shard of the Navigator.</i> His voice stirs from the speaker of your etherphone.
     - piano_returned and flute_returned and violin_returned and drum_returned and voice_returned:
-        {You gather the five shards before the heart of the tree. The Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation. | This was the Mechanic's last wish\: the final symphony of the crew. | You listen as the Eurydice performs in song-wed twine, joined together once more. The hum of the tree rises to meet the crew's melodies in full. You wonder if this is what the strange signal had been searching for, too, if this is what drew the Eurydice here, across this lonely stretch of the universe — another voice to answer its call. | You stand before it all, wreathed in song.}
+        {You gather the five shards before the heart of the tree. The Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation. | This was the Mechanic's last wish\: the final symphony of the crew. | You listen as the Eurydice performs in song-wed twine, joined together once more. The hum of the tree rises to meet the crew's melodies in full. You wonder if this is what the strange signal had been searching for, too, if this is what drew the Eurydice here, across this lonely stretch of the universe — another voice to answer its call. | You stand before it all, wreathed in song.} #amb_play:engine_ending_atm_loop
     - else:
         The tree has rooted itself deep inside the ship's engine, humming, waiting. Is this what called out to you? Wasn't Eurydice originally a tree nymph? Maybe she found a home on this strange planet.
 }
@@ -97,9 +99,11 @@ A song beckons to you across space.
 
 === hallway_lvl1 ===
 #light_level:0.6
-#music_play:silence
+#amb_play:none
+#amb_play_eurydice:on
+#music_play:none
 #ambience_play:hallway_ambience.ogg
-{You uncover a hallway,|The hallway is} narrow and dark. At the end of it is a ladder leading into the ship's second level. Light peeks in from above.
+{You uncover a hallway,|The hallway is} narrow and dark.
 
 - (choices)
 + [hallway_to_engine #entrance_to:hallway_to_engine]
@@ -130,6 +134,8 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
 
 === medbay ===
 #light_level:0.5
+#amb_play:med_atm_loop
+#music_play:none
  A standard hospital room, save for the archaic record player collecting dust in a corner of the space. The space still feels sterile, despite years of obvious neglect.
 
 - (choices)
@@ -157,12 +163,15 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
 #player_sound:piano_shard.ogg
 #add_shard:piano
 ~ piano_song = true
-Phantom chords are strung into a cresting ballad that breaks through the quiet of the medical bay. You found the Piano shard.
+Phantom chords are strung into a cresting ballad that breaks through the quiet of the medical bay. You found the Piano shard. #player_sound:piano_shard.ogg
 -> medbay.choices
 
 
 === obsdeck ===
 #light_level:1.0
+#amb_play:obs_atm_loop
+#amb_play_eurydice:off
+#music_play:sunshine
 The tree stretches through most of the observation deck's roof and windows, bathing the area in a sea of broken glass and light. A small shrine rests in the middle of the room, possessing a quaint serenity amid the debris.
 
 - (choices)
@@ -189,12 +198,14 @@ The tree stretches through most of the observation deck's roof and windows, bath
 
 === command ===
 #light_level:0.8
+#amb_play:command_atm_loop
+#music_play:echoes
 The crash has left the command room in a state of disarray, with wires and debris skittering around the floor. Green spores float in scattered dance. Phantom sounds echo beneath the static hum of the room.
 
 - (choices)
 
 + [computer #area:computer]
-    {Miraculously, this computer seems to be just barely in working order. On the screen, you find an archive of various files and conversation logs snippets.|You click the first one you see.|COMMAND LOG 190.30.22XX|CAPTAIN: This is the closest we've ever gotten. I'm not leaving him again.|MECHANIC: Captain, please. Just stay.|CAPTAIN: You don't have to come with me, I promise. You can take the ship and leave.|It's the least I can do for you, after everything. You should've left with the Medic. Before the Pilot —|LOG CORRUPTED.|You click the next one.|COMMAND LOG: 001.97.20XX|NAVIGATOR: Alright, I've finished training the Mechanic on the general layout of the ship. We can walk them through the engine room once we've sorted out the mess with the water filtration.|CAPTAIN: Copy, sir.|NAVIGATOR: This kinds of tasks should really be your job, you know.|CAPTAIN: What's a Captain without a capable Navigator as their right hand?|NAVIGATOR: Hmph. I think you're just lazy sometimes. CAPTAIN: See, I like to call it the art of delegation!|CAPTAIN: Anywho, I think we're all due for a little break soon. Maybe we can stop on that one planet? The one with the funky cantina karaoke? That could be fun. We can celebrate the addition of our bright new crew member!|NAVIGATOR: Fine. I agree we've been on the road for longer than usual.|CAPTAIN: Yes! Can't wait to see the kid swoon at the sound of your sweet, dulcet tones.|NAVIGATOR: Before that, though, I'm going to make a quick detour.|CAPTAIN: Oh, what's captured the curiosity of our inscrutable Navigator?|NAVIGATOR: I'll tell you about it later. It's getting late.|COMMAND LOG ROOT| The last file seems to be an audio recording.|You hear silence, and then a voice emerges from the depths of memory.|Melodious, evocative, with the shadow of soft laughter. Before it disappears again, you capture it in your etherphone.|->found_voice||How do you know when something has arrived in your life?|When it calls to you, unbidden}
+    {Miraculously, this computer seems to be just barely in working order. On the screen, you find an archive of various files and conversation logs snippets.|You click the first one you see.|COMMAND LOG 190.30.22XX|CAPTAIN: This is the closest we've ever gotten. I'm not leaving him again.|MECHANIC: Captain, please. Just stay.|CAPTAIN: You don't have to come with me, I promise. You can take the ship and leave.|It's the least I can do for you, after everything. You should've left with the Medic. Before the Pilot —|LOG CORRUPTED.|You click the next one.|COMMAND LOG: 001.97.20XX|NAVIGATOR: Alright, I've finished training the Mechanic on the general layout of the ship. We can walk them through the engine room once we've sorted out the mess with the water filtration.|CAPTAIN: Copy, sir.|NAVIGATOR: These kinds of tasks should really be your job, you know.|CAPTAIN: What's a Captain without a capable Navigator as their right hand?|NAVIGATOR: Hmph. I think you're just lazy sometimes. CAPTAIN: See, I like to call it the art of delegation!|CAPTAIN: Anywho, I think we're all due for a little break soon. Maybe we can stop on that one planet? The one with the funky cantina karaoke? That could be fun. We can celebrate the addition of our bright new crew member!|NAVIGATOR: Fine. I agree we've been on the road for longer than usual.|CAPTAIN: Yes! Can't wait to see the kid swoon at the sound of your sweet, dulcet tones.|NAVIGATOR: Before that, though, I'm going to make a quick detour.|CAPTAIN: Oh, what's captured the curiosity of our inscrutable Navigator?|NAVIGATOR: I'll tell you about it later. It's getting late.|COMMAND LOG ROOT| The last file seems to be an audio recording.|You hear silence, and then a voice emerges from the depths of memory.|Melodious, evocative, with the shadow of soft laughter. Before it disappears again, you capture it in your etherphone.|->found_voice||How do you know when something has arrived in your life?|When it calls to you, unbidden}
 
 + [drawer #area:drawer]
     {You hear the sound of strings from a desk drawer.|Inside sits a violin with no bow. Spores are speckled on its long neck. It seems lonely by itself here.|->found_violin|The desk lies quietly.}
@@ -204,7 +215,7 @@ The crash has left the command room in a state of disarray, with wires and debri
 - -> command.choices
 
 =found_voice
-#player_sound:voice_shard.ogg
+//#player_sound:voice_shard.ogg
 #add_shard:voice
 ~ voice_song = true
 <i> You found the Voice shard. </i>

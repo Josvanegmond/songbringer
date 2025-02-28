@@ -20,6 +20,8 @@ func _ready() -> void:
 func handle_tag(tag_command, tag_args):
 	if tag_command == 'music_play':
 		transition_music_to(tag_args[0])
+		print("music switched to "+tag_args[0])
+
 
 
 func transition_music_to(song_name):
