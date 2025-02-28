@@ -58,6 +58,9 @@ A song beckons to you across space.
 + [recorder #area:recorder]
     {A small, rectangular device sits at the base of the tree. It's a cassette recorder! A single tape is loaded into it.|<- tape_1}
 
++ [piano #area:piano]
+    {It's the source of the melody you keep hearing!|<- found_piano}
+
 + [engine_to_hallway #entrance_to:hallway]
 - -> engine_room.choices
 
@@ -66,10 +69,9 @@ A song beckons to you across space.
 {A voice crackles to life. "Hey. I don't know who's going to be on the other end of this, but if you've gotten here, I just ask that you listen this once."|I'm the last survivor of the Eurydice. The last of my crew. And — hah — I'll be joining them soon, so I guess you can consider this my will. Congratulations on stumbling across this. A silly, selfish request from someone who’s running out of time.|I don't have the luxury to explain everything that happened here, but maybe you're clever enough to figure it out. Or maybe you don't even care, and I'm just nattering to a strip of tape like I always do! They always teased me for that.|But ... if you really are here with me ... let me say this. We poured all of ourselves into this hunk of steel and wires. I refuse to let the Eurydice end up being a cold, empty tomb swallowed up by —  by silence. She was never meant to be this quiet.|There were five of us. Five songs. The Captain... the Mechanic... the Medic... the Pilot... and the Navigator.|Each one of us left a piece of ourselves behind, like... like a little memory. I want you to find these Shards and bring them back here to this tree. You'll find mine a few steps away from here. Just follow the music. The tree, the plants, this planet — it'll make sense the deeper you venture in.|I just want to be with my crew again. I can’t bring them back, but I want to know some part of the universe recognized our small existence. That someone was listening.|I guess that's all I can really ask you to do in the end. The you who arrived here with me. Please listen." The tape ends.|{~The tape has ended, but the ghost of a voice lingers.|The voice asked you to find the music shards of the five crew members, and bring it to the tree in the engine.}}
 -> DONE
 
-= found_shard
+= found_piano
 # player_sound:piano_shard.ogg
 # add_shard:piano
-It's the source of the melody you keep hearing!
 -> DONE
 
 === hallway_lvl1 ===
