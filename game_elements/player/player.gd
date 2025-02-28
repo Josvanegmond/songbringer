@@ -12,6 +12,9 @@ var can_enter_to_name = null
 var moving_in_progress = false
 var footstep_cooldown = false
 
+var freeze = false
+
+
 @export var play_sounds: Array[AudioStream] = []
 @onready var sound_player: AudioStreamPlayer = $SoundPlayer
 
@@ -24,7 +27,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if GameState.paused || moving_in_progress: return
+	if GameState.paused || moving_in_progress || freeze: return
 
 	handle_entering()
 	handle_moving(delta)
@@ -84,6 +87,12 @@ func _cant_enter_to():
 
 
 func handle_tag(tag_command, tag_args):
+	if tag_command == 'player':
+		if tag_args[0] == 'freeze':
+			freeze = true
+		if tag_args[0] == 'unfreeze':
+			freeze = false
+		
 	if tag_command == 'player_sound':
 		print(tag_args[0])
 		for sound: AudioStream in play_sounds:

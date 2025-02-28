@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dj6xf5yrckmvs" path="res://game_sounds/eurydice_atm_loop.wav" id="13_215e1"]
 [ext_resource type="Script" uid="uid://rt6yu6sfdxq2" path="res://EurydiceAmb_player.gd" id="14_7sc4i"]
 [ext_resource type="AudioStream" uid="uid://bow5g14dq7n3d" path="res://game_sounds/obs_atm_loop.ogg" id="15_boyg6"]
-[ext_resource type="PackedScene" uid="uid://wh7sy6ma76h1" path="res://intro.tscn" id="15_rvswv"]
+[ext_resource type="PackedScene" uid="uid://c58f0tpj2mcls" path="res://intro.tscn" id="15_rvswv"]
 [ext_resource type="Script" uid="uid://ct8qc3ehjq1kj" path="res://game_sounds/music_player.gd" id="17_xex6t"]
 [ext_resource type="AudioStream" uid="uid://isdbrp3oc6hj" path="res://game_sounds/echoes.mp3" id="18_aa0lp"]
 [ext_resource type="AudioStream" uid="uid://cwm26p5jd6vsr" path="res://game_sounds/silence.tres" id="19_iu0sx"]

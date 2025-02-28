@@ -18,9 +18,9 @@ func _ready() -> void:
 
 
 func handle_tag(tag_command, tag_args):
-	if tag_command == 'music_play':
+	if tag_command == 'ambience_play':
 		transition_music_to(tag_args[0])
-		print("music switched to "+tag_args[0])
+		print("ambience switched to "+tag_args[0])
 
 
 

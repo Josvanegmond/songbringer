@@ -13,7 +13,7 @@ var replacers = [
 	{ 'what': ' (Physical)', 'by': '' },
 	{ 'what': ' with Value -1.00', 'by': '' },
 	{ 'what': ' with Value 1.00', 'by': '' },
-	{ 'what': 'Joypad', 'by': 'Controler' },
+	{ 'what': 'Joypad', 'by': 'Controller' },
 	{ 'what': 'Button 0 ', 'by': 'bottom action|', 'discard_after': true },
 	{ 'what': 'Button 1 ', 'by': 'right action|', 'discard_after': true },
 	{ 'what': 'Button 2 ', 'by': 'left action|', 'discard_after': true },

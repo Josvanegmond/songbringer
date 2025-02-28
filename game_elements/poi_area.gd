@@ -6,7 +6,6 @@ extends Node3D
 # to do: possibly 
 @export var etherphone_active = false
 @export var sound: AudioStream = null:
-
 	get ():
 		return sound
 	set (audio_stream):
@@ -22,6 +21,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if GameState.paused: return
+	
 	if player_in_area && event.is_action_pressed("interact"):
 		var choices = GameState.story.GetCurrentChoices()
 		for i in range(choices.size()):

@@ -43,22 +43,25 @@ theme_override_constants/separation = 30
 
 [node name="StartGameButton" type="Button" parent="MenuPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Start or continue game"
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 30
 text = "Start game"
 
-[node name="ContinueGameButton" type="Button" parent="MenuPanel/MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Continue"
-
 [node name="OptionsButton" type="Button" parent="MenuPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Options"
+focus_neighbor_top = NodePath("../StartGameButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 30
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="MenuPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "Quit"
+focus_neighbor_top = NodePath("../OptionsButton")
+focus_neighbor_bottom = NodePath("../StartGameButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
@@ -71,6 +74,5 @@ stream = ExtResource("3_yjgyn")
 bus = &"Music"
 
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

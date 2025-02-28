@@ -49,12 +49,14 @@ theme_override_constants/separation = 20
 
 [node name="GeneralSettingsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "General"
 focus_neighbor_left = NodePath("../CloseButton")
 focus_neighbor_right = NodePath("../ControlSettingsButton")
 text = "General"
 
 [node name="ControlSettingsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Controls"
 focus_neighbor_left = NodePath("../GeneralSettingsButton")
 focus_neighbor_right = NodePath("../CloseButton")
 text = "Controls"
@@ -63,6 +65,7 @@ text = "Controls"
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
+tooltip_text = "close"
 focus_neighbor_left = NodePath("../ControlSettingsButton")
 focus_neighbor_right = NodePath("../GeneralSettingsButton")
 texture_normal = ExtResource("2_y5lkn")
@@ -107,6 +110,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+tooltip_text = "Master volume slider"
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -122,6 +126,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+tooltip_text = "Music volume slider"
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -137,6 +142,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+tooltip_text = "Ambient volume slider"
 max_value = 1.0
 step = 0.1
 value = 1.0
@@ -153,9 +159,28 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
+tooltip_text = "Sound volume slider"
 max_value = 1.0
 step = 0.1
 value = 1.0
+ticks_on_borders = true
+
+[node name="TTSSliderLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+layout_mode = 2
+theme_type_variation = &"GraphFrameTitleLabel"
+theme_override_font_sizes/font_size = 24
+text = "Text-to-speech"
+vertical_alignment = 1
+
+[node name="TTSSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Text-to-speech volume slider"
+min_value = 10.0
+max_value = 50.0
+step = 5.0
+value = 50.0
 ticks_on_borders = true
 
 [node name="Divider" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
@@ -180,52 +205,13 @@ vertical_alignment = 1
 [node name="TTSCheck" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_constants/h_separation = 20
-theme_override_font_sizes/font_size = 28
-alignment = 1
-icon_alignment = 1
-
-[node name="DescribeSoundLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Show text describing sounds and music"
-vertical_alignment = 1
-
-[node name="DescribeSound" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
-layout_mode = 2
-size_flags_horizontal = 2
+tooltip_text = "Use text-to-speech over screen-reader"
 theme_override_constants/h_separation = 20
 theme_override_font_sizes/font_size = 28
 alignment = 1
 icon_alignment = 1
 
 [node name="Divider2" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
-layout_mode = 2
-
-[node name="GraphicSettingsLabel2" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
-layout_mode = 2
-text = "Graphics"
-
-[node name="GraphicSettings" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_constants/h_separation = 50
-theme_override_constants/v_separation = 10
-columns = 2
-
-[node name="BrightnessSliderLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/GraphicSettings"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Brightness"
-vertical_alignment = 1
-
-[node name="BrightnessSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/GraphicSettings"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-size_flags_vertical = 1
-ticks_on_borders = true
-
-[node name="Divider3" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
 layout_mode = 2
 
 [node name="ControlSettings" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
@@ -259,5 +245,6 @@ layout_mode = 2
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MusicSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/AmbientSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_ambient_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/SoundSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/TTSSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_slider_value_changed"]
 [connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings/TTSCheck" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_check_toggled"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings/ResetAllButton" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings" method="_on_reset_all_button_pressed"]

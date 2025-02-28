@@ -26,6 +26,7 @@ theme_override_font_sizes/font_size = 30
 text = "Native platform text to speech is %s.
 Press %s to toggle.
 Press %s to skip speech.
+This game is best played with headset.
 Press any button to continue."
 horizontal_alignment = 1
 vertical_alignment = 1

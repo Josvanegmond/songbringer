@@ -4,13 +4,25 @@ extends Control
 @export var has_started = false
 
 @onready var start_game_button = $MenuPanel/MarginContainer/VBoxContainer/StartGameButton
-@onready var continue_game_button = $MenuPanel/MarginContainer/VBoxContainer/ContinueGameButton
 
 
 func _ready() -> void:
+	get_viewport().gui_focus_changed.connect(focus_changed)
 	set_started(has_started)
 	set_focus()
 	update_music()
+
+
+func focus_changed(node: Control):
+	if !visible: return
+	if !node.has_focus(): return
+
+	if node is Label: return # will be handled by subtitles
+
+	var text = ''
+	if node is Button: text = node.text
+	else: text = node.get_tooltip()
+	TtsHelper.speak(text)
 
 
 func _input(event: InputEvent) -> void:
@@ -20,10 +32,17 @@ func _input(event: InputEvent) -> void:
 
 
 func toggle():
+	if has_started:
+		start_game_button.text = 'Continue'
+	else:
+		start_game_button.text = 'Start game'
+		
 	visible = !visible
+
 	GameState.paused = visible
 	if visible:
 		set_focus()
+		$Options/Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings.update_content()
 
 
 func options_closed():
@@ -32,17 +51,12 @@ func options_closed():
 
 
 func set_focus():
-	if start_game_button.visible:
-		start_game_button.grab_focus()
-	else:
-		continue_game_button.grab_focus()
+	start_game_button.grab_focus()
 
 
 func set_started(started):
 	has_started = started
 	update_music()
-	start_game_button.visible = !has_started
-	continue_game_button.visible = has_started
 
 
 func update_music():
@@ -63,10 +77,10 @@ func _on_options_button_pressed() -> void:
 
 
 func _on_start_game_button_pressed() -> void:
-	set_started(true)
+	if has_started:
+		toggle()
 
-	get_parent().scene_finished.emit(self)
-
-
-func _on_continue_game_button_pressed() -> void:
-	toggle()
+	else:
+		set_started(true)
+		visible = false
+		get_parent().scene_finished.emit(self)

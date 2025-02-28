@@ -34,4 +34,5 @@ func transition_music_to(song_name):
 		stream = audio_stream
 		play()
 	else:
+		current_song = song_name
 		stop()
