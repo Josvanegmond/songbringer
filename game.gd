@@ -37,9 +37,13 @@ func _input(event) -> void:
 
 
 func continue_story():
-	GameState.story.Continue()
+	GameState.story.ContinueMaximally()
 	var text = GameState.story.GetCurrentText()
 	var tags = GameState.story.GetCurrentTags()
+
+	print(text)
+	for choice in GameState.story.GetCurrentChoices():
+		print(choice.GetText())
 
 	for tag in tags:
 		# for each tag (separated by space), split it by colon into instruction and arguments
