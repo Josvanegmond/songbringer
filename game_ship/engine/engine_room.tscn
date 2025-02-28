@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="2_f44qm"]
 [ext_resource type="AudioStream" uid="uid://cj2am2qdgy1u3" path="res://game_sounds/gass-pipes.ogg" id="2_frg3i"]
 [ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_frg3i"]
-[ext_resource type="AudioStream" uid="uid://c53djnjlpjjg5" path="res://game_sounds/engine.ogg" id="3_hi3lj"]
+[ext_resource type="AudioStream" uid="uid://cmuui465q1y6b" path="res://game_sounds/sacredtreeatmloop2.wav" id="3_lstmv"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_nbsb5"]
 [ext_resource type="AudioStream" uid="uid://lw7sn1wb61t3" path="res://game_sounds/recorder.ogg" id="4_qf6jj"]
 [ext_resource type="Texture2D" uid="uid://favma6wd2prt" path="res://game_ship/engine/Enginegreeble_04.png" id="5_hi3lj"]
@@ -83,7 +83,7 @@ bus = &"Sound"
 [node name="Engine" parent="Poi" instance=ExtResource("1_f44qm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2969, 0.495713, -0.594796)
 choice_tag = "tree"
-sound = ExtResource("3_hi3lj")
+sound = ExtResource("3_lstmv")
 
 [node name="AreaShape" parent="Poi/Engine/Area" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.232666)
