@@ -2,7 +2,11 @@ extends Node3D
 
 
 @export var choice_tag: String = ''
+# turn on etherphone_active to have etherphone play when entering area. false by default, no etherphone effect
+# to do: possibly 
+@export var etherphone_active = false
 @export var sound: AudioStream = null:
+
 	get ():
 		return sound
 	set (audio_stream):
@@ -12,7 +16,6 @@ extends Node3D
 @onready var audio_stream: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var player_in_area = false
-
 
 func _ready() -> void:
 	update_sound()
@@ -44,6 +47,12 @@ func update_sound():
 func _on_area_body_entered(body: Node3D) -> void:
 	if body.name == 'Player':
 		player_in_area = true
+	if etherphone_active == true:
+		etherphone_active = false
+		GameBus.etherphone.emit()
+		print("etherphone emitted")
+		await get_tree().create_timer(1.5).timeout
+		etherphone_active = true
 
 
 func _on_area_body_exited(body: Node3D) -> void:

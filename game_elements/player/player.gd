@@ -12,7 +12,6 @@ var can_enter_to_name = null
 var moving_in_progress = false
 var footstep_cooldown = false
 
-
 @export var play_sounds: Array[AudioStream] = []
 @onready var sound_player: AudioStreamPlayer = $SoundPlayer
 
@@ -21,6 +20,7 @@ func _ready() -> void:
 	GameBus.player_can_enter_to.connect(_can_enter_to)
 	GameBus.player_cant_enter.connect(_cant_enter_to)
 	GameBus.handle_tag.connect(handle_tag)
+	GameBus.etherphone.connect(_on_etherphone)
 
 
 func _physics_process(delta: float) -> void:
@@ -94,3 +94,8 @@ func handle_tag(tag_command, tag_args):
 				sound_player.stream = sound
 				sound_player.play()
 				return
+
+func _on_etherphone():
+	print("attempting to play etherphone sound")
+	sound_player.stream = play_sounds[0]
+	sound_player.play()

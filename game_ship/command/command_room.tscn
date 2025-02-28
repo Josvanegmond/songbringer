@@ -505,6 +505,7 @@ texture = SubResource("GradientTexture2D_hb5m1")
 [node name="PoiArea" parent="." instance=ExtResource("20_5pqpn")]
 transform = Transform3D(1.6084, 0, 0, 0, 1, 0, 0, 0, 1, -3.57285, 0.511912, -0.448563)
 choice_tag = "drawer"
+etherphone_active = true
 
 [node name="AreaShape" parent="PoiArea/Area" index="0"]
 shape = SubResource("BoxShape3D_xv3x5")
@@ -512,6 +513,7 @@ shape = SubResource("BoxShape3D_xv3x5")
 [node name="PoiArea2" parent="." instance=ExtResource("20_5pqpn")]
 transform = Transform3D(1.6084, 0, 0, 0, 1, 0, 0, 0, 1, -0.624469, 0.511912, -0.448563)
 choice_tag = "computer"
+etherphone_active = true
 
 [node name="Area" parent="PoiArea2" index="0"]
 transform = Transform3D(0.64101, 0, 0, 0, 1, 0, 0, 0, 1, 0.251563, 0, 0)

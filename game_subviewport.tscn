@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://bs7ktn4eux4qu" path="res://game_sounds/grammaphone/Crackle sound 12.ogg" id="9_eoj5a"]
 [ext_resource type="AudioStream" uid="uid://ym6v5dxuixug" path="res://game_sounds/small_drip.ogg" id="9_m4pj2"]
 [ext_resource type="AudioStream" uid="uid://ciwoqa8olqhap" path="res://game_sounds/leaky_drip.ogg" id="9_pj4en"]
-[ext_resource type="Script" path="res://game_ship/medbay/audio_bits_player.gd" id="9_w4ibg"]
+[ext_resource type="Script" uid="uid://bltnfiobvqufx" path="res://game_ship/medbay/audio_bits_player.gd" id="9_w4ibg"]
 [ext_resource type="PackedScene" uid="uid://dfmg60li3ibwj" path="res://game_ship/command/command_room.tscn" id="10_ykcb3"]
 
 [sub_resource type="Gradient" id="Gradient_iotsf"]
