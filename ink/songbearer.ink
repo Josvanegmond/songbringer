@@ -26,7 +26,7 @@ A song beckons to you across space.
 	- This is the EURYDICE — an abandoned spacecraft of unknown origin. Decorated with a constellation of wounds, she has been laid to rest in a lonely grove. A large tree blooms from within her heart.
 
 + [CONTINUE]
-	- All around you, life hums. Is it the tree, the planet, or the ship itself that called you here? You know not, but not much harkens to a scavenger as much as the song of discovery, arriving before you!
+	- All around you, life hums. Is it the tree, the planet, or the ship itself that called you here? You know not, but not much harkens to a scavenger as much as the song of discovery, arriving before you! Use left and right arrows or A D to move and space bar to interact.
 
 + [ENTER THE SHIP]
 	#scene:reset
