@@ -23,9 +23,10 @@ A song beckons to you across space.
 === engine_room ===
 #music_play:silence
 #light_level:0.4
-{engine_room == 1: You crawl into the ship through a gap in its underside, surfacing in what appears to be the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.}
+#amb_ship_play:eurydiceatmloop
+{engine_room == 1: You crawl into the ship through a gap in its underside, surfacing in what appears to be the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.} #amb_play:engineatmloop
 
-{flute_song && drum_song && piano_song && violin_song && voice: You gather the five shards before the heart of the tree: the Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation.}
+{flute_song && drum_song && piano_song && violin_song && voice: #amb_play:engineendingatmloop You gather the five shards before the heart of the tree: the Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation.}
 
 {flute_song && drum_song && piano_song && violin_song && voice: This was the Mechanic's last wish: the final symphony of the crew.}
 
