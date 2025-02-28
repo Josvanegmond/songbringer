@@ -26,7 +26,10 @@ func transition_music_to(song_name):
 	if current_song == song_name:
 		return
 
-	var audio_stream: AudioStream = music_list[name_to_index[song_name]]
-	current_song = song_name
-	stream = audio_stream
-	play()
+	if name_to_index.has(song_name):
+		var audio_stream: AudioStream = music_list[name_to_index[song_name]]
+		current_song = song_name
+		stream = audio_stream
+		play()
+	else:
+		stop()

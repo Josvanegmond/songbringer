@@ -23,7 +23,7 @@ A song beckons to you across space.
 === engine_room ===
 #music_play:silence
 #light_level:0.4
-{engine_room == 1: You crawl into the ship through a gap in its underside, surfacing in what appears to be the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.}
+{You crawl into the ship through a gap in its underside, surfacing in what appears to be the ship's engine room. The gnarled roots of a tree have sunken deep through this floor.|The engine humms longingly in this room.}
 
 {flute_song && drum_song && piano_song && violin_song && voice: You gather the five shards before the heart of the tree: the Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation.}
 
@@ -58,7 +58,10 @@ A song beckons to you across space.
 + [recorder #area:recorder]
     {A small, rectangular device sits at the base of the tree. It's a cassette recorder! A single tape is loaded into it.|<- tape_1}
 
-+ [engine_to_hallway #entrance_to:hallway]
++ [engine_to_hallway #entrance_to:engine_to_hallway]
+    -> hallway_lvl1
+
+
 - -> engine_room.choices
 
 
@@ -68,21 +71,32 @@ A song beckons to you across space.
 
 
 === hallway_lvl1 ===
+#light_level:0.6
+#music_play:none
+#ambience_play:hallway_ambience.ogg
+{You uncover a hallway,|The hallway is} narrow and dark. At the end of it is a ladder leading into the ship's second level. Light peeks in from above.
 
-The hallway is narrow and dark. At the end of it is a ladder leading into the ship's second level. Light peeks in from above.
+//{not flute_song: A thick tangle of plants and vines is preventing you from climbing up. These must be friends of this strange planet, not the ship.}
 
-{not flute_song: A thick tangle of plants and vines is preventing you from climbing up. These must be friends of this strange planet, not the ship.}
+//{flute_song: As the flute echoes freely throughout the hallway, you are surprised to find the tangle of plants shaking and dancing, almost as if in response to the whistling. They slowly uncoil away from the ladder. The path is now open!}
 
-{flute_song: As the flute echoes freely throughout the hallway, you are surprised to find the tangle of plants shaking and dancing, almost as if in response to the whistling. They slowly uncoil away from the ladder. The path is now open!}
+- (choices)
++ [hallway_to_engine #entrance_to:hallway_to_engine]
+    -> engine_room
 
-+ [EXAMINE]
-    -> tangle
++ [hallway_to_medbay #entrance_to:hallway_to_medbay]
+    -> medbay
 
-+ [SEARCH AREA]
-    -> hallway_ground
-    
-+ {flute_song} [CLIMB UP]
-    -> hallway_lvl2
++ [hallway_to_obs #entrance_to:hallway_to_obs]
+    -> obsdeck
+
++ [hallway_to_command #entrance_to:hallway_to_command]
+    -> command
+
+- -> hallway_lvl1.choices
+
+
+
 
 === tangle ===
 
@@ -147,14 +161,23 @@ You emerge in another hallway leading to several other rooms. You feel a rush of
 + [GO TO COMMAND ROOM]
     -> command
     
+
+
+
 === medbay ===
+#light_level:0.5
  A standard hospital room, save for the archaic record player collecting dust in a corner of the space. The space still feels sterile, despite years of obvious neglect.
+
+- (choices)
 
 + [SEARCH AREA]
     -> medbay_area
 
-+ [LEAVE]
-    -> hallway_lvl2
++ [medbay_to_hallway #entrance_to:medbay_to_hallway]
+    -> hallway_lvl1
+
+- -> medbay.choices
+
     
 === medbay_area ===
 
@@ -256,15 +279,23 @@ X
 
 + [RETURN]
     -> record_player
- 
+
+
+
+
 === obsdeck ===
+#light_level:1.0
 The tree from the engine room below stretches through most of the observation deck's roof and windows, bathing the area in a sea of broken glass and light. A small shrine rests in the middle of the room, possessing a quaint serenity amid the debris.
+
+- (choices)
 
 + [EXAMINE SHRINE]
     -> shrine
 
-+ [LEAVE]
-    -> hallway_lvl2
++ [obs_to_hallway #entrance_to:obs_to_hallway]
+    -> hallway_lvl1
+
+- -> obsdeck.choices
 
 === shrine ===
 
@@ -313,11 +344,14 @@ The drum strikes a crisp, lively melody. The shrine thrums to life with each ste
     -> shrine
 
 
-=== command ===
 
+=== command ===
+#light_level:0.8
 The crash has left the command room in a state of disarray, with wires and debris skittering around the floor. The green spores are most abundant here, moving through the space in scattered dance. Phantom sounds echo beneath the static hum of the room.
 
 Through the disorder, you spy the flickering screen of a computer and a closet.
+
+- (choices)
 
 + [EXAMINE COMPUTER]
     -> computer
@@ -328,8 +362,11 @@ Through the disorder, you spy the flickering screen of a computer and a closet.
 + [EXAMINE SPORES]
     -> spores
 
-+ [LEAVE]
-    -> hallway_lvl2
++ [command_to_hallway #entrance_to:command_to_hallway]
+    -> hallway_lvl1
+
+- -> command.choices
+
 
 === computer ===
 

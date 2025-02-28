@@ -134,6 +134,7 @@ modulate = Color(0, 0, 0, 1)
 alpha_cut = 1
 alpha_antialiasing_mode = 1
 sprite_frames = SubResource("SpriteFrames_niput")
+autoplay = "default"
 frame_progress = 0.0421218
 
 [node name="Sprite3D20" type="Sprite3D" parent="MedbayFront"]
