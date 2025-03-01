@@ -6,11 +6,11 @@ VAR violin_song = false
 VAR drum_song = false
 VAR voice_song = false
 
-VAR piano_returned = true
-VAR flute_returned = true
-VAR violin_returned = true
-VAR drum_returned = true
-VAR voice_returned = true
+VAR piano_returned = false
+VAR flute_returned = false
+VAR violin_returned = false
+VAR drum_returned = false
+VAR voice_returned = false
 VAR shrine_found = false
 
 === game_begins ===
