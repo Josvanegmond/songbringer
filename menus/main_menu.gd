@@ -21,7 +21,7 @@ func focus_changed(node: Control):
 
 	var text = ''
 	if node is Button: text = node.text
-	else: text = node.get_tooltip()
+	if text == '': text = node.get_tooltip()
 	TtsHelper.speak(text)
 
 

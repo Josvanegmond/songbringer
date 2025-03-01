@@ -11,6 +11,7 @@ var music_volume = 0
 var master_volume = 0
 var sound_volume = 0
 var tts_volume = 50
+var tts_rate = 1.0
 
 
 var tts_over_screenreader = true

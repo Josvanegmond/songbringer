@@ -165,14 +165,43 @@ step = 0.1
 value = 1.0
 ticks_on_borders = true
 
-[node name="TTSSliderLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+[node name="Divider" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+
+[node name="TextSettingsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+text = "Text-to-speech"
+
+[node name="TTSSettings" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="TTSCheckLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Prefer text-to-speech"
+vertical_alignment = 1
+
+[node name="TTSCheck" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings"]
+layout_mode = 2
+size_flags_horizontal = 2
+tooltip_text = "Use text-to-speech over screen-reader"
+theme_override_constants/h_separation = 20
+theme_override_font_sizes/font_size = 28
+alignment = 1
+icon_alignment = 1
+
+[node name="TTSSliderLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings"]
 layout_mode = 2
 theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_font_sizes/font_size = 24
-text = "Text-to-speech"
+text = "Volume"
 vertical_alignment = 1
 
-[node name="TTSSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings"]
+[node name="TTSSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -183,33 +212,23 @@ step = 5.0
 value = 50.0
 ticks_on_borders = true
 
-[node name="Divider" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
+[node name="TTSRateSliderLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings"]
 layout_mode = 2
-
-[node name="TextSettingsLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
-layout_mode = 2
-text = "Text"
-
-[node name="TextSettings" type="GridContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
-layout_mode = 2
-theme_override_constants/h_separation = 50
-theme_override_constants/v_separation = 10
-columns = 2
-
-[node name="TTSCheckLabel" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
-layout_mode = 2
+theme_type_variation = &"GraphFrameTitleLabel"
 theme_override_font_sizes/font_size = 24
-text = "Use text-to-speech over screen-reader"
+text = "Rate"
 vertical_alignment = 1
 
-[node name="TTSCheck" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings"]
+[node name="TTSRateSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings"]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-size_flags_horizontal = 2
-tooltip_text = "Use text-to-speech over screen-reader"
-theme_override_constants/h_separation = 20
-theme_override_font_sizes/font_size = 28
-alignment = 1
-icon_alignment = 1
+size_flags_vertical = 1
+tooltip_text = "Text-to-speech rate slider"
+min_value = 0.1
+max_value = 10.0
+step = 0.1
+value = 1.0
+ticks_on_borders = true
 
 [node name="Divider2" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings"]
 layout_mode = 2
@@ -245,6 +264,7 @@ layout_mode = 2
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MusicSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/AmbientSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_ambient_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/SoundSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_sound_slider_value_changed"]
-[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/TTSSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_slider_value_changed"]
-[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TextSettings/TTSCheck" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_check_toggled"]
+[connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSCheck" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_check_toggled"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_slider_value_changed"]
+[connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSRateSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_rate_slider_value_changed"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings/ResetAllButton" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings" method="_on_reset_all_button_pressed"]

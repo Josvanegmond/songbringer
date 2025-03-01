@@ -86,7 +86,7 @@ A song beckons to you across space.
                 #player:freeze
                 {You gather the five shards before the heart of the tree. The Mechanic's flute, the Pilot's drum, the Medic's piano, the Captain's violin, and the Navigator's voice, captured with your etherphone. The tree hums in anticipation. | This was the Mechanic's last wish\: the final symphony of the crew. | You listen as the Eurydice performs in song-wed twine, joined together once more. The hum of the tree rises to meet the crew's melodies in full. You wonder if this is what the strange signal had been searching for, too, if this is what drew the Eurydice here, across this lonely stretch of the universe — another voice to answer its call.|-> credits}
             - else:
-                You stand before it all, wreathed in song. 
+                {&You stand before it all, wreathed in song.|-> credits}
         }
     - else:
         {&The tree has rooted itself deep inside the ship's engine, humming, waiting. Is this what called out to you? Wasn't Eurydice originally a tree nymph? Maybe she found a home on this strange planet.|-> tally_shards}
