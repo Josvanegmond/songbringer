@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="audio-environment-test"
+config/name="Songbearer"
 run/main_scene="uid://t6sdpx1qi6k1"
 config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -147,4 +147,5 @@ previous_tab={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
