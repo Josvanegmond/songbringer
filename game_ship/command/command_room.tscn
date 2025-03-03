@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfmg60li3ibwj"]
+[gd_scene load_steps=30 format=3 uid="uid://dfmg60li3ibwj"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_1hqcv"]
 [ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="2_hlx0x"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b3f0mvpcn4kns" path="res://game_ship/command/Commandgreeble_05.png" id="20_2ygm0"]
 [ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="20_5pqpn"]
 [ext_resource type="Texture2D" uid="uid://bye10avqyguns" path="res://game_ship/command/Commandgreeble_06.png" id="21_8e6n1"]
+[ext_resource type="AudioStream" uid="uid://d2wkth7hf1jdb" path="res://game_sounds/beepy_greeble_loop.wav" id="21_xv3x5"]
 [ext_resource type="Texture2D" uid="uid://2a03tb8qm67j" path="res://game_ship/command/Observationgreeble_07.png" id="22_mxxqk"]
 [ext_resource type="Texture2D" uid="uid://cp0rjgs2ya3hj" path="res://game_ship/command/Commandgreeble_07.png" id="22_poc5r"]
 
@@ -525,12 +526,16 @@ shape = SubResource("BoxShape3D_xv3x5")
 transform = Transform3D(1.6084, 0, 0, 0, 1, 0, 0, 0, 1, -0.624469, 0.511912, -0.448563)
 choice_tag = "computer"
 etherphone_active = true
+sound = ExtResource("21_xv3x5")
 
 [node name="Area" parent="PoiArea2" index="0"]
 transform = Transform3D(0.64101, 0, 0, 0, 1, 0, 0, 0, 1, 0.251563, 0, 0)
 
 [node name="AreaShape" parent="PoiArea2/Area" index="0"]
 shape = SubResource("BoxShape3D_xv3x5")
+
+[node name="AudioStreamPlayer3D" parent="PoiArea2" index="1"]
+volume_db = 3.84
 
 [editable path="PoiArea"]
 [editable path="PoiArea2"]
