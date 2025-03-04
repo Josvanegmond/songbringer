@@ -281,7 +281,7 @@ alpha_antialiasing_mode = 1
 texture = ExtResource("13_yf5dn")
 
 [node name="FloorSprite" type="Sprite3D" parent="CommandFloor"]
-transform = Transform3D(0.2, 7.58495e-05, -8.58605e-05, -7.57782e-05, 0.2, 0.00037715, 5.73347e-05, -0.000251412, 0.3, 2.7993, -0.187104, -8.48231)
+transform = Transform3D(0.2, 7.58495e-05, -8.58605e-05, -7.57782e-05, 0.2, 0.00037715, 5.73347e-05, -0.000251412, 0.3, 2.799, -0.15, -8.482)
 cast_shadow = 0
 modulate = Color(0.960351, 0.960351, 0.960351, 1)
 double_sided = false
@@ -535,7 +535,8 @@ transform = Transform3D(0.64101, 0, 0, 0, 1, 0, 0, 0, 1, 0.251563, 0, 0)
 shape = SubResource("BoxShape3D_xv3x5")
 
 [node name="AudioStreamPlayer3D" parent="PoiArea2" index="1"]
-volume_db = 3.84
+transform = Transform3D(0.621736, 0, 0, 0, 1, 0, 0, 0, 1, 0.297552, 0, 0)
+volume_db = 7.583
 
 [editable path="PoiArea"]
 [editable path="PoiArea2"]

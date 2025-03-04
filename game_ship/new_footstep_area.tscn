@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cktfimegteb5f"]
+[gd_scene load_steps=4 format=3 uid="uid://cktfimegteb5f"]
 
 [ext_resource type="Script" uid="uid://dv1hkf7e27qp2" path="res://game_ship/new_footstep_area.gd" id="1_fwol6"]
+[ext_resource type="AudioStream" uid="uid://d2jm658ln1gd3" path="res://sounds/footsteps/footsteps_dirt_random.tres" id="2_rj8gv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r66kj"]
 size = Vector3(0.875977, 0.602905, 1)
@@ -8,9 +9,12 @@ size = Vector3(0.875977, 0.602905, 1)
 [node name="Area3D" type="Area3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_fwol6")
+step_type = ExtResource("2_rj8gv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.79572, 0, 0, 0, 1.10726, 0, 0, 0, 0.781991, 0, 0, 0)
 shape = SubResource("BoxShape3D_r66kj")
+debug_color = Color(0, 0.6, 0.701961, 0.964706)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

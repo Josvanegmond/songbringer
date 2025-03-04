@@ -98,6 +98,7 @@ func handle_tag(tag_command, tag_args):
 	if tag_command == 'player':
 		if tag_args[0] == 'freeze':
 			freeze = true
+			$AnimatedSprite3D.play('standing')
 		if tag_args[0] == 'unfreeze':
 			freeze = false
 		

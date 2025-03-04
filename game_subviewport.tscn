@@ -151,8 +151,9 @@ handle_type = ExtResource("9_vdj81")
 connected_area = NodePath("../../MedbayRoom/MedbayToHallway2")
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Hallway2Room"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.21128, 0.272244, 0.071486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.27053, 0.351251, 0.314913)
 stream = ExtResource("12_5utuw")
+volume_db = 20.842
 max_db = 6.0
 autoplay = true
 max_distance = 1.5
