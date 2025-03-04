@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://clq0n33g52x3h"]
+[gd_scene load_steps=30 format=3 uid="uid://clq0n33g52x3h"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_lwvhl"]
 [ext_resource type="Texture2D" uid="uid://cnq4my8lcgsrr" path="res://game_ship/observ/Observationgreeble_06.png" id="2_w8yte"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_8o0ka"]
 [ext_resource type="Texture2D" uid="uid://bmdsia0uow68g" path="res://game_ship/observ/Observationgreeble_08.png" id="17_4yu2g"]
 [ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="19_odw0t"]
+[ext_resource type="PackedScene" uid="uid://cktfimegteb5f" path="res://game_ship/new_footstep_area.tscn" id="20_7bhtk"]
+[ext_resource type="AudioStream" uid="uid://dj6xf5yrckmvs" path="res://game_sounds/eurydice_atm_loop.wav" id="21_d8udv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -564,6 +566,26 @@ etherphone_active = true
 
 [node name="AreaShape" parent="PoiArea2/Area" index="0"]
 shape = SubResource("BoxShape3D_7bhtk")
+
+[node name="dirt region" parent="." instance=ExtResource("20_7bhtk")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -2.85308, 0.354768, 0)
+
+[node name="dirt region2" parent="." instance=ExtResource("20_7bhtk")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 2.2056, 0.354768, 0)
+
+[node name="dirt region3" parent="." instance=ExtResource("20_7bhtk")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 5.64009, 0.354768, 0)
+
+[node name="dirt region4" parent="." instance=ExtResource("20_7bhtk")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -7.57324, 0.354768, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15349, 0.200696, 0)
+stream = ExtResource("21_d8udv")
+autoplay = true
+max_distance = 0.65
+emission_angle_enabled = true
+emission_angle_filter_attenuation_db = -17.3
 
 [editable path="PoiArea"]
 [editable path="PoiArea2"]

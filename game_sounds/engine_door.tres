@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://c0rcuwr0utawg"]
+
+[ext_resource type="AudioStream" uid="uid://cu73gppdi6lvd" path="res://game_sounds/engine_door2.wav" id="1_v7th7"]
+[ext_resource type="AudioStream" uid="uid://bvl5x418f3po5" path="res://game_sounds/engine_door1.wav" id="2_j2n33"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_v7th7")
+stream_1/stream = ExtResource("2_j2n33")

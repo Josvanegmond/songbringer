@@ -3,10 +3,14 @@ class_name EntranceArea
 
 
 @export var choice_name: String = ''
+@export var handle_active: bool = true
+@export var handle_type: AudioStream = null
+@export var door_sound: AudioStream
 
 
 func _ready() -> void:
 	GameBus.player_enters.connect(_pick_entrance_choice)
+	update_sound()
 
 
 @export var connected_area: EntranceArea = null:
@@ -23,9 +27,13 @@ func _on_body_exited(body:Node3D) -> void:
 
 func _on_body_entered(body:Node3D) -> void:
 	if body.name == 'Player':
-		GameBus.player_can_enter_to.emit(connected_area.global_position, choice_name)
-
-
+		GameBus.player_can_enter_to.emit(connected_area.global_position, choice_name, door_sound)
+		if handle_active == true:
+			handle_active = false
+			play_handle()
+			await get_tree().create_timer(2).timeout
+			handle_active = true
+		
 
 func _pick_entrance_choice(entrance_name: String):
 	var current_choices: Array[InkChoice] = GameState.story.GetCurrentChoices()
@@ -40,3 +48,11 @@ func _pick_entrance_choice(entrance_name: String):
 
 	if choice_index >= 0:
 		GameBus.select_choice.emit(choice_index)
+
+#for handle sound on entry to collision area
+func update_sound():
+	if handle_active == true:
+		$AudioStreamPlayer3D.set_stream(handle_type)
+
+func play_handle():
+	$AudioStreamPlayer3D.play()
