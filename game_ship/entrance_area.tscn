@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8jaywawrjpx1"]
+[gd_scene load_steps=5 format=3 uid="uid://c8jaywawrjpx1"]
 
 [ext_resource type="Script" uid="uid://0lnmwqyb8wwb" path="res://game_ship/entrance_area.gd" id="1_bh83k"]
+[ext_resource type="AudioStream" uid="uid://bplah7rre2hak" path="res://game_sounds/generic_door.ogg" id="2_26es2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r66kj"]
 size = Vector3(0.875977, 0.602905, 1)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cspbp"]
+
 [node name="Area3D" type="Area3D"]
 script = ExtResource("1_bh83k")
+door_sound = ExtResource("2_26es2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_r66kj")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_cspbp")
+volume_db = -4.678
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -24,6 +24,7 @@ func _ready() -> void:
 	GameBus.player_cant_enter.connect(_cant_enter_to)
 	GameBus.handle_tag.connect(handle_tag)
 	GameBus.etherphone.connect(_on_etherphone)
+	GameBus.change_footstep.connect(set_footstep_type)
 
 
 func _physics_process(delta: float) -> void:
@@ -71,14 +72,21 @@ func handle_moving_animation(move_velocity, _delta):
 			footstep_cooldown = true
 		if $AnimatedSprite3D.frame != 1:
 			footstep_cooldown = false
-
 	else:
 		$AnimatedSprite3D.play('standing')
 
+func set_footstep_type(footstep_type):
+	if footstep_type is AudioStreamRandomizer:
+		$FootstepsBootRandom.set_stream(footstep_type)
+	else:
+		$FootstepsBootRandom.set_stream(load("res://sounds/footsteps/footsteps_boot_random.tres"))
 
-func _can_enter_to(pos: Vector3, choice_name):
+func _can_enter_to(pos: Vector3, choice_name, door_type):
 	can_enter_to_position = pos
 	can_enter_to_name = choice_name
+	print("door type is set to " + str(door_type))
+	if $EnterAudio.get_stream() != door_type:
+		$EnterAudio.set_stream(door_type)
 
 
 func _cant_enter_to():

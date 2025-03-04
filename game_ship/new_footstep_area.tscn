@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cktfimegteb5f"]
+
+[ext_resource type="Script" uid="uid://dv1hkf7e27qp2" path="res://game_ship/new_footstep_area.gd" id="1_fwol6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r66kj"]
+size = Vector3(0.875977, 0.602905, 1)
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_fwol6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_r66kj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

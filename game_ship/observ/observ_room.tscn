@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://clq0n33g52x3h"]
+[gd_scene load_steps=30 format=3 uid="uid://clq0n33g52x3h"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_lwvhl"]
 [ext_resource type="Texture2D" uid="uid://cnq4my8lcgsrr" path="res://game_ship/observ/Observationgreeble_06.png" id="2_w8yte"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://qlh5t443pm65" path="res://game_ship/engine/Engineroom_back1.png" id="16_8o0ka"]
 [ext_resource type="Texture2D" uid="uid://bmdsia0uow68g" path="res://game_ship/observ/Observationgreeble_08.png" id="17_4yu2g"]
 [ext_resource type="PackedScene" uid="uid://dcfq5xab2h6r5" path="res://game_elements/poi_area.tscn" id="19_odw0t"]
+[ext_resource type="PackedScene" uid="uid://cktfimegteb5f" path="res://game_ship/new_footstep_area.tscn" id="20_7bhtk"]
+[ext_resource type="AudioStream" uid="uid://d2jm658ln1gd3" path="res://sounds/footsteps/footsteps_dirt_random.tres" id="21_d8udv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -564,6 +566,10 @@ etherphone_active = true
 
 [node name="AreaShape" parent="PoiArea2/Area" index="0"]
 shape = SubResource("BoxShape3D_7bhtk")
+
+[node name="Area3D" parent="." instance=ExtResource("20_7bhtk")]
+transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, -0.0651134, 0.990817, -10.2925)
+step_type = ExtResource("21_d8udv")
 
 [editable path="PoiArea"]
 [editable path="PoiArea2"]

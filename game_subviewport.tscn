@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ctt4qbftwu0xg"]
+[gd_scene load_steps=28 format=3 uid="uid://ctt4qbftwu0xg"]
 
 [ext_resource type="Shader" uid="uid://cdsk5onr44jrj" path="res://camera_viewport_shader.tres" id="1_ykcb3"]
 [ext_resource type="Texture2D" uid="uid://c8eskjch3eiph" path="res://shaders/hatching.png" id="2_m4pj2"]
@@ -13,11 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://clq0n33g52x3h" path="res://game_ship/observ/observ_room.tscn" id="9_0tr0x"]
 [ext_resource type="AudioStream" uid="uid://bs7ktn4eux4qu" path="res://game_sounds/grammaphone/Crackle sound 12.ogg" id="9_eoj5a"]
 [ext_resource type="AudioStream" uid="uid://ym6v5dxuixug" path="res://game_sounds/small_drip.ogg" id="9_m4pj2"]
+[ext_resource type="AudioStream" uid="uid://dfh2qw12jleil" path="res://game_sounds/light_handles.tres" id="9_vdj81"]
 [ext_resource type="Script" uid="uid://bltnfiobvqufx" path="res://game_ship/medbay/audio_bits_player.gd" id="9_w4ibg"]
+[ext_resource type="AudioStream" uid="uid://c0rcuwr0utawg" path="res://game_sounds/engine_door.tres" id="10_dnhep"]
 [ext_resource type="PackedScene" uid="uid://dfmg60li3ibwj" path="res://game_ship/command/command_room.tscn" id="10_ykcb3"]
 [ext_resource type="AudioStream" uid="uid://di248eo5md3j" path="res://game_sounds/command_doorway.wav" id="12_5utuw"]
 [ext_resource type="AudioStream" uid="uid://brn0wcvmg86dp" path="res://game_sounds/obs_doorway.wav" id="13_vdj81"]
+[ext_resource type="AudioStream" uid="uid://c7430ib3h2ef7" path="res://game_sounds/heavy_handles.tres" id="14_ph0ha"]
+[ext_resource type="AudioStream" uid="uid://dib71qthpygce" path="res://game_sounds/command_door.wav" id="16_2dhgi"]
 [ext_resource type="AudioStream" uid="uid://dhc1qi8x2ipbb" path="res://game_sounds/servo_greeble_loop.wav" id="17_vdj81"]
+[ext_resource type="AudioStream" uid="uid://c4j1ue3yo787j" path="res://game_sounds/heavy_door.ogg" id="18_i8yh1"]
 
 [sub_resource type="Gradient" id="Gradient_iotsf"]
 offsets = PackedFloat32Array(0.2, 0.471483, 1)
@@ -75,6 +80,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92873, -0.0723033, -6.1789
 [node name="MedbayToHallway2" parent="SubViewport/Node3D/MedbayRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 1.29283, 0.493393, -0.279859)
 choice_name = "medbay_to_hallway"
+handle_type = ExtResource("9_vdj81")
 connected_area = NodePath("../../Hallway2Room/Hallway2ToMedbay")
 
 [node name="Hallway2Room" parent="SubViewport/Node3D" instance=ExtResource("6_v2xn6")]
@@ -103,6 +109,8 @@ emission_angle_enabled = true
 [node name="Hallway2ToEngine" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 5.18669, 0.42109, -0.269099)
 choice_name = "hallway_to_engine"
+handle_type = ExtResource("9_vdj81")
+door_sound = ExtResource("10_dnhep")
 connected_area = NodePath("../../EngineRoom/EngineToHallway2")
 
 [node name="AudioCracklePlayer" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Hallway2Room"]
@@ -139,6 +147,7 @@ script = ExtResource("9_w4ibg")
 [node name="Hallway2ToMedbay" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 0.254682, 0.42109, -0.269099)
 choice_name = "hallway_to_medbay"
+handle_type = ExtResource("9_vdj81")
 connected_area = NodePath("../../MedbayRoom/MedbayToHallway2")
 
 [node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Hallway2Room"]
@@ -154,6 +163,8 @@ emission_angle_degrees = 33.0
 [node name="Hallway2ToCommand" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, -6.33962, 0.42109, -0.269099)
 choice_name = "hallway_to_command"
+handle_type = ExtResource("14_ph0ha")
+door_sound = ExtResource("16_2dhgi")
 connected_area = NodePath("../../CommandRoom/CommandToHallway2")
 
 [node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Hallway2Room"]
@@ -171,6 +182,8 @@ emission_angle_degrees = 31.0
 [node name="Hallway2ToObs" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 10.1631, 0.42109, -0.269099)
 choice_name = "hallway_to_obs"
+handle_type = ExtResource("14_ph0ha")
+door_sound = ExtResource("18_i8yh1")
 connected_area = NodePath("../../ObservRoom/ObsToHallway2")
 
 [node name="EngineRoom" parent="SubViewport/Node3D" instance=ExtResource("3_nt0l3")]
@@ -187,6 +200,8 @@ bus = &"Sound"
 [node name="EngineToHallway2" parent="SubViewport/Node3D/EngineRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90066, 0.27059, -0.274505)
 choice_name = "engine_to_hallway"
+handle_type = ExtResource("9_vdj81")
+door_sound = ExtResource("10_dnhep")
 connected_area = NodePath("../../Hallway2Room/Hallway2ToEngine")
 
 [node name="ObservRoom" parent="SubViewport/Node3D" instance=ExtResource("9_0tr0x")]
@@ -204,6 +219,8 @@ bus = &"Sound"
 [node name="ObsToHallway2" parent="SubViewport/Node3D/ObservRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, -6.89554, 0.42109, -0.336031)
 choice_name = "obs_to_hallway"
+handle_type = ExtResource("14_ph0ha")
+door_sound = ExtResource("18_i8yh1")
 connected_area = NodePath("../../Hallway2Room/Hallway2ToObs")
 
 [node name="CollisionShape3D" parent="SubViewport/Node3D/ObservRoom/ObsToHallway2" index="0"]
@@ -223,6 +240,8 @@ bus = &"Sound"
 [node name="CommandToHallway2" parent="SubViewport/Node3D/CommandRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 4.87736, 0.42109, -0.310225)
 choice_name = "command_to_hallway"
+handle_type = ExtResource("14_ph0ha")
+door_sound = ExtResource("16_2dhgi")
 connected_area = NodePath("../../Hallway2Room/Hallway2ToCommand")
 
 [node name="Player" parent="SubViewport/Node3D" instance=ExtResource("4_ncr7u")]
