@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bafjojm4m3fkv"]
+[gd_scene load_steps=37 format=3 uid="uid://bafjojm4m3fkv"]
 
 [ext_resource type="PackedScene" uid="uid://ckb5i5615pb1d" path="res://game_elements/CollisionMesh.tscn" id="1_2p44f"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="2_0kbvf"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cp0rjgs2ya3hj" path="res://game_ship/command/Commandgreeble_07.png" id="21_hwaq5"]
 [ext_resource type="Texture2D" uid="uid://bye10avqyguns" path="res://game_ship/command/Commandgreeble_06.png" id="22_2vwvy"]
 [ext_resource type="Texture2D" uid="uid://bh73e1sdx1omq" path="res://game_ship/command/Commandgreeble_01.png" id="23_qqlx5"]
+[ext_resource type="PackedScene" uid="uid://cktfimegteb5f" path="res://game_ship/new_footstep_area.tscn" id="26_2vwvy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
 resource_local_to_scene = true
@@ -734,5 +735,17 @@ etherphone_active = true
 
 [node name="AreaShape" parent="PoiArea/Area" index="0"]
 shape = SubResource("BoxShape3D_xk7h8")
+
+[node name="dirtarea" parent="." instance=ExtResource("26_2vwvy")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 10.2073, 0, 0)
+
+[node name="dirtarea2" parent="." instance=ExtResource("26_2vwvy")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.70623, 0.373988, 0)
+
+[node name="dirtarea3" parent="." instance=ExtResource("26_2vwvy")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.184082, 0.373988, 0)
+
+[node name="dirtarea4" parent="." instance=ExtResource("26_2vwvy")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -6.00783, 0.373988, 0)
 
 [editable path="PoiArea"]

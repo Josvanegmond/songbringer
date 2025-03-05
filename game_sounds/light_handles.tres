@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://dfh2qw12jleil"]
+
+[ext_resource type="AudioStream" uid="uid://cpimcrakuye8p" path="res://game_sounds/generic_handle1.wav" id="1_6fv7b"]
+[ext_resource type="AudioStream" uid="uid://3t82g6jywhig" path="res://game_sounds/generic_handle2.wav" id="2_f0pym"]
+[ext_resource type="AudioStream" uid="uid://cyyunufqmibmh" path="res://game_sounds/generic_handle3.wav" id="3_uc6rr"]
+
+[resource]
+random_pitch = 1.25
+random_volume_offset_db = 0.7
+streams_count = 3
+stream_0/stream = ExtResource("1_6fv7b")
+stream_1/stream = ExtResource("2_f0pym")
+stream_2/stream = ExtResource("3_uc6rr")
