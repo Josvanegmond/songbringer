@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://crgks6cetmi7u"]
+[gd_scene load_steps=6 format=3 uid="uid://crgks6cetmi7u"]
 
 [ext_resource type="Script" uid="uid://30uf7ci5tywx" path="res://menus/main_menu.gd" id="1_ij7vn"]
 [ext_resource type="PackedScene" uid="uid://ra5s5iyi0nnt" path="res://menus/options.tscn" id="2_yjgyn"]
 [ext_resource type="AudioStream" uid="uid://cya82x3fljpfx" path="res://game_sounds/main.ogg" id="3_yjgyn"]
+[ext_resource type="AudioStream" uid="uid://cihon7a0yhp7h" path="res://game_sounds/hover.wav" id="4_oblsv"]
+[ext_resource type="AudioStream" uid="uid://da2bxxhspwjn7" path="res://game_sounds/click.wav" id="5_a63lr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -71,8 +73,21 @@ layout_mode = 1
 
 [node name="MainMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yjgyn")
+volume_db = -5.876
 bus = &"Music"
 
+[node name="HoverPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oblsv")
+volume_db = 0.608
+max_polyphony = 2
+
+[node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_a63lr")
+volume_db = 4.257
+
+[connection signal="focus_entered" from="MenuPanel/MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_focus_entered"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="focus_entered" from="MenuPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_focus_entered"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="focus_entered" from="MenuPanel/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_focus_entered"]
 [connection signal="pressed" from="MenuPanel/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

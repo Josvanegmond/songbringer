@@ -6,6 +6,7 @@ var key_bind_row_tscn = preload('res://menus/key_bind_row.tscn')
 
 var rebind_key = null
 var default_keybinds = {}
+var menu
 
 var actions = [
 	'left', 
@@ -47,6 +48,9 @@ func _ready() -> void:
 		reset_button.pressed.connect(func(): reset_bindings(key_bind_row))
 
 		key_bindings.add_child(row_scene)
+		
+		menu = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent()
+	
 
 
 func _input(event):
@@ -87,8 +91,10 @@ func reset_bindings(key_bind_row):
 		new_action_label_texts.append(Helpers.format_input_action_text(event.as_text()))
 	
 	actions_label.text = '\n'.join(new_action_label_texts)
+	menu.play_click()
 
 	
 func _on_reset_all_button_pressed() -> void:
 	for key_bind_row in key_bindings.get_children():
 		reset_bindings(key_bind_row)
+	menu.play_click()

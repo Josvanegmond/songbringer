@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ra5s5iyi0nnt"]
+[gd_scene load_steps=10 format=3 uid="uid://ra5s5iyi0nnt"]
 
 [ext_resource type="Script" uid="uid://cn26hw0mq5wki" path="res://menus/options.gd" id="1_wh5f2"]
 [ext_resource type="Texture2D" uid="uid://bugjtqov40k3d" path="res://menus/close.png" id="2_y5lkn"]
@@ -7,6 +7,8 @@
 [ext_resource type="StyleBox" uid="uid://ydpljdxtg8r4" path="res://styles/style_line.tres" id="5_0u0pl"]
 [ext_resource type="Script" uid="uid://c57ak7282wp2n" path="res://menus/general_settings.gd" id="6_2xfgh"]
 [ext_resource type="Script" uid="uid://upscgb2xcq25" path="res://menus/control_settings.gd" id="7_wrdoa"]
+[ext_resource type="AudioStream" uid="uid://da2bxxhspwjn7" path="res://game_sounds/click.wav" id="8_d25ke"]
+[ext_resource type="AudioStream" uid="uid://cihon7a0yhp7h" path="res://game_sounds/hover.wav" id="9_ygsvy"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -257,14 +259,33 @@ text = "Reset all"
 [node name="Divider3" type="Label" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
 layout_mode = 2
 
+[node name="ClickPlayerOpt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_d25ke")
+volume_db = 3.525
+
+[node name="HoverPlayerOpt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ygsvy")
+
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/GeneralSettingsButton" to="." method="_on_general_settings_button_focus_entered"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/GeneralSettingsButton" to="." method="_on_general_settings_button_pressed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlSettingsButton" to="." method="_on_control_settings_button_focus_entered"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/ControlSettingsButton" to="." method="_on_control_settings_button_pressed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_focus_entered"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MasterSliderLabel" to="." method="_on_master_slider_label_focus_entered"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MasterSlider" to="." method="_on_master_slider_focus_entered"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MasterSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_master_slider_value_changed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MusicSlider" to="." method="_on_music_slider_focus_entered"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/MusicSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_music_slider_value_changed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/AmbientSlider" to="." method="_on_ambient_slider_focus_entered"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/AmbientSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_ambient_slider_value_changed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/SoundSlider" to="." method="_on_sound_slider_focus_entered"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/SoundSettings/SoundSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_sound_slider_value_changed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSCheck" to="." method="_on_tts_check_focus_entered"]
 [connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSCheck" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_check_toggled"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSSlider" to="." method="_on_tts_slider_focus_entered"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_slider_value_changed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSRateSlider" to="." method="_on_tts_rate_slider_focus_entered"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings/TTSSettings/TTSRateSlider" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/GeneralSettings" method="_on_tts_rate_slider_value_changed"]
+[connection signal="focus_entered" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings/ResetAllButton" to="." method="_on_reset_all_button_focus_entered"]
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings/ResetAllButton" to="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings" method="_on_reset_all_button_pressed"]

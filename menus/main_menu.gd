@@ -5,13 +5,13 @@ extends Control
 
 @onready var start_game_button = $MenuPanel/MarginContainer/VBoxContainer/StartGameButton
 
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	get_viewport().gui_focus_changed.connect(focus_changed)
 	set_started(has_started)
 	set_focus()
 	update_music()
-
 
 func focus_changed(node: Control):
 	if !visible: return
@@ -68,15 +68,18 @@ func update_music():
 
 
 func _on_quit_button_pressed() -> void:
+	play_click()
 	get_tree().quit()
 
 
 func _on_options_button_pressed() -> void:
+	play_click()
 	$MenuPanel.visible = false
 	$Options.toggle()
 
 
 func _on_start_game_button_pressed() -> void:
+	play_click()
 	if has_started:
 		toggle()
 
@@ -84,3 +87,22 @@ func _on_start_game_button_pressed() -> void:
 		set_started(true)
 		visible = false
 		get_parent().scene_finished.emit(self)
+
+func play_click():
+	$ClickPlayer.set_pitch_scale(rng.randf_range(.85, 1.1))
+	$HoverPlayer.set_volume_db(rng.randf_range(2, 8))
+	$ClickPlayer.play()
+	
+func play_hover():
+	$HoverPlayer.set_pitch_scale(rng.randf_range(.85, 1.1))
+	$HoverPlayer.set_volume_db(rng.randf_range(-4, 2))
+	$HoverPlayer.play()
+
+func _on_start_game_button_focus_entered() -> void:
+	play_hover()
+
+func _on_options_button_focus_entered() -> void:
+	play_hover()
+
+func _on_quit_button_focus_entered() -> void:
+	play_hover()
