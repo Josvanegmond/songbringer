@@ -17,17 +17,17 @@ VAR shrine_found = false
 #music_play:main
 #scene:intro
 #player:freeze
-A song beckons to you across space.
+A song beckons to you across space. [Press enter or space to continue]
 
 + [LISTEN]
 	#player_sound:etherphone_pickup.tres
-	- With your etherphone, you trace its call to an arboreal planet, dense with greenery and foliage. In the midst of this planet’s solitude stands the wreckage of an old ship.
+	- With your etherphone, you trace its call to an arboreal planet, dense with greenery and foliage. In the midst of this planet’s solitude stands the wreckage of an old ship. [Press enter or space to continue]
 
 + [CONTINUE]
-	- This is the EURYDICE — an abandoned spacecraft of unknown origin. Decorated with a constellation of wounds, she has been laid to rest in a lonely grove. A large tree blooms from within her heart.
+	- This is the EURYDICE — an abandoned spacecraft of unknown origin. Decorated with a constellation of wounds, she has been laid to rest in a lonely grove. A large tree blooms from within her heart. [Press enter or space to continue]
 
 + [CONTINUE]
-	- All around you, life hums. Is it the tree, the planet, or the ship itself that called you here? You know not, but not much harkens to a scavenger as much as the song of discovery, arriving before you! Use left and right arrows or A D to move and space bar to interact.
+	- All around you, life hums. Is it the tree, the planet, or the ship itself that called you here? You know not, but not much harkens to a scavenger as much as the song of discovery, arriving before you! Use left and right arrows or A D to move and space bar to interact. Press enter or space to enter the Eurydice
 
 + [ENTER THE SHIP]
     #player:unfreeze
