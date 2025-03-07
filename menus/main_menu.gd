@@ -20,8 +20,14 @@ func focus_changed(node: Control):
 	if node is Label: return # will be handled by subtitles
 
 	var text = ''
-	if node is Button: text = node.text
+	if node is Button: 
+		text = node.text
+		if "override" in node.text:
+			return
+		if "reset" in node.text:
+			return
 	if text == '': text = node.get_tooltip()
+	#following buttons handled more granularly in control_settings
 	TtsHelper.speak(text)
 
 

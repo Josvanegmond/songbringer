@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://blo07d12uwu7j"]
+[gd_scene load_steps=2 format=3 uid="uid://blo07d12uwu7j"]
+
+[ext_resource type="Script" uid="uid://cjhhfoblj3wlf" path="res://menus/override_button.gd" id="2_iutu7"]
 
 [node name="VBoxContainer" type="VBoxContainer"]
 anchors_preset = 10
@@ -22,6 +24,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Override"
+script = ExtResource("2_iutu7")
 
 [node name="ResetButton" type="Button" parent="KeyBindRow"]
 layout_mode = 2
@@ -36,3 +39,10 @@ theme_override_font_sizes/font_size = 14
 
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 2
+
+[node name="HoverPlayerCont" type="AudioStreamPlayer" parent="."]
+
+[node name="ClickPlayerCont" type="AudioStreamPlayer" parent="."]
+
+[connection signal="focus_entered" from="KeyBindRow/OverrideButton" to="." method="_on_override_button_focus_entered"]
+[connection signal="focus_entered" from="KeyBindRow/ResetButton" to="." method="_on_reset_button_focus_entered"]
