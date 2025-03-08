@@ -51,14 +51,14 @@ theme_override_constants/separation = 20
 
 [node name="GeneralSettingsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "General"
+tooltip_text = "General. Select then navigate down for general settings or left/right for other settings tabs."
 focus_neighbor_left = NodePath("../CloseButton")
 focus_neighbor_right = NodePath("../ControlSettingsButton")
 text = "General"
 
 [node name="ControlSettingsButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-tooltip_text = "Controls"
+tooltip_text = "Controls. Select then navigate down for control settings or left/right for other settings tabs."
 focus_neighbor_left = NodePath("../GeneralSettingsButton")
 focus_neighbor_right = NodePath("../CloseButton")
 text = "Controls"
@@ -67,7 +67,7 @@ text = "Controls"
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 0
-tooltip_text = "close"
+tooltip_text = "Close. Navigate left/right for settings tabs."
 focus_neighbor_left = NodePath("../ControlSettingsButton")
 focus_neighbor_right = NodePath("../GeneralSettingsButton")
 texture_normal = ExtResource("2_y5lkn")
@@ -251,6 +251,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="ResetAllButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/ControlSettings"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
