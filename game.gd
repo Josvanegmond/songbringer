@@ -31,9 +31,19 @@ func _ready():
 func _input(event) -> void:
 	if event.is_action_pressed("repeat_text"):
 		read_text(subtitles.text + "")
-
+		# Pretty ugly way to do this but whatever works
+		# re-prompt handle_intro to maintain focus on continue button
+		if intro_scene.visible:
+			handle_intro()
 	if event.is_action_pressed('main_menu'):
-		main_menu_scene.toggle()
+		# main seems to be disabled on intro, so adding this temporarily to avoid de-focusing continue button
+		if not intro_scene.visible:
+			main_menu_scene.toggle()
+	# Pretty ugly way to do this but whatever works
+	# failsafe: if player somehow deselects continue button in intro, pressing continue will re-focuse continue button
+	if event.is_action_pressed("interact"):
+		if intro_scene.visible:
+			handle_intro()
 
 
 func continue_story():
@@ -67,7 +77,6 @@ func handle_intro():
 		var choice: InkChoice = choices[0]
 		intro_button.text = choice.GetText()
 		intro_button.grab_focus()
-
 	
 # Handles scene tag instructions from ink
 func handle_tag(tag, args):

@@ -36,3 +36,10 @@ theme_override_font_sizes/font_size = 14
 
 [node name="HSeparator" type="HSeparator" parent="."]
 layout_mode = 2
+
+[node name="HoverPlayerCont" type="AudioStreamPlayer" parent="."]
+
+[node name="ClickPlayerCont" type="AudioStreamPlayer" parent="."]
+
+[connection signal="focus_entered" from="KeyBindRow/OverrideButton" to="." method="_on_override_button_focus_entered"]
+[connection signal="focus_entered" from="KeyBindRow/ResetButton" to="." method="_on_reset_button_focus_entered"]
