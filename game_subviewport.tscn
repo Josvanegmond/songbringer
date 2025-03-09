@@ -9,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://bafjojm4m3fkv" path="res://game_ship/hallway2/hallway2.tscn" id="6_v2xn6"]
 [ext_resource type="PackedScene" uid="uid://c8jaywawrjpx1" path="res://game_ship/entrance_area.tscn" id="6_w4ibg"]
 [ext_resource type="AudioStream" uid="uid://dj6xf5yrckmvs" path="res://game_sounds/eurydice_atm_loop.wav" id="7_2dhgi"]
-[ext_resource type="AudioStream" uid="uid://xg5fvh3t18l4" path="res://game_sounds/engine_doorway.wav" id="8_mp2ba"]
 [ext_resource type="AudioStream" uid="uid://du6jxk7gjfahl" path="res://game_sounds/fickle_drip.ogg" id="8_ncr7u"]
 [ext_resource type="PackedScene" uid="uid://clq0n33g52x3h" path="res://game_ship/observ/observ_room.tscn" id="9_0tr0x"]
 [ext_resource type="AudioStream" uid="uid://bs7ktn4eux4qu" path="res://game_sounds/grammaphone/Crackle sound 12.ogg" id="9_eoj5a"]
 [ext_resource type="AudioStream" uid="uid://ym6v5dxuixug" path="res://game_sounds/small_drip.ogg" id="9_m4pj2"]
 [ext_resource type="AudioStream" uid="uid://dfh2qw12jleil" path="res://game_sounds/light_handles.tres" id="9_vdj81"]
 [ext_resource type="Script" uid="uid://bltnfiobvqufx" path="res://game_ship/medbay/audio_bits_player.gd" id="9_w4ibg"]
+[ext_resource type="AudioStream" uid="uid://bqcquo80kukvs" path="res://game_sounds/sacredtreeatmloop4.wav" id="10_2dhgi"]
 [ext_resource type="AudioStream" uid="uid://c0rcuwr0utawg" path="res://game_sounds/engine_door.tres" id="10_dnhep"]
 [ext_resource type="PackedScene" uid="uid://dfmg60li3ibwj" path="res://game_ship/command/command_room.tscn" id="10_ykcb3"]
 [ext_resource type="AudioStream" uid="uid://di248eo5md3j" path="res://game_sounds/command_doorway.wav" id="12_5utuw"]
@@ -112,9 +112,9 @@ max_distance = 3.0
 bus = &"Sound"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/Hallway2Room"]
-transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 5.21211, 0.750322, 0.228882)
-stream = ExtResource("8_mp2ba")
-volume_db = 5.12
+transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 5.21211, 0.750322, 0.584101)
+stream = ExtResource("10_2dhgi")
+volume_db = -4.023
 unit_size = 1.0
 max_db = 0.5
 pitch_scale = 0.85
@@ -250,10 +250,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1927, 0, 5.66516)
 [node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/CommandRoom"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.623, 0.272244, -0.0576167)
 stream = ExtResource("17_vdj81")
+volume_db = -10.0
 max_db = 6.0
 autoplay = true
 max_distance = 1.5
 bus = &"Sound"
+
+[node name="HallwayDoorAtm2" type="AudioStreamPlayer3D" parent="SubViewport/Node3D/CommandRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.82537, 0.366901, 0.405371)
+stream = ExtResource("7_2dhgi")
+attenuation_model = 2
+volume_db = -13.0
+max_db = 1.0
+pitch_scale = 1.5
+autoplay = true
+max_distance = 1.0
+bus = &"Sound"
+emission_angle_enabled = true
+emission_angle_degrees = 31.4
+emission_angle_filter_attenuation_db = -19.3
+attenuation_filter_cutoff_hz = 1066.0
+attenuation_filter_db = -30.5
 
 [node name="CommandToHallway2" parent="SubViewport/Node3D/CommandRoom" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 4.87736, 0.42109, -0.310225)

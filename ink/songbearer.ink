@@ -148,7 +148,7 @@ Bring back the shards of {not piano_returned: the medic, }{not flute_returned: t
         #player:freeze
         {From beneath a tangle of foliage, you hear the muffled sound of pipes. Your etherphone tells you another shard is here.|You try tearing at the plants, and begin dislodging a wooden object. You silently apologize to the plants as its song grows louder.|->found_flute}
     - else:
-        {As the flute echoes freely, the tangle of plants shake and dance, almost as if in response to the whistling.|You salute the plants for having excellent taste in music. You wonder how long it's been since they were able to dance like that.}
+        {not flute_returned: {As the flute echoes freely, the tangle of plants shake and dance, almost as if in response to the whistling.|You salute the plants for having excellent taste in music. You wonder how long it's been since they were able to dance like that.}}{flute_returned: {You're surprised as your etherphone detects the signal of the mechanic's flute, despite it being safely returned to the engine room. The plants here still writhe to the rhythm of her song.|Listening closer, you find you can make out the song yourself!|You listen closer still, finding the same spores you found on the flute speckling the floor. The melody echoes from them, diminished but clear.|You carefuly walk around the spores and their ongoing encore.}}
 }
 
 - -> hallway_lvl1.choices
@@ -213,6 +213,9 @@ The tree stretches through most of the observation deck's roof and windows, bath
 + [shrine #area:shrine]
  ~ shrine_found = true
 {At the center of the shrine is a portrait of a smiling middle-aged human wearing a standard pilot's outfit. There is a small gap in their front teeth. |They seem happy.|Near the shrine, you find a record. It’s too worn for you to read the title, but a small note is taped to the front.|"For my dear Pilot. Thank you for listening.”}
+
++ [tree #area:tree]
+{You feel a familiar sensation as you strafe around the ruptured floor.|An enourmous tree has pushed its way through the observation deck; this must be the canopy of the tree that greeted you in the engine room.|Here, drenched in sun and life, it feels less foreboding.|{&You feel at home under the dappled shade of the sacred tree.|You rest here a while, and watch the boughs sway in time to the breeze from the cracked dome overhead.}}
 
 
 + { not found_drum } [drum #area:drum]

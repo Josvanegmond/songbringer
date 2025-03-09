@@ -61,18 +61,19 @@ visible = false
 layout_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -13.0
+volume_db = -20.496
 bus = &"Music"
 script = ExtResource("17_xex6t")
 music_list = Array[AudioStream]([ExtResource("18_aa0lp"), ExtResource("11_rvswv"), ExtResource("10_hve3p"), ExtResource("19_iu0sx"), ExtResource("12_e36ub")])
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-volume_db = -5.0
-bus = &"Music"
+volume_db = -24.675
+bus = &"Ambient"
 script = ExtResource("12_215e1")
 amb_list = Array[AudioStream]([ExtResource("11_7sc4i"), ExtResource("8_iotsf"), ExtResource("15_boyg6"), ExtResource("9_lc2xo"), ExtResource("12_80cx4")])
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_215e1")
-volume_db = -13.0
+volume_db = -20.496
+bus = &"Ambient"
 script = ExtResource("14_7sc4i")

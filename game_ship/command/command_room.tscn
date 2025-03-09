@@ -536,7 +536,7 @@ shape = SubResource("BoxShape3D_xv3x5")
 
 [node name="AudioStreamPlayer3D" parent="PoiArea2" index="1"]
 transform = Transform3D(0.621736, 0, 0, 0, 1, 0, 0, 0, 1, 0.297552, 0, 0)
-volume_db = 7.583
+volume_db = -17.667
 
 [editable path="PoiArea"]
 [editable path="PoiArea2"]

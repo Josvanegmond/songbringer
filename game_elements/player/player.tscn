@@ -83,7 +83,7 @@ mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="FootstepsBootRandom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_onrkg")
-volume_db = -5.622
+volume_db = -7.0
 max_polyphony = 2
 bus = &"Sound"
 
@@ -104,5 +104,5 @@ animation = &"walking"
 speed_scale = 3.0
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -11.243
+volume_db = -15.0
 bus = &"Sound"

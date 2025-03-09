@@ -76,7 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.212967, 0)
 shape = SubResource("BoxShape3D_frg3i")
 
 [node name="AudioStreamPlayer3D" parent="Poi/GasPipes" index="1"]
-volume_db = -10.0
+volume_db = -40.0
 max_distance = 1.5
 bus = &"Sound"
 

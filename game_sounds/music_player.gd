@@ -2,7 +2,6 @@ extends AudioStreamPlayer
 
 
 @export var music_list: Array[AudioStream] = []
-
 var name_to_index = {}
 var current_song = null
 
@@ -21,6 +20,7 @@ func handle_tag(tag_command, tag_args):
 	if tag_command == 'music_play':
 		transition_music_to(tag_args[0])
 		print("music switched to "+tag_args[0])
+# note: music sidechaining for shards is found in player.gd script. This reduces the music bus temporarily
 
 
 

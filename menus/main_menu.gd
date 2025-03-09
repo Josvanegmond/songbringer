@@ -98,12 +98,12 @@ func _on_start_game_button_pressed() -> void:
 
 func play_click():
 	$ClickPlayer.set_pitch_scale(rng.randf_range(.85, 1.1))
-	$HoverPlayer.set_volume_db(rng.randf_range(-2, 0))
+	$ClickPlayer.set_volume_db(rng.randf_range(-9, -6))
 	$ClickPlayer.play()
 	
 func play_hover():
 	$HoverPlayer.set_pitch_scale(rng.randf_range(.85, 1.1))
-	$HoverPlayer.set_volume_db(rng.randf_range(-10, -5))
+	$HoverPlayer.set_volume_db(rng.randf_range(-20, -15))
 	$HoverPlayer.play()
 
 func _on_start_game_button_focus_entered() -> void:
