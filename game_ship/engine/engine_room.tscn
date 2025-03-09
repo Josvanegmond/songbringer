@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://83q1umkrdkmb" path="res://game_ship/engine/Enginegreeble_08.png" id="2_f44qm"]
 [ext_resource type="AudioStream" uid="uid://cj2am2qdgy1u3" path="res://game_sounds/gass-pipes.ogg" id="2_frg3i"]
 [ext_resource type="Texture2D" uid="uid://s7cy63lpinoy" path="res://game_ship/engine/Enginegreeble_01.png" id="3_frg3i"]
-[ext_resource type="AudioStream" uid="uid://cmuui465q1y6b" path="res://game_sounds/sacredtreeatmloop2.wav" id="3_lstmv"]
+[ext_resource type="AudioStream" uid="uid://bqcquo80kukvs" path="res://game_sounds/sacredtreeatmloop4.wav" id="3_qf6jj"]
 [ext_resource type="Texture2D" uid="uid://d06bb78cv7jxd" path="res://game_ship/engine/Enginegreeble_05.png" id="4_nbsb5"]
 [ext_resource type="Texture2D" uid="uid://favma6wd2prt" path="res://game_ship/engine/Enginegreeble_04.png" id="5_hi3lj"]
 [ext_resource type="Texture2D" uid="uid://6x7b1ijpkx56" path="res://game_ship/engine/Enginegreeble_07.png" id="6_qf6jj"]
@@ -76,6 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.212967, 0)
 shape = SubResource("BoxShape3D_frg3i")
 
 [node name="AudioStreamPlayer3D" parent="Poi/GasPipes" index="1"]
+volume_db = -40.0
 max_distance = 1.5
 bus = &"Sound"
 
@@ -83,30 +84,27 @@ bus = &"Sound"
 transform = Transform3D(3.59214, 0, 0, 0, 1.72533, 0, 0, 0, 1, 1.01854, 0.495713, -0.594796)
 choice_tag = "tree"
 etherphone_active = true
-sound = ExtResource("3_lstmv")
+sound = ExtResource("3_qf6jj")
+
+[node name="Area" parent="Poi/Engine" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0348202, 0, 0)
 
 [node name="AreaShape" parent="Poi/Engine/Area" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.232666)
 shape = SubResource("BoxShape3D_nbsb5")
 
 [node name="AudioStreamPlayer3D" parent="Poi/Engine" index="1"]
-transform = Transform3D(0.278386, 0, 0, 0, 0.579599, 0, 0, 0, 1, 0.0110963, -0.106947, 0.227841)
-volume_db = 10.292
+transform = Transform3D(0.278386, 0, 0, 0, 0.579599, 0, 0, 0, 1, 0.0110962, -0.106947, 0.63622)
+volume_db = -8.0
 unit_size = 75.0
-max_db = 3.579
+max_db = -2.857
 autoplay = true
-max_distance = 6.0
-panning_strength = 2.0
+max_distance = 3.0
+panning_strength = 0.71
 bus = &"Sound"
-
-[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="Poi/Engine"]
-transform = Transform3D(0.278386, 0, 0, 0, 0.579599, 0, 0, 0, 1, 0.0110963, -0.106947, 0.227841)
-unit_size = 75.0
-max_db = 0.0
-autoplay = true
-max_distance = 6.0
-panning_strength = 2.0
-bus = &"Sound"
+emission_angle_enabled = true
+emission_angle_degrees = 35.0
+emission_angle_filter_attenuation_db = -5.0
 
 [node name="Recorder" parent="Poi" instance=ExtResource("1_f44qm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96291, 0.495713, -0.458973)

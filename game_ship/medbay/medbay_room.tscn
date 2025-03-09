@@ -310,15 +310,27 @@ alpha_antialiasing_mode = 1
 texture = ExtResource("4_niput")
 
 [node name="AudioCracklePlayer" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76059, 0.503418, -0.48481)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76059, 0.503418, 0.617686)
 stream = ExtResource("15_vyyjn")
+attenuation_model = 2
+volume_db = -50.0
 unit_size = 50.0
 autoplay = true
 max_distance = 3.0
+panning_strength = 1.31
+emission_angle_enabled = true
+emission_angle_filter_attenuation_db = -7.2
+attenuation_filter_cutoff_hz = 2929.0
 
 [node name="AudioBitsPlayer" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841705, 0.484665, -0.506592)
-max_distance = 3.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.841705, 0.484665, 0.44643)
+volume_db = -43.429
+max_distance = 4.0
+panning_strength = 0.8
+emission_angle_enabled = true
+emission_angle_degrees = 66.8
+emission_angle_filter_attenuation_db = -10.4
+attenuation_filter_cutoff_hz = 2750.0
 script = ExtResource("16_ub3vh")
 
 [node name="PoiArea" parent="." instance=ExtResource("17_anbqy")]
@@ -335,6 +347,9 @@ choice_tag = "gramophone"
 
 [node name="AreaShape" parent="PoiArea2/Area" index="0"]
 shape = SubResource("BoxShape3D_anbqy")
+
+[node name="AudioStreamPlayer3D" parent="PoiArea2" index="1"]
+volume_db = -51.809
 
 [editable path="PoiArea"]
 [editable path="PoiArea2"]

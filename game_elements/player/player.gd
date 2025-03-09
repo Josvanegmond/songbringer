@@ -14,6 +14,7 @@ var footstep_cooldown = false
 
 var freeze = false
 
+var music_bus = AudioServer.get_bus_index("Music")
 
 @export var play_sounds: Array[AudioStream] = []
 @onready var sound_player: AudioStreamPlayer = $SoundPlayer
@@ -109,8 +110,18 @@ func handle_tag(tag_command, tag_args):
 			var sound_name = path_split[path_split.size() - 1]
 			print(path_split, sound_name)
 			if sound_name == tag_args[0]:
+				var music_db_current = AudioServer.get_bus_volume_db(music_bus)
+				print("music_db_current is " + str(music_db_current))
+				if "shard" in tag_args[0]:
+					AudioServer.set_bus_volume_db(music_bus, music_db_current - 15)
+					print("reducing volume for shard to " + str(AudioServer.get_bus_volume_db(music_bus)))
+
 				sound_player.stream = sound
 				sound_player.play()
+				if "shard" in tag_args[0]:
+					await get_tree().create_timer(5).timeout
+					AudioServer.set_bus_volume_db(music_bus, music_db_current)
+					print("music volume restored")
 				return
 
 func _on_etherphone():
