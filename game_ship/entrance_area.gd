@@ -52,7 +52,7 @@ func _pick_entrance_choice(entrance_name: String):
 #for handle sound on entry to collision area
 func update_sound():
 	if handle_active == true:
-		$AudioStreamPlayer3D.set_stream(handle_type)
+		$HandlePlayer.set_stream(handle_type)
 
 func play_handle():
-	$AudioStreamPlayer3D.play()
+	$HandlePlayer.play()

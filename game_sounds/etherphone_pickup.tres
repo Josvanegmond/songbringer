@@ -1,13 +1,13 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://degauxrisil8d"]
 
-[ext_resource type="AudioStream" uid="uid://bktadydamen7s" path="res://game_sounds/etherphone_pickup1.wav" id="1_rkyh2"]
-[ext_resource type="AudioStream" uid="uid://boauvg7grtwb3" path="res://game_sounds/etherphone_pickup2.wav" id="2_k8f73"]
-[ext_resource type="AudioStream" uid="uid://26wpw46lnya8" path="res://game_sounds/etherphone_pickup3.wav" id="3_j18kr"]
-[ext_resource type="AudioStream" uid="uid://qowu6wq6qb2l" path="res://game_sounds/etherphone_pickup4.wav" id="4_5qtcm"]
+[ext_resource type="AudioStream" uid="uid://dspwdy6gqhi0i" path="res://game_sounds/etherphone_pickup1.2.wav" id="1_rkyh2"]
+[ext_resource type="AudioStream" uid="uid://cyfxdry2wsmn1" path="res://game_sounds/etherphone_pickup2.2.wav" id="2_k8f73"]
+[ext_resource type="AudioStream" uid="uid://duw1msgs5qsp2" path="res://game_sounds/etherphone_pickup3.2.wav" id="3_j18kr"]
+[ext_resource type="AudioStream" uid="uid://wo16r5621d2n" path="res://game_sounds/etherphone_pickup4.2.wav" id="4_5qtcm"]
 
 [resource]
-random_pitch = 1.28
-random_volume_offset_db = 0.98
+random_pitch = 1.05
+random_volume_offset_db = 0.5
 streams_count = 4
 stream_0/stream = ExtResource("1_rkyh2")
 stream_1/stream = ExtResource("2_k8f73")

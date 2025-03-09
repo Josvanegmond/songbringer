@@ -166,6 +166,7 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
 === medbay ===
 #light_level:0.5
 #amb_play:med_atm_loop
+#amb_play_eurydice:off
 #music_play:none
  A standard hospital room, save for the archaic record player collecting dust in a corner of the space. The space still feels sterile, despite years of obvious neglect.
 

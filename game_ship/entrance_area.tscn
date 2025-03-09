@@ -15,9 +15,9 @@ door_sound = ExtResource("2_26es2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_r66kj")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="HandlePlayer" type="AudioStreamPlayer3D" parent="."]
 stream = SubResource("AudioStreamRandomizer_cspbp")
-volume_db = -4.678
+volume_db = -35.154
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
