@@ -51,15 +51,21 @@ func next_sound() -> void:
 			crackle_playing = true
 			stream = crack_start
 			play()
-			await get_tree().create_timer(2 + (randi_range(2, 3))).timeout
+			await get_tree().create_timer(2 + (randi_range(1, 2))).timeout
 			stream = crack_start
 			crackle_playing = false
 			play()
-	elif sounds_played > 6:
-		sounds_played = 0
-		stream = opera_bits[randi_range(1, 11)]
-		opera_playing = true
-		play()
-	else:
-		stream = random_bits[randi_range(1, 9)]
-		play()
+	elif sounds_played > 2:
+		var opera_next = randi_range(2,8)
+		if opera_next <= sounds_played:
+			sounds_played = 0
+			stream = opera_bits[randi_range(1, 11)]
+			opera_playing = true
+			play()
+		else:
+			stream = random_bits[randi_range(1, 9)]
+			play()
+
+
+func _on_finished() -> void:
+	pass # Replace with function body.
