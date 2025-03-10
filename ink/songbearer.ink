@@ -13,6 +13,8 @@ VAR drum_returned = false
 VAR voice_returned = false
 VAR shrine_found = false
 
+VAR opera_interacts = 0
+
 === game_begins ===
 #music_play:main
 #scene:intro
@@ -168,21 +170,43 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
 #amb_play:med_atm_loop
 #amb_play_eurydice:off
 #music_play:none
- A standard hospital room, save for the archaic record player collecting dust in a corner of the space. The space still feels sterile, despite years of obvious neglect.
+ A standard hospital room, save for the archaic record player collecting dust in a corner of the space. The room still feels sterile, despite years of obvious neglect.
 
 - (choices)
 
 + [desk #area:desk]
     #player:freeze
-    {You spy torn scraps of paper on the desk. Tucked away below is a wide closed drawer.|The papers look like logs from a psych evaluation. You can barely make out the script.| LOG, PSYCH EVALUATION: CAPTAIN, 029.4020.22XX|CAPTAIN:  I'm not going crazy, am I?|MEDIC:  No, you're not crazy. I've experienced loss as well. As you know.|CAPTAIN:  That signal is the last thing we have of him. I'm not abandoning him knowing that he's just waiting for us to listen.|To find him.|That’s all you can read.|You open the drawer. Inside is a piano keyboard.|The keyboard is dusty and blanketed in the same green spores as the other instruments.|Despite this, it still carries an elegant, dignified presence.|->found_piano|The sounds of the keyboard seem to resonate against the scratching gramophone. How sad, how lovely, how alive.}
+    {You spy torn scraps of paper on the desk. Tucked away below is a wide closed drawer.|The papers look like logs from a psych evaluation. You can barely make out the script.| LOG, PSYCH EVALUATION: CAPTAIN, 029.4020.22XX|CAPTAIN:  I'm not going crazy, am I?|MEDIC:  No, you're not crazy. I've experienced loss as well. As you know.|CAPTAIN:  That signal is the last thing we have of him. I'm not abandoning him knowing that he's just waiting for us to listen.|To find him.|That’s all you can read.|->desk_drawer}
 
-+ [gramophone #area:gramophone]
+//potentially unused
+* [gramophone #area:gramophone] An antique record player. The spinning disk is covered in spores.
+
+
++ [gramophone #snippet:crackle] {The gramophone crackles. It seems to be skipping between tracks, unfocused.|The gramophone resumes crackling.}
++ [gramophone #snippet:opera] 
+
+~opera_interacts = opera_interacts + 1 
 {
-    - !shrine_found:
-        An antique record player. The spinning disk is covered in spores.
-    - shrine_found:
-        You approach the record player, gently placing the worn pilot’s record you found earlier onto the turntable. The needle crackles to life, and for a moment, the room is filled with the faint sound of static, as if the past is slowly waking.
+- opera_interacts == 1:
+	As you touch the spinning disk, you feel some of the spores slough off the disk. The noisy crackling has decreased.
+- opera_interacts == 2:
+	The opera sharpens in focus as the spores begin to shrivel away.
+- opera_interacts == 3:
+	#snippet:complete
+	The opera swells as you brush away the last of the spores. As the music fills the medbay, you hear the faint sound of a compartment unlocking to your left.
 }
++ [gramophone #snippet:other] 
+{ opera_interacts == 0:
+	The gramophone's needle slips as you attempt to interact. Its connection to that song seems tenuous.
+- else:
+	~opera_interacts = 0
+	The gramophone's needle slips, and the crackling resumes in full volume.
+}
+
++ [gramophone #snippet:complete] 
+	The opera record, now restored, fills you with determination.
+
+
 
 + [medbay_to_hallway #entrance_to:medbay_to_hallway]
 	-> hallway_lvl1
@@ -190,8 +214,27 @@ It's a flute! Strange green pores are speckled across its surface. Its melody is
 + { not found_piano } [piano #area:piano]
     -> found_piano
 
+
+/*
+removed gramophone text
+{
+    - !shrine_found:
+        An antique record player. The spinning disk is covered in spores.
+    - shrine_found:
+        You approach the record player, gently placing the worn pilot’s record you found earlier onto the turntable. The needle crackles to life, and for a moment, the room is filled with the faint sound of static, as if the past is slowly waking.
+}
+*/
+
 - -> medbay.choices
 
+=desk_drawer
+{
+- opera_interacts < 3:
+	#player:unfreeze
+	{You try a drawer on the desk.|It is locked. Below the drawer, you can feel a shelf full of records.|There are several records from a breadth of genres. You notice the opera records are particularly weathered from heavy play.}
+- opera_interacts > 2:
+	{The drawer, as if recognizing the familiarity of the operatic tune, opens easily. Inside is a piano keyboard.|The keyboard is dusty and blanketed in the same green spores as the other instruments.|Despite this, it still carries an elegant, dignified presence.|->found_piano|The sounds of the keyboard seem to resonate against the scratching gramophone. How sad, how lovely, how alive.}
+	}
 =found_piano
 #player:unfreeze
 #player_sound:piano_shard.ogg

@@ -14,12 +14,12 @@
 [ext_resource type="AudioStream" uid="uid://bs7ktn4eux4qu" path="res://game_sounds/grammaphone/Crackle sound 12.ogg" id="9_eoj5a"]
 [ext_resource type="AudioStream" uid="uid://ym6v5dxuixug" path="res://game_sounds/small_drip.ogg" id="9_m4pj2"]
 [ext_resource type="AudioStream" uid="uid://dfh2qw12jleil" path="res://game_sounds/light_handles.tres" id="9_vdj81"]
-[ext_resource type="Script" uid="uid://bltnfiobvqufx" path="res://game_ship/medbay/audio_bits_player.gd" id="9_w4ibg"]
 [ext_resource type="AudioStream" uid="uid://bqcquo80kukvs" path="res://game_sounds/sacredtreeatmloop4.wav" id="10_2dhgi"]
 [ext_resource type="AudioStream" uid="uid://c0rcuwr0utawg" path="res://game_sounds/engine_door.tres" id="10_dnhep"]
 [ext_resource type="PackedScene" uid="uid://dfmg60li3ibwj" path="res://game_ship/command/command_room.tscn" id="10_ykcb3"]
 [ext_resource type="AudioStream" uid="uid://di248eo5md3j" path="res://game_sounds/command_doorway.wav" id="12_5utuw"]
 [ext_resource type="AudioStream" uid="uid://brn0wcvmg86dp" path="res://game_sounds/obs_doorway.wav" id="13_vdj81"]
+[ext_resource type="Script" uid="uid://dsy7f6a5julob" path="res://outdoor_gramophone.gd" id="14_2dhgi"]
 [ext_resource type="AudioStream" uid="uid://c7430ib3h2ef7" path="res://game_sounds/heavy_handles.tres" id="14_ph0ha"]
 [ext_resource type="AudioStream" uid="uid://dib71qthpygce" path="res://game_sounds/command_door.wav" id="16_2dhgi"]
 [ext_resource type="AudioStream" uid="uid://dhc1qi8x2ipbb" path="res://game_sounds/servo_greeble_loop.wav" id="17_vdj81"]
@@ -159,7 +159,7 @@ bus = &"Sound"
 emission_angle_enabled = true
 emission_angle_filter_attenuation_db = -15.2
 attenuation_filter_cutoff_hz = 1686.0
-script = ExtResource("9_w4ibg")
+script = ExtResource("14_2dhgi")
 
 [node name="Hallway2ToMedbay" parent="SubViewport/Node3D/Hallway2Room" node_paths=PackedStringArray("connected_area") instance=ExtResource("6_w4ibg")]
 transform = Transform3D(1, 0, 0, 0, 0.999738, -0.0228967, 0, 0.0228967, 0.999738, 0.254682, 0.42109, -0.269099)

@@ -14,6 +14,8 @@ extends Node3D
 
 @onready var audio_stream: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
+var song_snippet = "crackle"
+
 var player_in_area = false
 
 func _ready() -> void:
@@ -30,7 +32,7 @@ func _input(event: InputEvent) -> void:
 			var tags = choice.GetTags()
 			for tag in tags:
 				var tag_parts = tag.split(':')
-				if tag_parts[0] == 'area' && tag_parts[1] == choice_tag:
+				if tag_parts[0] == 'snippet' && tag_parts[1] == song_snippet:
 					GameBus.select_choice.emit(i)
 					return
 
@@ -59,3 +61,6 @@ func _on_area_body_entered(body: Node3D) -> void:
 func _on_area_body_exited(body: Node3D) -> void:
 	if body.name == 'Player':
 		player_in_area = false
+
+func _on_audio_bits_player_gramophone_song(snippet: String) -> void:
+	song_snippet = snippet
